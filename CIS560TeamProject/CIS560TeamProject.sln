@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIS560TeamProject", "CIS560
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KioskData", "..\PersonData\KioskData.csproj", "{F9213FD7-8A55-4728-AD90-612DEBCD3159}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{76A3ECDE-D967-4B47-872E-6D15505306F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F9213FD7-8A55-4728-AD90-612DEBCD3159}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9213FD7-8A55-4728-AD90-612DEBCD3159}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9213FD7-8A55-4728-AD90-612DEBCD3159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76A3ECDE-D967-4B47-872E-6D15505306F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76A3ECDE-D967-4B47-872E-6D15505306F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76A3ECDE-D967-4B47-872E-6D15505306F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76A3ECDE-D967-4B47-872E-6D15505306F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
