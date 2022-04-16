@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "..\UnitTests\U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KioskData", "..\KioskModels\KioskData.csproj", "{1888F6CB-120B-4F1C-B637-3059E380A43E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KioskView", "..\KioskView\KioskView.csproj", "{EA888484-4EF1-4535-896F-753E9F01908C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1888F6CB-120B-4F1C-B637-3059E380A43E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1888F6CB-120B-4F1C-B637-3059E380A43E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1888F6CB-120B-4F1C-B637-3059E380A43E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA888484-4EF1-4535-896F-753E9F01908C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA888484-4EF1-4535-896F-753E9F01908C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA888484-4EF1-4535-896F-753E9F01908C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA888484-4EF1-4535-896F-753E9F01908C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
