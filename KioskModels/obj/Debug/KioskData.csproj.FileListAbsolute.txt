@@ -1,0 +1,6 @@
+C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskModels.exe.config
+C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskModels.exe
+C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskModels.pdb
+C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.csproj.CoreCompileInputs.cache
+C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskModels.exe
+C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskModels.pdb

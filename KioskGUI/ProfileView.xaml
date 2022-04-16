@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="KioskGUI.ProfileView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:KioskGUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1920">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="75"/>
+            <Setter Property="Margin" Value="0,0,0,100"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="100"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="75"/>
+            <Setter Property="Margin" Value="0,0,0,100"/>
+            <Setter Property="Width" Value="1200"/>
+            <Setter Property="Height" Value="100"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="575"/>
+            <Setter Property="Height" Value="125"/>
+            <Setter Property="Margin" Value="0, 0, 0, 50"/>
+            <Setter Property="FontSize" Value="50"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel HorizontalAlignment="Center" Grid.Column="0">
+            <TextBlock x:Name="labelName" Text="Name"/>
+            <Separator/>
+            <TextBlock x:Name="labelEmail" Text="Email"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Grid.Column="1">
+            <TextBox x:Name="nameTextBox"/>
+            <Separator/>
+            <TextBox x:Name="emailTextBox"/>
+        </StackPanel>
+
+        <Button Grid.ColumnSpan ="2" Content="Complete Profile"/>
+    </Grid>
+</UserControl>

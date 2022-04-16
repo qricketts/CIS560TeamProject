@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KioskModels.KioskModels
+namespace KioskData.KioskModels
 {
-    class Rating
+    public class Rating
     {
     }
 }
