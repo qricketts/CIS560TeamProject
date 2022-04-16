@@ -98,3 +98,4 @@ C:\Users\johnv\Source\Repos\CIS560TeamProject\UnitTests\obj\Debug\net5.0\UnitTes
 C:\Users\johnv\Source\Repos\CIS560TeamProject\UnitTests\obj\Debug\net5.0\ref\UnitTests.dll
 C:\Users\johnv\Source\Repos\CIS560TeamProject\UnitTests\obj\Debug\net5.0\UnitTests.pdb
 C:\Users\johnv\Source\Repos\CIS560TeamProject\UnitTests\obj\Debug\net5.0\UnitTests.genruntimeconfig.cache
+C:\Users\johnv\Source\Repos\CIS560TeamProject\UnitTests\obj\Debug\net5.0\UnitTests.csproj.AssemblyReference.cache
