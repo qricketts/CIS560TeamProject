@@ -1,7 +1,0 @@
-C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.csproj.CoreCompileInputs.cache
-C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskData.dll.config
-C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskData.dll
-C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskData.pdb
-C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.csproj.AssemblyReference.cache
-C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.dll
-C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.pdb
