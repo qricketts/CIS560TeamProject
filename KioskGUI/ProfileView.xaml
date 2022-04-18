@@ -43,11 +43,9 @@
             <TextBlock x:Name="labelEmail" Text="Email"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Grid.Column="1">
-            <TextBox x:Name="nameTextBox"/>
-            <Separator/>
-            <TextBox x:Name="emailTextBox"/>
+            <TextBox x:Name="textboxName"/>
+            <TextBox x:Name="textBoxEmail"/>
         </StackPanel>
-
-        <Button Grid.ColumnSpan ="2" Content="Complete Profile"/>
+        <Button x:Name="btnCompleteProfile" Grid.ColumnSpan ="2" Content="Complete Profile"/>
     </Grid>
 </UserControl>

@@ -20,9 +20,39 @@ namespace KioskGUI
     /// </summary>
     public partial class CategoryView : UserControl
     {
+        private MainWindow _main; 
+        private MainWindow TraverseTreeForMainWindow
+        {
+            get
+            {
+                DependencyObject parent = this;
+                do
+                {
+                    parent = LogicalTreeHelper.GetParent(parent);
+                }
+                while (!(parent is null || parent is MainWindow));
+                return (MainWindow)parent; 
+            }
+        }
+
+
         public CategoryView()
         {
             InitializeComponent();
+            MainWindow main = TraverseTreeForMainWindow;
+        }
+
+        private void OpenItinerary(object sender, RoutedEventArgs e)
+        {
+            
+            ItineraryView itineraryView = new ItineraryView();
+            _main.borderViews.Child = itineraryView;
+            _main.ChangeChild(itineraryView); 
+        }
+
+        private void CategorySelected(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

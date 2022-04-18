@@ -20,10 +20,8 @@ namespace KioskGUI
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : Window
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
         private UIElement _borderViewsChild;
         public UIElement BorderViewsChild
         {
@@ -32,7 +30,7 @@ namespace KioskGUI
             {
                 if (_borderViewsChild == value) return;
                 _borderViewsChild = value;
-                OnChildChanged(_borderViewsChild, new PropertyChangedEventArgs("BorderViewsChild"));
+                OnChildChanged(_borderViewsChild);
             }
         }
 
@@ -50,7 +48,7 @@ namespace KioskGUI
             BorderViewsChild = child;
         }
 
-        public void OnChildChanged(object sender, PropertyChangedEventArgs e)
+        public void OnChildChanged(object sender)
         {
             if (sender is CategoryView)
                 textInformation.Text = "START by Selecting a Category";
@@ -59,6 +57,5 @@ namespace KioskGUI
             else if (sender is ProfileView)
                 textInformation.Text = "Information about you";
         }
-
     }
 }
