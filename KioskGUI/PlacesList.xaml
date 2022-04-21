@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="KioskGUI.PlaceView"
+﻿<UserControl x:Class="KioskGUI.PlacesList"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -28,10 +28,9 @@
             <RowDefinition/>
             <RowDefinition Height="175"/>
         </Grid.RowDefinitions>
-        <Border x:Name="borderPlace" Grid.ColumnSpan="3" Margin="300, 50">
-            
-        </Border>
-        <Button Click="ReturnToCategory" x:Name="btnBack" Grid.Column="0" Grid.Row="1"/>
-        <Button Click="AddPlaceToItinerary" x:Name="btnAddToItinerary" Grid.Column="2" Grid.Row="1" Content="Add To Itinerary &gt;"/>
+        <ListView MouseDoubleClick="OnPlaceSelection" x:Name="listviewPlaces" Grid.ColumnSpan="3" Margin="300, 50">
+
+        </ListView>
+        <Button Click="ReturnToCategorySelection" x:Name="btnBack" Grid.Column="0" Grid.Row="1" Content="&lt; Category Selection"/>
     </Grid>
 </UserControl>

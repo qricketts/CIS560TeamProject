@@ -17,10 +17,12 @@ using KioskData.KioskModels;
 namespace KioskGUI
 {
     /// <summary>
-    /// Interaction logic for PlaceView.xaml
+    /// Interaction logic for PlacesList.xaml
     /// </summary>
-    public partial class PlaceView : UserControl
+    public partial class PlacesList : UserControl
     {
+        private string _category; 
+
         private MainWindow TraverseTreeForMainWindow
         {
             get
@@ -34,37 +36,30 @@ namespace KioskGUI
                 return (MainWindow)parent;
             }
         }
-        private PlacesList _placesList; 
 
-        private Place _place; 
-        public Place Place
-        {
-            get => _place;
-            private set => _place = value; 
-        }
-
-        public PlaceView(Place p, PlacesList list)
+        public PlacesList(string category)
         {
             InitializeComponent();
-            Place = p;
-            _placesList = list; 
-            PlaceControl pc = new PlaceControl(Place);
-            borderPlace.Child = pc;
+            _category = category; 
         }
 
-        private void ReturnToCategory(object sender, RoutedEventArgs e)
+        private void ReturnToCategorySelection(object sender, RoutedEventArgs e)
         {
-            MainWindow main = TraverseTreeForMainWindow;
-            main.ChangeChild(_placesList); 
+            CategoryView cv = new CategoryView();
+            MainWindow main = TraverseTreeForMainWindow; 
+            main.ChangeChild(cv);
         }
 
-        private void AddPlaceToItinerary(object sender, RoutedEventArgs e)
+        private void OnPlaceSelection(object sender, RoutedEventArgs e)
         {
-            MainWindow main = TraverseTreeForMainWindow;
-            //main.CurrentItinerary.AddPlace(p); 
-            ItineraryView iv = new ItineraryView();
-            //{ Itinerary = main.CurrentItinerary}
-            main.ChangeChild(iv); 
+            //sender as Place, setting all values, then opening the PlaceView with the Place and its details. 
+            var CHANGE_ME = (sender as ListView).SelectedItem; 
+            Place p = new Place(); 
+            PlaceView pv = new PlaceView(p, this);
+            pv.btnBack.Content = "< " + _category; 
+             MainWindow main = TraverseTreeForMainWindow; 
+            main.ChangeChild(pv);
         }
     }
+
 }

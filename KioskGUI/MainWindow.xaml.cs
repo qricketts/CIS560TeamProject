@@ -22,6 +22,21 @@ namespace KioskGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Itinerary CurrentItinerary = new Itinerary(); 
+
+        private PlaceView _placeView = null; 
+        public PlaceView GlobalPlaceView
+        {
+            get => _placeView;  
+            set
+            {
+                if (_placeView == null)
+                    _placeView = value;
+                return; 
+            }
+        }
+
+
         private UIElement _borderViewsChild;
         public UIElement BorderViewsChild
         {
@@ -33,6 +48,8 @@ namespace KioskGUI
                 OnChildChanged(_borderViewsChild);
             }
         }
+
+
 
         public MainWindow()
         {
@@ -53,9 +70,13 @@ namespace KioskGUI
             if (sender is CategoryView)
                 textInformation.Text = "START by Selecting a Category";
             else if (sender is ItineraryView)
-                textInformation.Text = "0 Items Present in Itinerary";
+                textInformation.Text = "0 Items Present in Itinerary"; //use count from the CurrentItinerary.Places.Count property. 
             else if (sender is ProfileView)
-                textInformation.Text = "Information about you";
+                textInformation.Text = "Enter email and password to load itinerary";
+            else if (sender is PlacesList)
+                textInformation.Text = "Select a place...";
+            else if (sender is PlaceView)
+                textInformation.Text = "Add to Itinerary or Return to Category";
         }
     }
 }

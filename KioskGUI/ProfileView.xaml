@@ -9,20 +9,19 @@
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="75"/>
-            <Setter Property="Margin" Value="0,0,0,100"/>
-            <Setter Property="Width" Value="300"/>
+            <Setter Property="Margin" Value="0,0,0,25"/>
+            <Setter Property="Width" Value="350"/>
             <Setter Property="Height" Value="100"/>
         </Style>
         <Style TargetType="TextBox">
             <Setter Property="FontSize" Value="75"/>
-            <Setter Property="Margin" Value="0,0,0,100"/>
+            <Setter Property="Margin" Value="0,0,0,25"/>
             <Setter Property="Width" Value="1200"/>
             <Setter Property="Height" Value="100"/>
         </Style>
         <Style TargetType="Button">
             <Setter Property="Width" Value="575"/>
             <Setter Property="Height" Value="125"/>
-            <Setter Property="Margin" Value="0, 0, 0, 50"/>
             <Setter Property="FontSize" Value="50"/>
             <Style.Resources>
                 <Style TargetType="Border">
@@ -36,16 +35,31 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
 
-        <StackPanel HorizontalAlignment="Center" Grid.Column="0">
-            <TextBlock x:Name="labelName" Text="Name"/>
-            <Separator/>
-            <TextBlock x:Name="labelEmail" Text="Email"/>
+        <StackPanel Grid.Column="0">
+            <TextBlock x:Name="textEmail" TextAlignment="Right" Text="Email"/>
+            <TextBlock x:Name="textPassword" TextAlignment="RIght" Text="Password"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Grid.Column="1">
-            <TextBox x:Name="textboxName"/>
-            <TextBox x:Name="textBoxEmail"/>
+            <TextBox x:Name="textboxEmail"/>
+            <TextBox x:Name="textboxPassword"/>
+            <Button Click="LoadProfile" x:Name="btnLogin" Content="Login"/>
         </StackPanel>
-        <Button x:Name="btnCompleteProfile" Grid.ColumnSpan ="2" Content="Complete Profile"/>
+
+        <StackPanel Grid.Row="1">
+            <TextBlock x:Name="textCreateEmail" TextAlignment="Right" Text="Email"/>
+            <TextBlock x:Name="textCreatePassword" TextAlignment="RIght" Text="Password"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Left" Grid.Column="1">
+            <TextBox x:Name="textboxCreateEmail"/>
+            <TextBox x:Name="textboxCreatePassword"/>
+            <Button Click="CreateProfile" x:Name="btnCreateNew" Grid.ColumnSpan="2" Content="Create New..."/>
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" VerticalAlignment="Bottom">
+        </StackPanel>
     </Grid>
 </UserControl>

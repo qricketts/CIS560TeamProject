@@ -39,7 +39,7 @@
             <TextBlock x:Name="textInformation" FontSize="40" Text="START by Selecting a Category"/>
         </StackPanel>
         <Border x:Name="borderViews" Grid.Row="1" Grid.ColumnSpan="3">
-            <!--<local:CategoryView/>-->
+            
         </Border>
     </Grid>
 </Window>

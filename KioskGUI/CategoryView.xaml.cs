@@ -20,7 +20,6 @@ namespace KioskGUI
     /// </summary>
     public partial class CategoryView : UserControl
     {
-        private MainWindow _main; 
         private MainWindow TraverseTreeForMainWindow
         {
             get
@@ -39,20 +38,23 @@ namespace KioskGUI
         public CategoryView()
         {
             InitializeComponent();
-            MainWindow main = TraverseTreeForMainWindow;
         }
 
         private void OpenItinerary(object sender, RoutedEventArgs e)
         {
-            
             ItineraryView itineraryView = new ItineraryView();
-            _main.borderViews.Child = itineraryView;
-            _main.ChangeChild(itineraryView); 
+            MainWindow main = TraverseTreeForMainWindow; 
+            main.borderViews.Child = itineraryView;
+            main.ChangeChild(itineraryView); 
         }
 
         private void CategorySelected(object sender, RoutedEventArgs e)
         {
-            
+            Button selected = sender as Button;
+            string content = selected.Content.ToString();
+            PlacesList list = new PlacesList(content);
+            MainWindow main = TraverseTreeForMainWindow; 
+            main.ChangeChild(list);  
         }
     }
 }

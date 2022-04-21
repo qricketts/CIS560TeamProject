@@ -20,9 +20,38 @@ namespace KioskGUI
     /// </summary>
     public partial class ItineraryView : UserControl
     {
+        private MainWindow TraverseTreeForMainWindow
+        {
+            get
+            {
+                DependencyObject parent = this;
+                do
+                {
+                    parent = LogicalTreeHelper.GetParent(parent);
+                }
+                while (!(parent is null || parent is MainWindow));
+                return (MainWindow)parent; 
+            }
+        }
+
+
         public ItineraryView()
         {
             InitializeComponent();
+        }
+
+        private void ReturnToCategoryView(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = TraverseTreeForMainWindow;
+            CategoryView cv = new CategoryView(); 
+            main.ChangeChild(cv); 
+        }
+
+        private void OnProfileClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = TraverseTreeForMainWindow;
+            ProfileView profile = new ProfileView();
+            main.ChangeChild(profile); 
         }
     }
 }
