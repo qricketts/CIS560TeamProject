@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace KioskModels.KioskModels
 {
-    class Category
+    public class Category
     {
+        public string Name { get; private set; }
+
+        public List<Place> Places;
+
+        public Category(string name)
+        {
+            Name = name; 
+        }
     }
 }
