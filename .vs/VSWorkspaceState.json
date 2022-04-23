@@ -2,7 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\CIS560TeamProject",
-    "\\KioskGUI"
+    "\\KioskGUI",
+    "\\KioskModels",
+    "\\UnitTests"
   ],
   "SelectedNode": "\\CIS560TeamProject\\CIS560TeamProject.sln",
   "PreviewInSolutionExplorer": false
