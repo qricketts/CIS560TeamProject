@@ -5,9 +5,9 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1888F6CB-120B-4F1C-B637-3059E380A43E}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>KioskModels</RootNamespace>
-    <AssemblyName>KioskModels</AssemblyName>
+    <OutputType>Library</OutputType>
+    <RootNamespace>KioskData</RootNamespace>
+    <AssemblyName>KioskData</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,7 +32,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <None Include=".gitignore" />
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +46,7 @@
     <Compile Include="KioskModels\Person.cs" />
     <Compile Include="KioskModels\Place.cs" />
     <Compile Include="KioskModels\Rating.cs" />
+    <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Schemas\Kiosk.sql" />

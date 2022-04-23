@@ -12,6 +12,7 @@
 *.userosscache
 *.sln.docstates
 *.slnx.sqlite
+*slnx.sqlite
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -33,10 +34,10 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-bin/
-Bin/
 obj/
 Obj/
+bin/
+Bin/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
