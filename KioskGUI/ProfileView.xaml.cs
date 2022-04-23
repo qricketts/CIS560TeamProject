@@ -34,13 +34,9 @@ namespace KioskGUI
                 return (MainWindow)parent;
             }
         }
-
-        
-
         public ProfileView()
         {
             InitializeComponent();
-            
         }
 
         private void LoadProfile(object sender, RoutedEventArgs e)
@@ -55,8 +51,6 @@ namespace KioskGUI
             main.ChangeChild(iv); 
 
             throw new NotImplementedException("Complete ProfileView.LoadProfile() code"); 
-
-            
         }
 
         private void CreateProfile(object sender, RoutedEventArgs e)

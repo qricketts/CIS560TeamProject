@@ -34,20 +34,19 @@ namespace KioskGUI
             }
         }
 
-
         public CategoryView()
         {
             InitializeComponent();
         }
 
-        private void OpenItinerary(object sender, RoutedEventArgs e)
+        /*public void OpenItinerary(object sender, RoutedEventArgs e)
         {
             ItineraryView itineraryView = new ItineraryView();
             MainWindow main = TraverseTreeForMainWindow; 
             main.borderViews.Child = itineraryView;
             main.ChangeChild(itineraryView); 
         }
-
+        */
         private void CategorySelected(object sender, RoutedEventArgs e)
         {
             Button selected = sender as Button;

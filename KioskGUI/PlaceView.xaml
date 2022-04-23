@@ -32,6 +32,6 @@
             
         </Border>
         <Button Click="ReturnToCategory" x:Name="btnBack" Grid.Column="0" Grid.Row="1"/>
-        <Button Click="AddPlaceToItinerary" x:Name="btnAddToItinerary" Grid.Column="2" Grid.Row="1" Content="Add To Itinerary &gt;"/>
+        <Button Click="AddRemovePlace" x:Name="btnAddRemove" Grid.Column="2" Grid.Row="1" Content="Add to Itinerary &gt;"/>
     </Grid>
 </UserControl>

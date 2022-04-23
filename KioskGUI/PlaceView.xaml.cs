@@ -21,6 +21,7 @@ namespace KioskGUI
     /// </summary>
     public partial class PlaceView : UserControl
     {
+        private CategoryView _categoryViewRef; 
         private MainWindow TraverseTreeForMainWindow
         {
             get
@@ -47,10 +48,29 @@ namespace KioskGUI
         {
             InitializeComponent();
             Place = p;
-            _placesList = list; 
+            _placesList = list;
             PlaceControl pc = new PlaceControl(Place);
             borderPlace.Child = pc;
+
+            if (ItineraryHasPlace())
+                btnAddRemove.Content = "Remove from Itinerary";
+            else
+                btnAddRemove.Content = "Add to Itinerary";
         }
+
+        public bool ItineraryHasPlace()
+        {
+            MainWindow main = TraverseTreeForMainWindow;
+            if (main is null) return false; 
+            foreach (Place p in main.Itinerary.Places)
+            {
+                if (Place == p)
+                    return true; 
+            }
+            return false; 
+        }
+
+        
 
         private void ReturnToCategory(object sender, RoutedEventArgs e)
         {
@@ -58,13 +78,20 @@ namespace KioskGUI
             main.ChangeChild(_placesList); 
         }
 
-        private void AddPlaceToItinerary(object sender, RoutedEventArgs e)
+        private void AddRemovePlace(object sender, RoutedEventArgs e)
         {
             MainWindow main = TraverseTreeForMainWindow;
-            //main.CurrentItinerary.AddPlace(p); 
-            ItineraryView iv = new ItineraryView();
-            //{ Itinerary = main.CurrentItinerary}
-            main.ChangeChild(iv); 
+            if (btnAddRemove.Content.Equals("Add to Itinerary"))
+            {
+                main.Itinerary.Add(Place);
+                btnAddRemove.Content = "Remove from Itinerary"; 
+            }
+            else
+            {
+                main.Itinerary.Remove(Place);
+                btnAddRemove.Content = "Add to Itinerary";
+            }
+            
         }
     }
 }

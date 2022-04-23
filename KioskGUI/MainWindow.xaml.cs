@@ -22,7 +22,9 @@ namespace KioskGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Itinerary CurrentItinerary = new Itinerary(); 
+        public ItineraryView ItineraryView;
+
+        public Itinerary Itinerary;
 
         private PlaceView _placeView = null; 
         public PlaceView GlobalPlaceView
@@ -36,7 +38,6 @@ namespace KioskGUI
             }
         }
 
-
         private UIElement _borderViewsChild;
         public UIElement BorderViewsChild
         {
@@ -49,13 +50,13 @@ namespace KioskGUI
             }
         }
 
-
-
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new Itinerary(); 
             CategoryView categoryView = new CategoryView();
+            ItineraryView = new ItineraryView();
+            Itinerary = new Itinerary(); 
             ChangeChild(categoryView);
         }
 
@@ -74,9 +75,14 @@ namespace KioskGUI
             else if (sender is ProfileView)
                 textInformation.Text = "Enter email and password to load itinerary";
             else if (sender is PlacesList)
-                textInformation.Text = "Select a place...";
+                textInformation.Text = "SELECT a place to see details";
             else if (sender is PlaceView)
-                textInformation.Text = "Add to Itinerary or Return to Category";
+                textInformation.Text = "";
+        }
+
+        private void OpenItinerary(object sender, RoutedEventArgs e)
+        {
+            ChangeChild(ItineraryView);
         }
     }
 }
