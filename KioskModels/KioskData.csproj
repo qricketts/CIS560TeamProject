@@ -43,5 +43,19 @@
     <Compile Include="KioskModels\Place.cs" />
     <Compile Include="KioskModels\Rating.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="SQL\Schemas\Kiosk.sql" />
+    <Content Include="SQL\Tables\DropTables.sql" />
+    <Content Include="SQL\Tables\Kiosk.Category.sql" />
+    <Content Include="SQL\Tables\Kiosk.Itinerary.sql" />
+    <Content Include="SQL\Tables\Kiosk.ItineraryPlace.sql" />
+    <Content Include="SQL\Tables\Kiosk.Person.sql" />
+    <Content Include="SQL\Tables\Kiosk.Place.sql" />
+    <Content Include="SQL\Tables\Kiosk.Rating.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SQL\Data\" />
+    <Folder Include="SQL\Procedures\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
