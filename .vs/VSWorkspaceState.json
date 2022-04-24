@@ -4,8 +4,8 @@
     "\\CIS560TeamProject",
     "\\KioskGUI",
     "\\KioskModels",
-    "\\UnitTests"
+    "\\KioskModels\\KioskModels"
   ],
-  "SelectedNode": "\\CIS560TeamProject\\CIS560TeamProject.sln",
+  "SelectedNode": "\\KioskModels\\KioskModels\\Place.cs",
   "PreviewInSolutionExplorer": false
 }
