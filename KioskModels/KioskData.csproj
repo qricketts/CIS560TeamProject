@@ -40,6 +40,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ICategoryRepository.cs" />
+    <Compile Include="IIterneraryPlaceRepository.cs" />
+    <Compile Include="IIterneraryRepository.cs" />
+    <Compile Include="IPersonRepository.cs" />
+    <Compile Include="IPlaceRepository.cs" />
+    <Compile Include="IRatingRepository.cs" />
     <Compile Include="KioskModels\Category.cs" />
     <Compile Include="KioskModels\Itinerary.cs" />
     <Compile Include="KioskModels\ItineraryPlace.cs" />
@@ -47,6 +53,12 @@
     <Compile Include="KioskModels\Place.cs" />
     <Compile Include="KioskModels\Rating.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="SqlCategoryRepository.cs" />
+    <Compile Include="SqlIteneraryPlaceRepository.cs" />
+    <Compile Include="SqlIteneraryRepository.cs" />
+    <Compile Include="SqlPersonRepository.cs" />
+    <Compile Include="SqlPlaceRepository.cs" />
+    <Compile Include="SqlRatingRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Schemas\Kiosk.sql" />
