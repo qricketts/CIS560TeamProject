@@ -25,7 +25,7 @@ namespace AdminGUI
     {
         protected static string[] _categories = { "--None Selected--", "Restaurants", "Coffee Houses", "Recreational Activities", "Colleges", "Parks", "Shopping" };
 
-        private int _sfRatingValue = -1; 
+        private int _sfRatingValue = 0; 
         public int SfRatingValue
         {
             get => _sfRatingValue;
@@ -97,7 +97,7 @@ namespace AdminGUI
         }
 
         private void CategoryChanged(object sender, RoutedEventArgs e)
-        {
+         {
             _categorySelected = IndexToCategorySelected(cbCategory.SelectedIndex);
             if (cbCategory.SelectedIndex != 0)
                 LoadListView(); 
@@ -111,18 +111,24 @@ namespace AdminGUI
                 _dataTypeSelected = DataTypeSelected.Person;
             else
                 _dataTypeSelected = DataTypeSelected.Itinerary;
+            if (TraverseTreeForMainWindow is not null)
+                LoadListView(); 
         }
 
         private void RatingChanged(object sender, RoutedEventArgs e)
         {
             SfRating rating = sender as SfRating;
-            SfRatingValue = (int)rating.Value; 
+            SfRatingValue = (int)rating.PreviewValue;
+            if (cbCategory.SelectedIndex != 0)
+            {
+                LoadListView(); 
+            } 
         }
 
         private void LoadListView()
         {
             MainWindow main = TraverseTreeForMainWindow;
-            main.LoadData(); 
+            main.LoadData();
         }
     }
 }

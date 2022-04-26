@@ -21,7 +21,7 @@ namespace AdminGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int _sfRatingValue = -1; 
+        private int _sfRatingValue = 0; 
         
         public int SfRatingValue
         {
@@ -46,14 +46,14 @@ namespace AdminGUI
         public MainWindow()
         {
             InitializeComponent();
-            this.ResizeMode = ResizeMode.CanMinimize;
+            //this.ResizeMode = ResizeMode.CanMinimize;
             borderReports.Child = new ReportsControl();
             borderFilters.Child = new FiltersControl();
         }
 
         public void LoadData()
         {
-            if (SfRatingValue < 0)
+            if (SfRatingValue == 0)
             {
                 //do not filter by rating
             }
