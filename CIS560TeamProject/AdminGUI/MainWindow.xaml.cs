@@ -21,25 +21,32 @@ namespace AdminGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string _searchBarValue = ""; 
+        public string SearchBarValue
+        {
+            get => _searchBarValue;
+            set => _searchBarValue = value; 
+        }
+
         private int _sfRatingValue = 0; 
         
         public int SfRatingValue
         {
-            private get => _sfRatingValue;
+            get => _sfRatingValue;
             set => _sfRatingValue = value; 
         }
-        private CategorySelected _categorySelected = CategorySelected.None; 
+        private CategorySelected _categorySelected;
 
         public CategorySelected CategorySelected
         {
-            private get => _categorySelected;
+            get => _categorySelected;
             set => _categorySelected = value; 
         }
 
         private DataTypeSelected _dataTypeSelected = DataTypeSelected.Place; 
         public DataTypeSelected DataTypeSelected
         {
-            private get => _dataTypeSelected;
+            get => _dataTypeSelected;
             set => _dataTypeSelected = value; 
         }
 
@@ -61,10 +68,18 @@ namespace AdminGUI
             {
                 //use all categories. 
             }
-                
-
-            //look into filters that are set in local variable.s 
+                 
             //load data from database using KioskData's SQL.Procedures and SQL.Data. 
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            LoadData(); 
+        }
+        
+        private void SearchBarTextChanged(object sender, RoutedEventArgs e)
+        {
+            SearchBarValue = SearchBar.Text; 
         }
     }
 }

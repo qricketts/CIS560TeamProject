@@ -21,20 +21,21 @@
             <Style TargetType="TextBlock">
                 <Setter Property="FontSize" Value="32"/>
                 <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="TextAlignment" Value="Center"/>
             </Style>
         </StackPanel.Resources>
 
         <Label FontSize="32" Content="Reports:" HorizontalAlignment="Center"/>
-        <Button x:Name="btnPersonAverageRating">
+        <Button Click="AverageRatingPerPerson" x:Name="btnPersonAverageRating">
             <TextBlock Text="Average Rating per Person"/>
         </Button>
-        <Button x:Name="btnMostCommonItineraryPlace">
+        <Button Click="MostCommonItineraryPlace" x:Name="btnMostCommonItineraryPlace">
             <TextBlock Text="Most Common Place        Added to Itineraries"/>
         </Button>
-        <Button x:Name="btnCategoryMostPopularPlace">
-            <TextBlock Text="Most Popular per Category"/>
+        <Button Click="CategoryMostPopularPlaces" x:Name="btnCategoryMostPopularPlace">
+            <TextBlock Text="Most Popular                       Place per Category"/>
         </Button>
-        <Button x:Name="btnPlaceAverageRating">
+        <Button Click="AverageRatingPerPlace" x:Name="btnPlaceAverageRating">
             <TextBlock Text="Average Rating per Place"/>
         </Button>
     </StackPanel>

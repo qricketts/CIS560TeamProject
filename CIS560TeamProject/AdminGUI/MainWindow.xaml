@@ -34,8 +34,8 @@
         <!--Column 1-->
         <StackPanel Margin="0,0" VerticalAlignment="Center" Orientation="Horizontal" x:Name="SearchBarControls" Grid.Column="1">
             <Label Margin="30,0,0,0" x:Name="labelSearch" VerticalAlignment="Center" Content="Search:"/>
-            <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="textboxSearch" Height="75" Width="700" />
-            <Button Width="75" Height="75" Margin="0">
+            <TextBox TextChanged="SearchBarTextChanged" VerticalContentAlignment="Center" FontSize="40" x:Name="SearchBar" Height="75" Width="700" />
+            <Button Click="btnSearch_Click" x:Name="btnSearch" Width="75" Height="75" Margin="0">
                 <Image Source="images\search-icon.png"/>
             </Button>
         </StackPanel>

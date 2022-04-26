@@ -29,37 +29,21 @@ namespace AdminGUI
         public int SfRatingValue
         {
             get => _sfRatingValue;
-            set
-            {
-                _sfRatingValue = value;
-                MainWindow main = TraverseTreeForMainWindow;
-                main.SfRatingValue = _sfRatingValue; 
-            }
+            set => _sfRatingValue = value; 
         }
 
         private CategorySelected _categorySelected = CategorySelected.None;
         public CategorySelected CategorySelected
         {
-            get => _categorySelected; 
-            set
-            {
-                _categorySelected = value;
-                MainWindow main = TraverseTreeForMainWindow;
-                main.CategorySelected = _categorySelected; 
-            }
+            get => _categorySelected;
+            set => _categorySelected = value;
         }
         private DataTypeSelected _dataTypeSelected = DataTypeSelected.Place; 
         public DataTypeSelected DataTypeSelected
         {
-            get => _dataTypeSelected; 
-            set
-            {
-                _dataTypeSelected = value;
-                MainWindow main = TraverseTreeForMainWindow;
-                main.DataTypeSelected = _dataTypeSelected; 
-            }
+            get => _dataTypeSelected;
+            set => _dataTypeSelected = value;
         }
-
 
         private MainWindow TraverseTreeForMainWindow
         {
@@ -99,6 +83,9 @@ namespace AdminGUI
         private void CategoryChanged(object sender, RoutedEventArgs e)
          {
             _categorySelected = IndexToCategorySelected(cbCategory.SelectedIndex);
+            MainWindow main = TraverseTreeForMainWindow;
+            if (main is not null)
+                main.CategorySelected = _categorySelected; 
             if (cbCategory.SelectedIndex != 0)
                 LoadListView(); 
         }
@@ -106,19 +93,28 @@ namespace AdminGUI
         private void DataChanged(object sender, RoutedEventArgs e)
         {
             if (rbPlace.IsChecked == true)
-                _dataTypeSelected = DataTypeSelected.Place;
+                DataTypeSelected = DataTypeSelected.Place;
             else if (rbPerson.IsChecked == true)
-                _dataTypeSelected = DataTypeSelected.Person;
+                DataTypeSelected = DataTypeSelected.Person;
             else
-                _dataTypeSelected = DataTypeSelected.Itinerary;
-            if (TraverseTreeForMainWindow is not null)
+                DataTypeSelected = DataTypeSelected.Itinerary;
+
+            MainWindow main = TraverseTreeForMainWindow;
+            if (main is not null)
+                main.DataTypeSelected = DataTypeSelected; 
+
+            if (TraverseTreeForMainWindow is not null && cbCategory.SelectedIndex != 0)
                 LoadListView(); 
+
         }
 
         private void RatingChanged(object sender, RoutedEventArgs e)
         {
             SfRating rating = sender as SfRating;
             SfRatingValue = (int)rating.PreviewValue;
+            MainWindow main = TraverseTreeForMainWindow;
+            if (main is not null)
+                main.SfRatingValue = SfRatingValue; 
             if (cbCategory.SelectedIndex != 0)
             {
                 LoadListView(); 
