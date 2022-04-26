@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="AdminGUI.FiltersControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+             xmlns:local="clr-namespace:AdminGUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="840" d:DesignWidth="480">
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="Margin" Value="10, 0"/>
+            </Style>
+            <Style TargetType="RadioButton">
+                <Setter Property="FontSize" Value="12"/>
+                <Style.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Style.Resources>
+            </Style>
+            <Style TargetType="Viewbox">
+                <Setter Property="Height" Value="35"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+        </StackPanel.Resources>
+        <StackPanel Margin="0,0,0,20" Orientation="Horizontal" x:Name="CategoryControls">
+            <Label Content="Category:"/>
+            <ComboBox SelectionChanged="CategoryChanged" VerticalContentAlignment="Center" FontSize="24" x:Name="cbCategory" SelectedIndex="0" Width="300"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" x:Name="DataTypesControls">
+            <Label Content="Assort Data By:"/>
+            <StackPanel>
+                <Viewbox>
+                    <RadioButton Checked="DataChanged" GroupName="DataTypeCheckBoxes" x:Name="rbPlace" Content="Place" IsChecked="True"/>
+                </Viewbox>
+                <Viewbox>
+                    <RadioButton Checked="DataChanged" GroupName="DataTypeCheckBoxes" x:Name="rbPerson" Content="Person"/>    
+                </Viewbox>
+                <Viewbox>
+                    <RadioButton Checked="DataChanged" GroupName="DataTypeCheckBoxes" x:Name="rbItinerary" Content="Itinerary"/>
+                </Viewbox>
+            </StackPanel>
+        </StackPanel>
+        <Label Content="Ratings:"/>
+        
+       
+
+    </StackPanel>
+</UserControl>

@@ -20,16 +20,19 @@ namespace AdminGUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string Function; 
         public MainWindow()
         {
             InitializeComponent();
-            AddEditRemoveView view = new AddEditRemoveView(this);
-            ChangeChild(view); 
+            this.ResizeMode = ResizeMode.CanMinimize;
+            borderReports.Child = new ReportsControl();
+            borderFilters.Child = new FiltersControl();
+             
         }
-        public void ChangeChild(UIElement child)
+
+
+        private void SetDefaultValues()
         {
-            borderMain.Child = child; 
+
         }
     }
 }

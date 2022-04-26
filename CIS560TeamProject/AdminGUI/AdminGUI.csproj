@@ -6,4 +6,16 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="search-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GSF.Windows" Version="2.4.28" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\search-icon.png" />
+  </ItemGroup>
+
 </Project>

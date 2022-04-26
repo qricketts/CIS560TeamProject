@@ -7,6 +7,45 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920">
     <Grid>
-        <Border x:Name="borderMain"/>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="Height" Value="100"/>
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="Margin" Value="50,0"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="40"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <!--Column 0-->
+        <Border x:Name="borderReports" Grid.Row="1"/>
+
+        <!--Column 1-->
+        <StackPanel Margin="0,0" VerticalAlignment="Center" Orientation="Horizontal" x:Name="SearchBarControls" Grid.Column="1">
+            <Label Margin="30,0,0,0" x:Name="labelSearch" VerticalAlignment="Center" Content="Search:"/>
+            <TextBox VerticalContentAlignment="Center" FontSize="40" x:Name="textboxSearch" Height="75" Width="700" />
+            <Button Width="75" Height="75" Margin="0">
+                <Image Source="images\search-icon.png"/>
+            </Button>
+        </StackPanel>
+        <ListView Grid.Column="1" Grid.Row="1"/>
+        <StackPanel x:Name="AddEditRemoveButtons" Orientation="Horizontal" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="btnAdd" Content="Add"/>
+            <Button x:Name="btnEditRemove" Content="Edit/Remove"/>
+        </StackPanel>
+
+        <!--Column 2-->
+        <Border x:Name="borderFilters" Grid.Column="2" Grid.Row="1"/>
     </Grid>
 </Window>

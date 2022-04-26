@@ -16,16 +16,13 @@ using System.Windows.Shapes;
 namespace AdminGUI
 {
     /// <summary>
-    /// Interaction logic for ModelListView.xaml
+    /// Interaction logic for ReportsControl.xaml
     /// </summary>
-    public partial class ModelListView : UserControl
+    public partial class ReportsControl : UserControl
     {
-        private string _model; 
-        public ModelListView(string model)
+        public ReportsControl()
         {
             InitializeComponent();
-            _model = model;
-            textTitle.Text = model.ToUpper();
         }
     }
 }
