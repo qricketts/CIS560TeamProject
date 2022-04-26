@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Syncfusion.Windows.Controls.Input; 
+
+
 
 namespace AdminGUI
 {
@@ -21,23 +24,66 @@ namespace AdminGUI
     public partial class FiltersControl : UserControl
     {
         protected static string[] _categories = { "--None Selected--", "Restaurants", "Coffee Houses", "Recreational Activities", "Colleges", "Parks", "Shopping" };
-        protected static string[] _data = { "Place", "Person", "Itinerary" };
-        private string _dataSelected = _data[0]; 
+
+        private int _sfRatingValue = -1; 
+        public int SfRatingValue
+        {
+            get => _sfRatingValue;
+            set
+            {
+                _sfRatingValue = value;
+                MainWindow main = TraverseTreeForMainWindow;
+                main.SfRatingValue = _sfRatingValue; 
+            }
+        }
+
         private CategorySelected _categorySelected = CategorySelected.None;
+        public CategorySelected CategorySelected
+        {
+            get => _categorySelected; 
+            set
+            {
+                _categorySelected = value;
+                MainWindow main = TraverseTreeForMainWindow;
+                main.CategorySelected = _categorySelected; 
+            }
+        }
+        private DataTypeSelected _dataTypeSelected = DataTypeSelected.Place; 
+        public DataTypeSelected DataTypeSelected
+        {
+            get => _dataTypeSelected; 
+            set
+            {
+                _dataTypeSelected = value;
+                MainWindow main = TraverseTreeForMainWindow;
+                main.DataTypeSelected = _dataTypeSelected; 
+            }
+        }
+
+
+        private MainWindow TraverseTreeForMainWindow
+        {
+            get
+            {
+                DependencyObject parent = this;
+                do
+                {
+                    parent = LogicalTreeHelper.GetParent(parent);
+                }
+                while (!(parent is null || parent is MainWindow));
+                return (MainWindow)parent; 
+            }
+        }
 
         public FiltersControl()
         {
             InitializeComponent();
-            SetDefaultValues();
-        }
-
-        private void SetDefaultValues()
-        {
             foreach (string cat in _categories)
             {
                 cbCategory.Items.Add(cat);
             }
         }
+
 
         private CategorySelected IndexToCategorySelected(int index)
         {
@@ -48,23 +94,35 @@ namespace AdminGUI
                     return (CategorySelected)index;
             }
             return category;
-
         }
 
         private void CategoryChanged(object sender, RoutedEventArgs e)
         {
-            ComboBoxItem item = sender as ComboBoxItem;
             _categorySelected = IndexToCategorySelected(cbCategory.SelectedIndex);
+            if (cbCategory.SelectedIndex != 0)
+                LoadListView(); 
         }
 
         private void DataChanged(object sender, RoutedEventArgs e)
         {
             if (rbPlace.IsChecked == true)
-                _dataSelected = _data[0];
+                _dataTypeSelected = DataTypeSelected.Place;
             else if (rbPerson.IsChecked == true)
-                _dataSelected = _data[1];
+                _dataTypeSelected = DataTypeSelected.Person;
             else
-                _dataSelected = _data[2]; 
+                _dataTypeSelected = DataTypeSelected.Itinerary;
+        }
+
+        private void RatingChanged(object sender, RoutedEventArgs e)
+        {
+            SfRating rating = sender as SfRating;
+            SfRatingValue = (int)rating.Value; 
+        }
+
+        private void LoadListView()
+        {
+            MainWindow main = TraverseTreeForMainWindow;
+            main.LoadData(); 
         }
     }
 }

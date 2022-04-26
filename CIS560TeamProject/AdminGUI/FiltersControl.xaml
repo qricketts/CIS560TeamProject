@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
              xmlns:local="clr-namespace:AdminGUI"
+             xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
              mc:Ignorable="d" 
              d:DesignHeight="840" d:DesignWidth="480">
     <StackPanel>
@@ -27,27 +27,30 @@
                 <Setter Property="Margin" Value="10"/>
             </Style>
         </StackPanel.Resources>
+        
         <StackPanel Margin="0,0,0,20" Orientation="Horizontal" x:Name="CategoryControls">
             <Label Content="Category:"/>
             <ComboBox SelectionChanged="CategoryChanged" VerticalContentAlignment="Center" FontSize="24" x:Name="cbCategory" SelectedIndex="0" Width="300"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" x:Name="DataTypesControls">
+        
+        <StackPanel Margin="0,10" Orientation="Horizontal" x:Name="DataTypesControls">
             <Label Content="Assort Data By:"/>
             <StackPanel>
                 <Viewbox>
                     <RadioButton Checked="DataChanged" GroupName="DataTypeCheckBoxes" x:Name="rbPlace" Content="Place" IsChecked="True"/>
                 </Viewbox>
                 <Viewbox>
-                    <RadioButton Checked="DataChanged" GroupName="DataTypeCheckBoxes" x:Name="rbPerson" Content="Person"/>    
+                    <RadioButton Checked="DataChanged" GroupName="DataTypeCheckBoxes" x:Name="rbPerson" Content="Person"/>
                 </Viewbox>
                 <Viewbox>
                     <RadioButton Checked="DataChanged" GroupName="DataTypeCheckBoxes" x:Name="rbItinerary" Content="Itinerary"/>
                 </Viewbox>
             </StackPanel>
         </StackPanel>
-        <Label Content="Ratings:"/>
-        
-       
 
+        <StackPanel Margin="0,10" Orientation="Horizontal">
+            <Label Content="Ratings:"/>
+            <syncfusion:SfRating MouseLeftButtonDown="RatingChanged" x:Name="sfRating" ItemSize="45" ItemsCount="5" Width="260" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </StackPanel>
     </StackPanel>
 </UserControl>

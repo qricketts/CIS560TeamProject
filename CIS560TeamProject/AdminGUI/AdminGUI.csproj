@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="GSF.Windows" Version="2.4.28" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="20.1.0.51" />
   </ItemGroup>
 
   <ItemGroup>
