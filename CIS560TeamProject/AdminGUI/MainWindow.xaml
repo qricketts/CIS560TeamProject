@@ -39,10 +39,13 @@
                 <Image Source="images\search-icon.png"/>
             </Button>
         </StackPanel>
-        <ListView Grid.Column="1" Grid.Row="1"/>
+        <Border x:Name="borderListView" Grid.Column="1" Grid.Row="1">
+            <ListView Grid.Column="1" Grid.Row="1"/>
+        </Border>
+        
         <StackPanel x:Name="AddEditRemoveButtons" Orientation="Horizontal" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button x:Name="btnAdd" Content="Add"/>
-            <Button x:Name="btnEditRemove" Content="Edit/Remove"/>
+            <Button Click="AddItem" x:Name="btnAdd" Content="Add"/>
+            <Button Click="EditRemoveItem" x:Name="btnEditRemove" Content="Edit/Remove"/>
         </StackPanel>
 
         <!--Column 2-->

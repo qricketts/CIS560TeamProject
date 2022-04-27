@@ -15,11 +15,6 @@
             </Style>
             <Style TargetType="RadioButton">
                 <Setter Property="FontSize" Value="12"/>
-                <Style.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="10"/>
-                    </Style>
-                </Style.Resources>
             </Style>
             <Style TargetType="Viewbox">
                 <Setter Property="Height" Value="35"/>

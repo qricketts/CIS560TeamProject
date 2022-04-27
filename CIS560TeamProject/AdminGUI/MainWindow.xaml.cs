@@ -50,12 +50,15 @@ namespace AdminGUI
             set => _dataTypeSelected = value; 
         }
 
+        public ReportsControl ReportsControl = new ReportsControl();
+        public FiltersControl FiltersControl = new FiltersControl(); 
+
         public MainWindow()
         {
             InitializeComponent();
             //this.ResizeMode = ResizeMode.CanMinimize;
-            borderReports.Child = new ReportsControl();
-            borderFilters.Child = new FiltersControl();
+            borderReports.Child = ReportsControl;
+            borderFilters.Child = FiltersControl;
         }
 
         public void LoadData()
@@ -68,7 +71,8 @@ namespace AdminGUI
             {
                 //use all categories. 
             }
-                 
+
+            throw new NotImplementedException(); 
             //load data from database using KioskData's SQL.Procedures and SQL.Data. 
         }
 
@@ -80,6 +84,18 @@ namespace AdminGUI
         private void SearchBarTextChanged(object sender, RoutedEventArgs e)
         {
             SearchBarValue = SearchBar.Text; 
+        }
+
+        private void AddItem(object sender, RoutedEventArgs e)
+        {
+            borderReports.Child = new AddControl();
+            btnAdd.IsEnabled = false;
+            btnEditRemove.IsEnabled = false;
+        }
+
+        private void EditRemoveItem(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

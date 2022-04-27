@@ -27,24 +27,28 @@ namespace AdminGUI
 
         private void AverageRatingPerPerson(object sender, RoutedEventArgs e)
         {
+            throw new NotImplementedException();
             //loads listview with a list of people and their average rating. 
             //have to query all person's and their ratings.
         }
 
         private void MostCommonItineraryPlace(object sender, RoutedEventArgs e)
         {
+            throw new NotImplementedException();
             //loads listview with a list of places that have been added to the most itineraries. 
             //have to query all itineraries and their places.  
         }
 
         private void CategoryMostPopularPlaces(object sender, RoutedEventArgs e)
         {
+            throw new NotImplementedException();
             //loads listview with a list of most popular places per category.
             //have to query places by category. and their 
         }
 
         private void AverageRatingPerPlace(object sender, RoutedEventArgs e)
         {
+            throw new NotImplementedException();
             //loads listview with a list of places and their average rating over time. 
             //have to query all places with their ratings. 
         }
