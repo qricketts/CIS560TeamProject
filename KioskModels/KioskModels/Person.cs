@@ -8,11 +8,18 @@ namespace KioskData.KioskModels
 {
     public class Person
     {
-        private string _name; 
+        private int _personId;
+        public int PersonId
+        {
+            get => _personId;
+            set => _personId = value;
+        }
+
+        private string _name;
         public string Name
         {
             get => _name;
-            set => _name = value; 
+            set => _name = value;
         }
 
         private string _email;
@@ -27,6 +34,14 @@ namespace KioskData.KioskModels
         {
             get => _password;
             set => _email = value; 
+        }
+
+        public Person(int personId, string name, string email, string password)
+        {
+            PersonId = personId;
+            Name = name;
+            Email = _email;
+            Password = password;
         }
     }
 }

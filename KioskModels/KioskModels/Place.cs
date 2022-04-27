@@ -14,9 +14,16 @@ namespace KioskData.KioskModels
 
         public string Description { get; set; } = null;
 
+        public Place(int placeId, string name, string address, string description)
+
+        public object Picture { get; set; } = null;
+
         public Place(string name)
         {
-            Name = name; 
+            PlaceId = placeId;
+            Name = name;
+            Address = address;
+            Description = description;
         }
     }
 }

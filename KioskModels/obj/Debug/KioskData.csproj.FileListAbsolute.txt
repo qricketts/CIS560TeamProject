@@ -12,3 +12,10 @@ C:\Users\johnnyvgoode\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\Kiosk
 C:\Users\johnnyvgoode\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.csproj.CoreCompileInputs.cache
 C:\Users\johnnyvgoode\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.dll
 C:\Users\johnnyvgoode\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.pdb
+C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.csproj.AssemblyReference.cache
+C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.csproj.CoreCompileInputs.cache
+C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.dll
+C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.pdb
+C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskData.dll.config
+C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskData.dll
+C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskData.pdb
