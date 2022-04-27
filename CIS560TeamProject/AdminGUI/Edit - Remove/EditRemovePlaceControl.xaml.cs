@@ -28,13 +28,13 @@ namespace AdminGUI
             set => _name = value; 
         }
         private string _address;
-        public string Address
+        public string PlaceAddress
         {
             get => _address;
             set => _address = value;
         }
         private string _description;
-        public string Description
+        public string PlaceDescription
         {
             get => _description;
             set => _description = value;
@@ -46,8 +46,8 @@ namespace AdminGUI
             InitializeComponent();
             _place = place;
             PlaceName = place.Name;
-            Address = place.Address;
-            Description = place.Description; 
+            PlaceAddress = place.Address;
+            PlaceDescription = place.Description; 
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
@@ -56,9 +56,26 @@ namespace AdminGUI
             if (textbox.Name.Equals("tbName"))
                 PlaceName = textbox.Text;
             else if (textbox.Name.Equals("tbAddress"))
-                Address = textbox.Text;
+                PlaceAddress = textbox.Text;
             else 
-                Description = textbox.Text;
+                PlaceDescription = textbox.Text;
+        }
+
+        private void SaveChanges(object sender, RoutedEventArgs e)
+        {
+            Place originalPlace = _place;
+            Place newPlace = new Place(PlaceName) { Address = PlaceAddress, Description = PlaceDescription };
+
+            //remove originalPlace
+            //add newPlace
+            throw new NotImplementedException();
+
+        }
+
+        private void RemoveItem(object sender, RoutedEventArgs e)
+        {
+            //remove _place
+            throw new NotImplementedException(); 
         }
     }
 }

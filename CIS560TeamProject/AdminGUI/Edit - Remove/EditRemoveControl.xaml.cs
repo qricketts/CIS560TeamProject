@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KioskData.KioskModels; 
 
 namespace AdminGUI
 {
@@ -27,15 +28,15 @@ namespace AdminGUI
             EditRemoveType = type; 
             if (type.Equals("Place"))
             {
-                borderTypeControl.Child = new EditRemovePlaceControl(); 
+                borderTypeControl.Child = new EditRemovePlaceControl(new Place("")); ; 
             }
             else if (type.Equals("Person"))
             {
-                borderTypeControl.Child = new EditRemovePersonControl();
+                borderTypeControl.Child = new EditRemovePersonControl(new Person());
             }
             else
             {
-                borderTypeControl.Child = new EditRemoveItineraryControl();
+                borderTypeControl.Child = new EditRemoveItineraryControl(new Itinerary());
             }
         }
     }

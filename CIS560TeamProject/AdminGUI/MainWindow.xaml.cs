@@ -97,6 +97,7 @@ namespace AdminGUI
         {
             if (FiltersControl.rbPlace.IsChecked == true)
             {
+                //pass the Place associated with the listview control. 
                 borderFilters.Child = new EditRemoveControl("Place"); 
             }
             else if (FiltersControl.rbPerson.IsChecked == true)

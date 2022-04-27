@@ -5,8 +5,40 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AdminGUI"
              mc:Ignorable="d" 
-             d:DesignHeight="560" d:DesignWidth="480">
+             d:DesignHeight="840" d:DesignWidth="480">
     <Grid>
-            
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="350"/>
+                <Setter Property="Height" Value="100"/>
+                <Setter Property="FontSize" Value="32"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="Margin" Value="10, 0"/>
+            </Style>
+            <Style TargetType="StackPanel">
+                <Setter Property="Margin" Value="0,10"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontSize" Value="32"/>
+            </Style>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Edit/Remove Itinerary" HorizontalAlignment="Center"/>
+        <ListView Grid.Row="1" x:Name="listviewItinerary" Margin="10"/>
+
+
+
+        <StackPanel Grid.Row="2">
+            <Button x:Name="btnRemoveFromItinerary" Click="RemoveItineraryItem" Grid.Row="2" Content="Remove from Itinerary"/>
+            <Button Margin="0,10" x:Name="btnSave" Click="SaveChanges" Grid.Row="2" Content="Save"/>
+            <Button x:Name="btnRemove" Click="RemoveItem" Grid.Row="2" Content="Remove"/>
+        </StackPanel>
     </Grid>
 </UserControl>
