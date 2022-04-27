@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using KioskData.KioskModels;
 
 namespace KioskData
 {
-    class IPlaceRepository
+    public interface IPlaceRepository
     {
+        IReadOnlyList<Place> RetrievePlaces();
+
+        void SavePlace(string name, string address, string description, object maplink, object picture);
     }
 }

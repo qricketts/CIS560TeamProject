@@ -7,7 +7,10 @@ using KioskData.KioskModels;
 
 namespace KioskData
 {
-    class IRatingRepository
+    public interface IRatingRepository
     {
+        IReadOnlyList<Rating> RetrieveRatings();
+
+        void SaveRating(int rating, Place place, Person person);
     }
 }

@@ -7,7 +7,8 @@ using KioskData.KioskModels;
 
 namespace KioskData
 {
-    class SqlCategoryRepository
+    public class SqlCategoryRepository : ICategoryRepository
     {
+
     }
 }

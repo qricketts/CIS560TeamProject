@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using KioskData.KioskModels;
 
 namespace KioskData
 {
-    class IPersonRepository
+    public interface IPersonRepository
     {
+
+        IReadOnlyList<Person> RetrievePeople();
+
+        void SavePerson(string email, string password)
     }
 }

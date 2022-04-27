@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\CIS560TeamProject",
-    "\\KioskGUI",
-    "\\KioskModels",
-    "\\KioskModels\\KioskModels"
+    ""
   ],
-  "SelectedNode": "\\KioskModels\\KioskModels\\Place.cs",
+  "SelectedNode": "\\CIS560TeamProject.sln",
   "PreviewInSolutionExplorer": false
 }

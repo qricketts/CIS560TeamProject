@@ -1,13 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using KioskData.KioskModels;
 
 namespace KioskData
 {
-    class ICategoryRepository
+    public interface ICategoryRepository
     {
+        /// <summary>
+        /// Retrieves all categories in the database.
+        /// </summary>
+        /// <returns>IReadOnlyList of Categories in the database</returns>
+        IReadOnlyList<Category> RetrieveCategories();
+
+        void SaveCategory(string name);
     }
 }

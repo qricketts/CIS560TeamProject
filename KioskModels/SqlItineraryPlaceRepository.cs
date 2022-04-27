@@ -7,7 +7,7 @@ using KioskData.KioskModels;
 
 namespace KioskData
 {
-    class IIterneraryRepository
+    public class SqlIteneraryPlaceRepository : IItineraryPlaceRepository
     {
     }
 }

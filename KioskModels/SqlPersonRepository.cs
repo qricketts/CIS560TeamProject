@@ -7,7 +7,7 @@ using KioskData.KioskModels;
 
 namespace KioskData
 {
-    class SqlPersonRepository
+    public class SqlPersonRepository : IPersonRepository
     {
     }
 }

@@ -7,7 +7,8 @@ using KioskData.KioskModels;
 
 namespace KioskData
 {
-    class SqlRatingRepository
+    public class SqlRatingRepository :IRatingRepository
     {
+
     }
 }
