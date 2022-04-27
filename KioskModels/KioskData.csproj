@@ -40,6 +40,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataDelegates\CreatePersonDataDelegate.cs" />
+    <Compile Include="DataDelegates\CreatePlaceDataDelegate.cs" />
     <Compile Include="ICategoryRepository.cs" />
     <Compile Include="IPersonRepository.cs" />
     <Compile Include="IPlaceRepository.cs" />

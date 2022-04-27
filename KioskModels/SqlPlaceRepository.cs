@@ -21,7 +21,7 @@ namespace KioskData
             throw new NotImplementedException();
         }
 
-        public void SavePlace(string name, string address, string description, object maplink, object picture)
+        public void SavePlace(string name, string address, string description)
         {
             throw new NotImplementedException();
         }
