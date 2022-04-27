@@ -95,7 +95,18 @@ namespace AdminGUI
 
         private void EditRemoveItem(object sender, RoutedEventArgs e)
         {
-
+            if (FiltersControl.rbPlace.IsChecked == true)
+            {
+                borderFilters.Child = new EditRemoveControl("Place"); 
+            }
+            else if (FiltersControl.rbPerson.IsChecked == true)
+            {
+                borderFilters.Child = new EditRemoveControl("Person");
+            }
+            else
+            {
+                borderFilters.Child = new EditRemoveControl("Itinerary");
+            }
         }
     }
 }
