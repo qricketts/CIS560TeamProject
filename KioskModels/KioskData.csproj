@@ -41,11 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ICategoryRepository.cs" />
-    <Compile Include="IIterneraryPlaceRepository.cs" />
-    <Compile Include="IIterneraryRepository.cs" />
     <Compile Include="IPersonRepository.cs" />
     <Compile Include="IPlaceRepository.cs" />
     <Compile Include="IRatingRepository.cs" />
+    <Compile Include="ItineraryPlaceRepository.cs" />
+    <Compile Include="ItineraryRepository.cs" />
     <Compile Include="KioskModels\Category.cs" />
     <Compile Include="KioskModels\Itinerary.cs" />
     <Compile Include="KioskModels\ItineraryPlace.cs" />
@@ -54,8 +54,8 @@
     <Compile Include="KioskModels\Rating.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SqlCategoryRepository.cs" />
-    <Compile Include="SqlIteneraryPlaceRepository.cs" />
-    <Compile Include="SqlIteneraryRepository.cs" />
+    <Compile Include="SqlItineraryPlaceRepository.cs" />
+    <Compile Include="SqlItineraryRepository.cs" />
     <Compile Include="SqlPersonRepository.cs" />
     <Compile Include="SqlPlaceRepository.cs" />
     <Compile Include="SqlRatingRepository.cs" />
@@ -73,6 +73,15 @@
   <ItemGroup>
     <Folder Include="SQL\Data\" />
     <Folder Include="SQL\Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CIS560TeamProject\KioskDataAccess\KioskDataAccess.csproj">
+      <Project>{b7b9126d-5876-45e3-ad34-c170a083af2e}</Project>
+      <Name>KioskDataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
