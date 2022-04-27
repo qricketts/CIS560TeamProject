@@ -14,10 +14,6 @@ namespace KioskData.KioskModels
 
         public string Description { get; set; } = null;
 
-        public object MapLink { get; set; } = null;
-
-        public object Picture { get; set; } = null;
-
         public Place(string name)
         {
             Name = name; 

@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\CIS560TeamProject",
+    "\\CIS560TeamProject\\AdminGUI",
     "\\KioskGUI",
     "\\KioskModels",
-    "\\KioskModels\\KioskModels"
+    "\\UnitTests"
   ],
-  "SelectedNode": "\\KioskModels\\KioskModels\\Place.cs",
+  "SelectedNode": "\\CIS560TeamProject\\AdminGUI",
   "PreviewInSolutionExplorer": false
 }
