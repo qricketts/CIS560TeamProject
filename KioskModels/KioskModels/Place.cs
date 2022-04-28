@@ -18,9 +18,11 @@ namespace KioskData.KioskModels
 
         public object Picture { get; set; } = null;
 
+        public DateTime CreatedOn { get; private set; }
         public Place(string name)
         {
-            Name = name; 
+            Name = name;
+            CreatedOn = DateTime.Now; 
         }
     }
 }

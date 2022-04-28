@@ -28,7 +28,7 @@ namespace AdminGUI
             EditRemoveType = type; 
             if (type.Equals("Place"))
             {
-                borderTypeControl.Child = new EditRemovePlaceControl(new Place("")); ; 
+                borderTypeControl.Child = new EditRemovePlaceControl(new Place(""));
             }
             else if (type.Equals("Person"))
             {

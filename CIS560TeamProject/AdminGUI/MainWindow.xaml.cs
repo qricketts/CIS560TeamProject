@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,13 +51,18 @@ namespace AdminGUI
             set => _dataTypeSelected = value; 
         }
 
+        private BindingList<PlaceBindingItem> PlaceList = new BindingList<PlaceBindingItem>();
+        private BindingList<PersonBindingItem> PersonList = new BindingList<PersonBindingItem>();
+
+        private BindingList<ItineraryBindingItem> ItineraryList = new BindingList<ItineraryBindingItem>();
+
+
         public ReportsControl ReportsControl = new ReportsControl();
         public FiltersControl FiltersControl = new FiltersControl(); 
 
         public MainWindow()
         {
             InitializeComponent();
-            //this.ResizeMode = ResizeMode.CanMinimize;
             borderReports.Child = ReportsControl;
             borderFilters.Child = FiltersControl;
         }
@@ -67,12 +73,36 @@ namespace AdminGUI
                 gridviewQuery.Columns.Clear();
 
             if (DataTypeSelected is DataTypeSelected.Place)
+            {
                 gridviewQuery = SetupPlaceQuery(gridviewQuery);
+                PlaceList = new BindingList<PlaceBindingItem>(); 
+                listviewQuery.ItemsSource = PlaceList;
+                PlaceList.Add(new PlaceBindingItem("test", "test2", 3.2, 10, DateTime.Now, DateTime.Now));
+
+            }
             else if (DataTypeSelected is DataTypeSelected.Person)
+            {
                 gridviewQuery = SetupPersonQuery(gridviewQuery);
+                PersonList = new BindingList<PersonBindingItem>();
+                listviewQuery.ItemsSource = PersonList;
+                PersonList.Add(new PersonBindingItem("name", "email", 3, 10, DateTime.Now, DateTime.Now));
+
+            }
             else
+            {
                 gridviewQuery = SetupItineraryQuery(gridviewQuery);
-            listviewQuery.View = gridviewQuery; 
+                ItineraryList = new BindingList<ItineraryBindingItem>();
+                listviewQuery.ItemsSource = ItineraryList;
+                ItineraryList.Add(new ItineraryBindingItem("personNametime", 10, DateTime.Now, DateTime.Now));
+
+
+            }
+            listviewQuery.View = gridviewQuery;
+
+            //Place Test
+            //Person Test
+
+            //Itinerary Test
 
 
             if (SfRatingValue == 0)
@@ -91,30 +121,30 @@ namespace AdminGUI
         private GridView SetupPlaceQuery(GridView gv)
         {
             gv.Columns.Add(new GridViewColumn { Header = "Name", DisplayMemberBinding = new Binding("Name"), Width = 240});
-            gv.Columns.Add(new GridViewColumn { Header = "Address", Width = 240 });
-            gv.Columns.Add(new GridViewColumn { Header = "Avg Rating", Width = 120 });
-            gv.Columns.Add(new GridViewColumn { Header = "# of Itineraries", Width = 120 });
-            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", Width = 115 });
-            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", Width = 115 });
+            gv.Columns.Add(new GridViewColumn { Header = "Address", DisplayMemberBinding = new Binding("Address"), Width = 240 });
+            gv.Columns.Add(new GridViewColumn { Header = "Avg Rating", DisplayMemberBinding = new Binding("AverageRating"), Width = 120 });
+            gv.Columns.Add(new GridViewColumn { Header = "# of Itineraries", DisplayMemberBinding = new Binding("ItineraryCount"), Width = 120 });
+            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn"), Width = 115 });
+            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn"), Width = 115 });
             return gv; 
         }
 
         private GridView SetupPersonQuery(GridView gv)
         {
             gv.Columns.Add(new GridViewColumn { Header = "Name", DisplayMemberBinding = new Binding("Name"), Width = 240 });
-            gv.Columns.Add(new GridViewColumn { Header = "Email", Width = 240 });
-            gv.Columns.Add(new GridViewColumn { Header = "# Ratings", Width = 120 });
-            gv.Columns.Add(new GridViewColumn { Header = "# Itineraries", Width = 120 });
-            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", Width = 115 });
-            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", Width = 115 });
+            gv.Columns.Add(new GridViewColumn { Header = "Email", DisplayMemberBinding = new Binding("Email"), Width = 240 });
+            gv.Columns.Add(new GridViewColumn { Header = "# Ratings", DisplayMemberBinding = new Binding("TotalRatings"), Width = 120 });
+            gv.Columns.Add(new GridViewColumn { Header = "# Itineraries", DisplayMemberBinding = new Binding("TotalItineraries"), Width = 120 });
+            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn"), Width = 115 });
+            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn"), Width = 115 });
             return gv; 
         }
         private GridView SetupItineraryQuery(GridView gv)
         {
-            gv.Columns.Add(new GridViewColumn { Header = "Itinerary Owner", Width = 270 });
-            gv.Columns.Add(new GridViewColumn { Header = "# Places", Width = 140 });
-            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", Width = 270 });
-            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", Width = 270 });
+            gv.Columns.Add(new GridViewColumn { Header = "Itinerary Owner", DisplayMemberBinding = new Binding("Name"), Width = 270 });
+            gv.Columns.Add(new GridViewColumn { Header = "# Places", DisplayMemberBinding = new Binding("TotalPlaces"), Width = 140 });
+            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn"), Width = 270 });
+            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn"), Width = 270 });
             return gv; 
         }
 
@@ -137,7 +167,7 @@ namespace AdminGUI
 
         private void EditRemoveItem(object sender, RoutedEventArgs e)
         {
-            if (listviewQuery.SelectedIndex == -1) return; 
+            //if (listviewQuery.SelectedIndex == -1) return; 
             if (FiltersControl.rbPlace.IsChecked == true)
             {
                 //pass the Place associated with the listview control. 

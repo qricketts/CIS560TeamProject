@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\johnnyvgoode\\Source\\Repos\\CIS560TeamProject\\UnitTests\\UnitTests.csproj": {}
+    "C:\\Users\\johnv\\source\\repos\\CIS560TeamProject\\UnitTests\\UnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\johnnyvgoode\\Source\\Repos\\CIS560TeamProject\\UnitTests\\UnitTests.csproj": {
+    "C:\\Users\\johnv\\source\\repos\\CIS560TeamProject\\UnitTests\\UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\johnnyvgoode\\Source\\Repos\\CIS560TeamProject\\UnitTests\\UnitTests.csproj",
+        "projectUniqueName": "C:\\Users\\johnv\\source\\repos\\CIS560TeamProject\\UnitTests\\UnitTests.csproj",
         "projectName": "UnitTests",
-        "projectPath": "C:\\Users\\johnnyvgoode\\Source\\Repos\\CIS560TeamProject\\UnitTests\\UnitTests.csproj",
-        "packagesPath": "C:\\Users\\johnnyvgoode\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\johnnyvgoode\\Source\\Repos\\CIS560TeamProject\\UnitTests\\obj\\",
+        "projectPath": "C:\\Users\\johnv\\source\\repos\\CIS560TeamProject\\UnitTests\\UnitTests.csproj",
+        "packagesPath": "C:\\Users\\johnv\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\johnv\\source\\repos\\CIS560TeamProject\\UnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\johnnyvgoode\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\johnv\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,47 +22,71 @@ namespace AdminGUI
     /// </summary>
     public partial class EditRemoveItineraryControl : UserControl
     {
+        private MainWindow TraverseTreeForMainWindow
+        {
+            get
+            {
+                DependencyObject parent = this;
+                do
+                {
+                    parent = LogicalTreeHelper.GetParent(parent);
+                }
+                while (!(parent is null || parent is MainWindow));
+                return (MainWindow)parent; 
+            }
+        }
+
+        private BindingList<ItineraryItem> ItemList = new BindingList<ItineraryItem>();
         private Itinerary _itinerary;
-        private List<Place> _places; 
         public EditRemoveItineraryControl(Itinerary itinerary)
         {
             InitializeComponent();
             _itinerary = itinerary;
-            _places = itinerary.Places; 
+            listviewItinerary.ItemsSource = ItemList; 
+
+            _itinerary.Add(new Place("TestItem"));
+            LoadItinerary(); 
         }
 
         private void SaveChanges(object sender, RoutedEventArgs e)
         {
-            Itinerary originalItinerary = _itinerary;
-            Itinerary newItinerary = new Itinerary();
-            foreach (Place p in _places)
-            {
-                newItinerary.Add(p); 
-            }
-            //remove original, add new.
+            //return _itinerary
             throw new NotImplementedException(); 
         }
 
-        private void RemoveItem(object sender, RoutedEventArgs e)
+        private void RemoveItinerary(object sender, RoutedEventArgs e)
         {
             //remove _itinerary from database. 
-            throw new NotImplementedException(); 
+            MainWindow main = TraverseTreeForMainWindow;
+            main.borderFilters.Child = main.FiltersControl; 
+            //throw new NotImplementedException(); 
         }
 
         private void RemoveItineraryItem(object sender, RoutedEventArgs e)
         {
-            var selected = listviewItinerary.SelectedItem;
-            foreach (Place p in _places)
+            if (ItemList.Count == 0 || listviewItinerary.SelectedIndex == -1) return; 
+            ItineraryItem item = listviewItinerary.SelectedItem as ItineraryItem;
+            
+            if (_itinerary.Places.Contains(item.Place))
+                _itinerary.Places.Remove(item.Place);
+            if (ItemList.Contains(item))
+                ItemList.Remove(item); 
+        }
+        private void LoadItinerary()
+        {
+            gridviewItinerary.Columns.Clear();
+            gridviewItinerary.Columns.Add(new GridViewColumn { Header = "Place", DisplayMemberBinding = new Binding("PlaceName"), Width = 230 });
+            gridviewItinerary.Columns.Add(new GridViewColumn { Header = "Date Added", DisplayMemberBinding = new Binding("DateAdded"), Width = 230 });
+            foreach(Place p in _itinerary.Places)
             {
-                //check for an itinerary item that was selected or the index and remove. 
-                //_places.Remove(p); 
+                ItemList.Add(new ItineraryItem(p)); 
             }
-            Itinerary newItinerary = new Itinerary();
-            foreach(Place p in _places)
-            {
-                newItinerary.Add(p); 
-            }
-            throw new NotImplementedException(); 
+        }
+
+        private void CancelChanges(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = TraverseTreeForMainWindow;
+            main.borderFilters.Child = main.FiltersControl; 
         }
     }
 }
