@@ -40,7 +40,13 @@
             </Button>
         </StackPanel>
         <Border x:Name="borderListView" Grid.Column="1" Grid.Row="1">
-            <ListView x:Name="listviewQuery" Grid.Column="1" Grid.Row="1"/>
+            <ListView x:Name="listviewQuery" Grid.Column="1" Grid.Row="1" FontSize="16">
+                <ListView.View>
+                    <GridView x:Name="gridviewQuery">
+                        
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Border>
         
         <StackPanel x:Name="AddEditRemoveButtons" Orientation="Horizontal" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">

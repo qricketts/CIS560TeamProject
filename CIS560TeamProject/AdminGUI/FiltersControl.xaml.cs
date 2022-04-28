@@ -86,7 +86,7 @@ namespace AdminGUI
             MainWindow main = TraverseTreeForMainWindow;
             if (main is not null)
                 main.CategorySelected = _categorySelected; 
-            if (cbCategory.SelectedIndex != 0)
+            //if (cbCategory.SelectedIndex != 0)
                 LoadListView(); 
         }
 
@@ -124,6 +124,7 @@ namespace AdminGUI
         private void LoadListView()
         {
             MainWindow main = TraverseTreeForMainWindow;
+            if (main is null) return; 
             main.LoadData();
         }
     }
