@@ -21,7 +21,7 @@ namespace AdminGUI
     /// </summary>
     public partial class EditRemoveControl : UserControl
     {
-        private string EditRemoveType { get; set; }
+        private readonly string EditRemoveType;
         public EditRemoveControl(string type)
         {
             InitializeComponent();
