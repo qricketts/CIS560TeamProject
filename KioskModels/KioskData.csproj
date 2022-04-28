@@ -73,6 +73,7 @@
     <Content Include="SQL\Tables\Kiosk.Rating.sql" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DummyData\" />
     <Folder Include="SQL\Data\" />
     <Folder Include="SQL\Procedures\" />
   </ItemGroup>
