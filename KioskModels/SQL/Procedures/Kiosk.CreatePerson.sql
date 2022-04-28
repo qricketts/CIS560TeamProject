@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE Person.CreatePerson
+CREATE OR ALTER PROCEDURE Kiosk.CreatePerson
    @Name NVARCHAR(32),
    @Email NVARCHAR(128),
    @Password NVARCHAR(128),

@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE Place.CreatePlace
+CREATE OR ALTER PROCEDURE Kiosk.CreatePlace
    @Name NVARCHAR(32),
    @Address NVARCHAR(128),
    @Description NVARCHAR(256),
