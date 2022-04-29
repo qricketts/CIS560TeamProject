@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KioskData;
 
 namespace KioskGUI
 {
@@ -39,21 +40,32 @@ namespace KioskGUI
             InitializeComponent();
         }
 
-        /*public void OpenItinerary(object sender, RoutedEventArgs e)
-        {
-            ItineraryView itineraryView = new ItineraryView();
-            MainWindow main = TraverseTreeForMainWindow; 
-            main.borderViews.Child = itineraryView;
-            main.ChangeChild(itineraryView); 
-        }
-        */
-        private void CategorySelected(object sender, RoutedEventArgs e)
+        private void OnCategorySelection(object sender, RoutedEventArgs e)
         {
             Button selected = sender as Button;
-            string content = selected.Content.ToString();
-            PlacesList list = new PlacesList(content);
+            string buttonName = selected.Name;
+            PlacesList list = new PlacesList(GetCategorySelected(buttonName));
             MainWindow main = TraverseTreeForMainWindow; 
             main.ChangeChild(list);  
+        }
+
+        private CategorySelected GetCategorySelected(string name)
+        {
+            switch (name)
+            {
+                case "btnRestaurants":
+                    return CategorySelected.Restaurants;
+                case "btnColleges":
+                    return CategorySelected.Colleges;
+                case "btnCoffee":
+                    return CategorySelected.Coffee;
+                case "btnParks":
+                    return CategorySelected.Parks;
+                case "btnRecreational":
+                    return CategorySelected.Recreation;
+                default:
+                    return CategorySelected.Shopping; 
+            }
         }
     }
 }

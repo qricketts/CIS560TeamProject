@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Syncfusion.Windows.Controls.Input; 
+using Syncfusion.Windows.Controls.Input;
+using KioskData.KioskModels;
+using KioskData;
 
 namespace AdminGUI
 {

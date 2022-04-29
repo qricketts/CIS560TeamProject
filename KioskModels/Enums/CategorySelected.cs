@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdminGUI
+namespace KioskData
 {
     public enum CategorySelected
     {
@@ -22,4 +22,6 @@ namespace AdminGUI
 
         Shopping
     }
+
+
 }

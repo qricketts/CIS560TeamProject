@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using KioskData;
 using KioskData.KioskModels;
+using System.ComponentModel; 
 
 namespace KioskGUI
 {
@@ -21,7 +12,12 @@ namespace KioskGUI
     /// </summary>
     public partial class PlacesList : UserControl
     {
-        private string _category;
+        private CategorySelected _categorySelected; 
+        public CategorySelected CategorySelected
+        {
+            get => _categorySelected;
+            private set => _categorySelected = value; 
+        }
 
         private MainWindow TraverseTreeForMainWindow
         {
@@ -37,10 +33,30 @@ namespace KioskGUI
             }
         }
 
-        public PlacesList(string category)
+        private BindingList<PlaceControl> PlaceControls = new BindingList<PlaceControl>();
+        private string[] _sorts = { "Alphabetical", "Most Popular", "Highest Rated"}; 
+
+        public PlacesList(CategorySelected category)
         {
             InitializeComponent();
-            _category = category;
+            listviewPlaces.ItemsSource = PlaceControls;
+            foreach (string s in _sorts)
+                cbSort.Items.Add(s);
+            CategorySelected = category;
+            FillList();
+            labelCategoryName.Content = CategorySelected.ToString().ToUpper();
+            labelTotalPlaces.Content = PlaceControls.Count.ToString() + " PLACES"; 
+        }
+
+        private void FillList()
+        {
+            //retreive dummy data from KioskData to fill the category's list. 
+            PlaceControls.Add(new PlaceControl(new Place("McDonalds") {  Address = "Manhattan, KS", Description = "CUT TO: SEQ. 95 - GRAquite a bit of pomp...under * the circumstances. * They land in their seats.BARRY(CONT'D) Well Adam, today we are men. Bee Movie - JS REVISIONS 8/13/07 5. ADAM We are. BARRY Bee-men. ADAM Amen! BARRY Hallelujah. Barry hits Adam's forehead.Adam goes into the rapture.An announcement comes over the PA.ANNOUNCER(V.O) Students, faculty, distinguished bees...please welcome, Dean Buzzwell.ANGLE ON: DEAN BUZZWELL steps up to the podium.The podium has a sign that reads: Welcome Graduating Class of: with train - station style flipping numbers after it.BUZZWELL Welcome New Hive City graduating class of... The numbers"}, this));
+        }
+
+        private void SortChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //use sql sort by repository according the to sort chosen.
         }
 
         private void ReturnToCategorySelection(object sender, RoutedEventArgs e)
@@ -49,18 +65,5 @@ namespace KioskGUI
             MainWindow main = TraverseTreeForMainWindow;
             main.ChangeChild(cv);
         }
-
-        private void OnPlaceSelection(object sender, RoutedEventArgs e)
-        {
-            //sender as Place, setting all values, then opening the PlaceView with the Place and its details. 
-            var CHANGE_ME = (sender as ListView).SelectedItem;
-            Place p = new Place("name");
-            PlaceView pv = new PlaceView(p, this);
-            pv.btnBack.Content = "< " + _category;
-            MainWindow main = TraverseTreeForMainWindow;
-            main.ChangeChild(pv);
-        }
-
     }
-
 }

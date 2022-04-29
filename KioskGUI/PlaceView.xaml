@@ -9,15 +9,20 @@
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="575"/>
-                <Setter Property="Height" Value="125"/>
-                <Setter Property="FontSize" Value="50"/>
+                <Setter Property="Width" Value="400"/>
+                <Setter Property="Height" Value="100"/>
+                <Setter Property="FontSize" Value="40"/>
                 <Style.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="20"/>
+                        <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Style.Resources>
             </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+
         </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -28,9 +33,17 @@
             <RowDefinition/>
             <RowDefinition Height="175"/>
         </Grid.RowDefinitions>
-        <Border x:Name="borderPlace" Grid.ColumnSpan="3" Margin="300, 50">
-            
-        </Border>
+        <Label x:Name="labelName" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="30" FontSize="40" FontWeight="Bold"/>
+        <ListView x:Name="lvInformation" Grid.ColumnSpan="3" Margin="300, 100, 300, 0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" ScrollViewer.CanContentScroll="True" BorderThickness="3" BorderBrush="DarkGreen">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Focusable" Value="False"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <TextBlock x:Name="textDescription" TextWrapping="Wrap"/>
+            <TextBlock x:Name="textAddress"/>
+            <TextBlock x:Name="textRatings"/>
+        </ListView>
         <Button Click="ReturnToCategory" x:Name="btnBack" Grid.Column="0" Grid.Row="1"/>
         <Button Click="AddRemovePlace" x:Name="btnAddRemove" Grid.Column="2" Grid.Row="1" Content="Add to Itinerary &gt;"/>
     </Grid>
