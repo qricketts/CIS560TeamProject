@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KioskData.KioskModels; 
 
 namespace AdminGUI
 {
     public class ItineraryBindingItem
     {
+        private Itinerary _itinerary; 
+        public Itinerary Itinerary
+        {
+            get => _itinerary;
+            set => _itinerary = value; 
+        }
         private string _name;
         public string Name
         {
@@ -35,10 +42,11 @@ namespace AdminGUI
             private set => _updatedOn = value;
         }
 
-        public ItineraryBindingItem(string personName, int places, DateTime created, DateTime updated)
+        public ItineraryBindingItem(Itinerary i, string personName, DateTime created, DateTime updated)
         {
+            Itinerary = i; 
             Name = personName;
-            TotalPlaces = places;
+            TotalPlaces = i.Places.Count;
             CreatedOn = created;
             UpdatedOn = updated;
         }

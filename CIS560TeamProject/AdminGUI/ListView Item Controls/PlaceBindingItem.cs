@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KioskData.KioskModels; 
 
 namespace AdminGUI
 {
     public class PlaceBindingItem
     {
+        private Place _place; 
+        public Place Place
+        {
+            get => _place;
+            private set => _place = value; 
+        }
+
         private string _name; 
         public string Name
         {
@@ -47,13 +55,14 @@ namespace AdminGUI
             private set => _updatedOn = value;
         }
 
-        public PlaceBindingItem(string name, string address, double rating, int count, DateTime created, DateTime updated)
+        public PlaceBindingItem(Place place, double rating, int count, DateTime updated)
         {
-            Name = name;
-            Address = address;
+            Place = place;
+            Name = place.Name;
+            Address = place.Address;
             AverageRating = rating;
             ItineraryCount = count;
-            CreatedOn = created;
+            CreatedOn = place.CreatedOn;
             UpdatedOn = updated; 
         }
     }

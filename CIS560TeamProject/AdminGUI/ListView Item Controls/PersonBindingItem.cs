@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KioskData.KioskModels; 
 
 namespace AdminGUI
 {
     public class PersonBindingItem
     {
+        private Person _person; 
+        public Person Person
+        {
+            get => _person;
+            private set => _person = value; 
+        }
         private string _name;
         public string Name
         {
@@ -47,10 +54,11 @@ namespace AdminGUI
             private set => _updatedOn = value;
         }
 
-        public PersonBindingItem(string name, string email, int ratings, int itins, DateTime created, DateTime updated)
+        public PersonBindingItem(Person person, string name, int ratings, int itins, DateTime created, DateTime updated)
         {
+            Person = person; 
             Name = name;
-            Email = email;
+            Email = person.Email; 
             TotalRatings = ratings;
             TotalItineraries = itins;
             CreatedOn = created;

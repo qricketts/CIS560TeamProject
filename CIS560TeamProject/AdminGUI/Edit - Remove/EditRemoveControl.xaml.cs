@@ -21,23 +21,22 @@ namespace AdminGUI
     /// </summary>
     public partial class EditRemoveControl : UserControl
     {
-        private readonly string EditRemoveType;
-        public EditRemoveControl(string type)
+        public EditRemoveControl(Place place)
         {
             InitializeComponent();
-            EditRemoveType = type; 
-            if (type.Equals("Place"))
-            {
-                borderTypeControl.Child = new EditRemovePlaceControl(new Place(""));
-            }
-            else if (type.Equals("Person"))
-            {
-                borderTypeControl.Child = new EditRemovePersonControl(new Person());
-            }
-            else
-            {
-                borderTypeControl.Child = new EditRemoveItineraryControl(new Itinerary());
-            }
+            borderTypeControl.Child = new EditRemovePlaceControl(place);
+        }
+
+        public EditRemoveControl(Person person)
+        {
+            InitializeComponent();
+            borderTypeControl.Child = new EditRemovePersonControl(person);
+        }
+
+        public EditRemoveControl(Itinerary itinerary)
+        {
+            InitializeComponent();
+            borderTypeControl.Child = new EditRemoveItineraryControl(itinerary);
         }
     }
 }
