@@ -64,7 +64,7 @@ namespace AdminGUI
         private void SaveChanges(object sender, RoutedEventArgs e)
         {
             Place originalPlace = _place;
-            Place newPlace = new Place(PlaceName) { Address = PlaceAddress, Description = PlaceDescription };
+            Place newPlace = new Place(originalPlace.PlaceId, PlaceName, PlaceAddress, PlaceDescription);
 
             //remove originalPlace
             //add newPlace

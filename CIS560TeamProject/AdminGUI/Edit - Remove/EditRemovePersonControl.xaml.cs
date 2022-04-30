@@ -64,7 +64,7 @@ namespace AdminGUI
         private void SaveChanges(object sender, RoutedEventArgs e)
         {
             Person originalPerson = _person;
-            Person newPerson = new Person() { Email = PersonEmail, Password = PersonPassword }; 
+            Person newPerson = new Person(1, PersonName, PersonEmail, PersonPassword);
             //remove originalPerson
             //add newPerson
             throw new NotImplementedException();

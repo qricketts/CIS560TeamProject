@@ -44,7 +44,7 @@ namespace AdminGUI
             _itinerary = itinerary;
             listviewItinerary.ItemsSource = ItemList; 
 
-            _itinerary.Add(new Place("TestItem"));
+            _itinerary.Add(new Place(1, "name", "address", "Description"));
             LoadItinerary(); 
         }
 

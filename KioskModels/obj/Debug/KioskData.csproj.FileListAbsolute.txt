@@ -19,3 +19,6 @@ C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.pd
 C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskData.dll.config
 C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskData.dll
 C:\Users\mildl\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskData.pdb
+C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskDataAccess.dll
+C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\bin\Debug\KioskDataAccess.pdb
+C:\Users\johnv\Source\Repos\CIS560TeamProject\KioskModels\obj\Debug\KioskData.csproj.CopyComplete

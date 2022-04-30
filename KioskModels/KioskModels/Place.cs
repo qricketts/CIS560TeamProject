@@ -8,6 +8,7 @@ namespace KioskData.KioskModels
 {
     public class Place
     {
+        public int PlaceId { get; set; }
         public string Name { get; set; }
 
         public string Address { get; set; } = null; 
@@ -15,16 +16,15 @@ namespace KioskData.KioskModels
         public string Description { get; set; } = null;
 
         public Place(int placeId, string name, string address, string description)
-
-        public object Picture { get; set; } = null;
-
-        public DateTime CreatedOn { get; private set; }
-        public Place(string name)
         {
             PlaceId = placeId;
             Name = name;
             Address = address;
             Description = description;
         }
+
+        public object Picture { get; set; } = null;
+
+        public DateTime CreatedOn { get; private set; }
     }
 }

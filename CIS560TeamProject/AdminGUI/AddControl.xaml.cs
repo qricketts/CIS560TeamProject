@@ -92,13 +92,13 @@ namespace AdminGUI
         {
             if (_currentType.Equals("Place"))
             {
-                Place newPlace = new Place(labelInfo1.Content.ToString());
+                Place newPlace = new Place(1, textbox1.Text, textbox2.Text, textbox3.Text);
                 newPlace.Address = labelInfo2.Content.ToString();
                 newPlace.Description = labelInfo3.Content.ToString();
             }
             else
             {
-                Person newPerson = new Person();
+                Person newPerson = new Person(1, textbox1.Text, textbox2.Text, textbox3.Text);
                 //newPerson.Name = labelInfo1.Content.ToString()
                 newPerson.Email = labelInfo2.Content.ToString();
                 newPerson.Password = labelInfo3.Content.ToString();
