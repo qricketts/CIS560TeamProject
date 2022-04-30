@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="search-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GSF.Windows" Version="2.4.28" />
+    <PackageReference Include="Syncfusion.SfInput.WPF" Version="20.1.0.51" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\KioskModels\KioskData.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\search-icon.png" />
+  </ItemGroup>
+
+</Project>

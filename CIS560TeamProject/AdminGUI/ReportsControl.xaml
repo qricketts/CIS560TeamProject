@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="AdminGUI.ReportsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AdminGUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="840" d:DesignWidth="480">
+    <StackPanel>
+        <StackPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="460"/>
+                <Setter Property="Height" Value="100"/>
+                <Setter Property="Margin" Value="0,10"/>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="TextAlignment" Value="Center"/>
+            </Style>
+        </StackPanel.Resources>
+
+        <Label FontSize="32" Content="Reports:" HorizontalAlignment="Center"/>
+        <Button Click="AverageRatingPerPerson" x:Name="btnPersonAverageRating">
+            <TextBlock Text="Average Rating per Person"/>
+        </Button>
+        <Button Click="MostCommonItineraryPlace" x:Name="btnMostCommonItineraryPlace">
+            <TextBlock Text="Most Common Place        Added to Itineraries"/>
+        </Button>
+        <Button Click="CategoryMostPopularPlaces" x:Name="btnCategoryMostPopularPlace">
+            <TextBlock Text="Most Popular                       Place per Category"/>
+        </Button>
+        <Button Click="AverageRatingPerPlace" x:Name="btnPlaceAverageRating">
+            <TextBlock Text="Average Rating per Place"/>
+        </Button>
+    </StackPanel>
+</UserControl>

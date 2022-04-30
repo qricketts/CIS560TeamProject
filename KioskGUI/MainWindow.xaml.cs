@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.ComponentModel; 
 using KioskData.KioskModels; 
 
 namespace KioskGUI
@@ -27,6 +28,8 @@ namespace KioskGUI
         public Itinerary Itinerary;
 
         private PlaceView _placeView = null; 
+
+        
         public PlaceView GlobalPlaceView
         {
             get => _placeView;  
@@ -53,15 +56,23 @@ namespace KioskGUI
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new Itinerary(); 
+            Itinerary = new Itinerary();
+            DataContext = Itinerary; 
             CategoryView categoryView = new CategoryView();
-            ItineraryView = new ItineraryView();
-            Itinerary = new Itinerary(); 
+            ItineraryView = new ItineraryView(this);
             ChangeChild(categoryView);
         }
 
         public void ChangeChild(UIElement child)
         {
+            if (child is ProfileView || child is ItineraryView)
+            {
+                btnItinerary.Visibility = Visibility.Hidden; 
+            }
+            else
+            {
+                btnItinerary.Visibility = Visibility.Visible;
+            }
             borderViews.Child = child;
             BorderViewsChild = child;
         }
@@ -71,7 +82,7 @@ namespace KioskGUI
             if (sender is CategoryView)
                 textInformation.Text = "START by Selecting a Category";
             else if (sender is ItineraryView)
-                textInformation.Text = "0 Items Present in Itinerary"; //use count from the CurrentItinerary.Places.Count property. 
+                textInformation.Text = Itinerary.Places.Count + " Items Present in Itinerary"; //use count from the CurrentItinerary.Places.Count property. 
             else if (sender is ProfileView)
                 textInformation.Text = "Enter email and password to load itinerary";
             else if (sender is PlacesList)
@@ -82,6 +93,7 @@ namespace KioskGUI
 
         private void OpenItinerary(object sender, RoutedEventArgs e)
         {
+            ItineraryView.FillList(); 
             ChangeChild(ItineraryView);
         }
     }

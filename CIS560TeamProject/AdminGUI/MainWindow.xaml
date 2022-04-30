@@ -1,0 +1,62 @@
+﻿<Window x:Class="AdminGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AdminGUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="Height" Value="100"/>
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="Margin" Value="50,0"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="40"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <!--Column 0-->
+        <Border x:Name="borderReports" Grid.Row="1"/>
+        <!--Column 1-->
+        <StackPanel Margin="0,0" VerticalAlignment="Center" Orientation="Horizontal" x:Name="SearchBarControls" Grid.Column="1">
+            <Label Margin="30,0,0,0" x:Name="labelSearch" VerticalAlignment="Center" Content="Search:"/>
+            <TextBox TextChanged="SearchBarTextChanged" VerticalContentAlignment="Center" FontSize="40" x:Name="SearchBar" Height="75" Width="700" />
+            <Button Click="btnSearch_Click" x:Name="btnSearch" Width="75" Height="75" Margin="0">
+                <Image Source="images\search-icon.png"/>
+            </Button>
+        </StackPanel>
+        <Border x:Name="borderListView" Grid.Column="1" Grid.Row="1">
+            <ListView x:Name="listviewQuery" Grid.Column="1" Grid.Row="1" FontSize="14">
+                <ListView.View>
+                    <GridView x:Name="gridviewQuery"/>
+                </ListView.View>
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="BorderThickness" Value="1"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+            </ListView>
+        </Border>
+        <StackPanel x:Name="AddEditRemoveButtons" Orientation="Horizontal" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button Click="AddItem" x:Name="btnAdd" Content="Add"/>
+            <Button Click="EditRemoveItem" x:Name="btnEditRemove" Content="Edit/Remove"/>
+        </StackPanel>
+        <!--Column 2-->
+        <Border x:Name="borderFilters" Grid.Column="2" Grid.Row="1"/>
+    </Grid>
+</Window>

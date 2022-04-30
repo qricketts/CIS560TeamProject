@@ -1,18 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using KioskData.KioskModels; 
+using KioskData; 
+using KioskData.KioskModels;
+using System.ComponentModel; 
 
 namespace KioskGUI
 {
@@ -21,7 +13,6 @@ namespace KioskGUI
     /// </summary>
     public partial class PlaceView : UserControl
     {
-        private CategoryView _categoryViewRef; 
         private MainWindow TraverseTreeForMainWindow
         {
             get
@@ -36,8 +27,8 @@ namespace KioskGUI
             }
         }
         private PlacesList _placesList; 
+        private Place _place;
 
-        private Place _place; 
         public Place Place
         {
             get => _place;
@@ -49,8 +40,16 @@ namespace KioskGUI
             InitializeComponent();
             Place = p;
             _placesList = list;
-            PlaceControl pc = new PlaceControl(Place);
-            borderPlace.Child = pc;
+            labelName.Content = Place.Name.ToUpper(); 
+            textDescription.Text = "Description: \t" + p.Description;
+            textAddress.Text = "Address: \t" + p.Address;
+            textRatings.Text = "Ratings: \t\t☆"; // + p.Ratings.Average() + "(" + p.Ratings.Count + ")"; 
+
+            if (TraverseTreeForMainWindow is null && list.CategorySelected is CategorySelected.None)
+            {
+                btnAddRemove.Content = "Remove from Itinerary";
+                return; 
+            }
 
             if (ItineraryHasPlace())
                 btnAddRemove.Content = "Remove from Itinerary";
@@ -61,21 +60,23 @@ namespace KioskGUI
         public bool ItineraryHasPlace()
         {
             MainWindow main = TraverseTreeForMainWindow;
-            if (main is null) return false; 
-            foreach (Place p in main.Itinerary.Places)
-            {
-                if (Place == p)
-                    return true; 
-            }
-            return false; 
-        }
+            if (main is null) return false;
 
-        
+            if (main.Itinerary.Places.Contains(Place)) return true; 
+            else return false; 
+        }
 
         private void ReturnToCategory(object sender, RoutedEventArgs e)
         {
             MainWindow main = TraverseTreeForMainWindow;
-            main.ChangeChild(_placesList); 
+            if (_placesList.CategorySelected is CategorySelected.None)
+            {
+                main.ItineraryView.FillList(); 
+                main.ChangeChild(main.ItineraryView); 
+            }
+                
+            else 
+                main.ChangeChild(_placesList); 
         }
 
         private void AddRemovePlace(object sender, RoutedEventArgs e)
@@ -91,7 +92,6 @@ namespace KioskGUI
                 main.Itinerary.Remove(Place);
                 btnAddRemove.Content = "Add to Itinerary";
             }
-            
         }
     }
 }

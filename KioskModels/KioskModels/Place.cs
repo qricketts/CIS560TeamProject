@@ -18,6 +18,7 @@ namespace KioskData.KioskModels
 
         public object Picture { get; set; } = null;
 
+        public DateTime CreatedOn { get; private set; }
         public Place(string name)
         {
             PlaceId = placeId;

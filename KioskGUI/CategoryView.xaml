@@ -15,7 +15,7 @@
                 <Setter Property="FontSize" Value="50"/>
                 <Style.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="20"/>
+                        <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Style.Resources>
             </Style>
@@ -31,16 +31,16 @@
             <RowDefinition Height="175"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" HorizontalAlignment="Right">
-            <Button Click="CategorySelected" x:Name="btnRestaurants" Content="Restaurants"/>
-            <Button Click="CategorySelected" x:Name="btnColleges" Content="Colleges"/>
+            <Button Click="OnCategorySelection" x:Name="btnRestaurants" Content="Restaurants"/>
+            <Button Click="OnCategorySelection" x:Name="btnColleges" Content="Colleges"/>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <Button Click="CategorySelected" x:Name="btnCoffee" Content="Coffee Houses"/>
-            <Button Click="CategorySelected" x:Name="btnParks" Content="Parks"/>
+            <Button Click="OnCategorySelection" x:Name="btnCoffee" Content="Coffee Houses"/>
+            <Button Click="OnCategorySelection" x:Name="btnParks" Content="Parks"/>
         </StackPanel>
         <StackPanel Grid.Column="2" HorizontalAlignment="Left">
-            <Button Click="CategorySelected" x:Name="btnRecreational" Content="Recreational Activities"/>
-            <Button Click="CategorySelected" x:Name="btnShopping" Content="Shopping"/>
+            <Button Click="OnCategorySelection" x:Name="btnRecreational" Content="Recreational Activities"/>
+            <Button Click="OnCategorySelection" x:Name="btnShopping" Content="Shopping"/>
         </StackPanel>
         <!--<Button Click="OpenItinerary" x:Name="buttonItinerary" Grid.Row="1" Grid.ColumnSpan="3" VerticalContentAlignment="Top" Content="My Itinerary  ^" Margin="0, 100, 0, 0"/>-->
     </Grid>

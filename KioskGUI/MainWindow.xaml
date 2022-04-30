@@ -10,12 +10,13 @@
     <Grid>
         <Grid.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="575"/>
-                <Setter Property="Height" Value="125"/>
-                <Setter Property="FontSize" Value="50"/>
+                <Setter Property="Width" Value="400"/>
+                <Setter Property="Height" Value="100"/>
+                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="VerticalAlignment" Value="Bottom"/>
                 <Style.Resources>
                     <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="20"/>
+                        <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Style.Resources>
             </Style>
@@ -41,7 +42,7 @@
         <Border x:Name="borderViews" Grid.Row="1" Grid.ColumnSpan="3">
 
         </Border>
-        <Button Click="OpenItinerary" x:Name="buttonItinerary" Grid.Row="1" VerticalAlignment="Top"
-                VerticalContentAlignment="Top" Content="My Itinerary  ^" Grid.Column="1" Margin="32,753,32,0"/>
+        <Button Click="OpenItinerary" x:Name="btnItinerary" Grid.Row="1" Margin="10"
+                Content="My Itinerary  ^" Grid.Column="1"/>
     </Grid>
 </Window>

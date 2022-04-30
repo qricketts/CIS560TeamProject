@@ -37,6 +37,7 @@ namespace KioskGUI
         public ProfileView()
         {
             InitializeComponent();
+            MainWindow main = TraverseTreeForMainWindow;
         }
 
         private void LoadProfile(object sender, RoutedEventArgs e)
@@ -45,10 +46,10 @@ namespace KioskGUI
             string password = textboxPassword.Text;
             //check if database has the email, then verify the password, hash it too. 
 
-            ItineraryView iv = new ItineraryView();
             MainWindow main = TraverseTreeForMainWindow;
+            main.ItineraryView = new(main); 
             //update itinerary view to have the places from the profile. 
-            main.ChangeChild(iv); 
+            main.ChangeChild(main.ItineraryView); 
 
             throw new NotImplementedException("Complete ProfileView.LoadProfile() code"); 
         }
@@ -58,13 +59,14 @@ namespace KioskGUI
             string email = textboxCreateEmail.Text;
             string password = textboxCreatePassword.Text;
             //check if database has email, if not then add to database as a Person. 
-
-            ItineraryView iv = new ItineraryView();
+            
             MainWindow main = TraverseTreeForMainWindow;
+            main.ItineraryView = new(main); 
             //link itinerary view to the profile being used. Updating it in the db for each removal and addition. 
-            main.ChangeChild(iv);
+            main.ChangeChild(main.ItineraryView);
 
             throw new NotImplementedException("Complete ProfileView.CreateProfile() code"); 
         }
+
     }
 }

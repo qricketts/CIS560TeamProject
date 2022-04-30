@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KioskData;
+using KioskData.KioskModels;
+using System.ComponentModel; 
 
 namespace KioskGUI
 {
@@ -20,38 +23,37 @@ namespace KioskGUI
     /// </summary>
     public partial class ItineraryView : UserControl
     {
-        private MainWindow TraverseTreeForMainWindow
-        {
-            get
-            {
-                DependencyObject parent = this;
-                do
-                {
-                    parent = LogicalTreeHelper.GetParent(parent);
-                }
-                while (!(parent is null || parent is MainWindow));
-                return (MainWindow)parent; 
-            }
-        }
 
-
-        public ItineraryView()
+        private BindingList<ItineraryPlaceControl> ItineraryPlaceControls = new BindingList<ItineraryPlaceControl>();
+        private MainWindow _main; 
+        public ItineraryView(MainWindow main)
         {
             InitializeComponent();
+            lvItinerary.ItemsSource = ItineraryPlaceControls; 
+            _main = main; 
+            if (_main is null) return; 
+            FillList(); 
+        }
+
+        public void FillList()
+        {
+            ItineraryPlaceControls.Clear();
+            foreach(Place p in _main.Itinerary.Places)
+            {
+                ItineraryPlaceControls.Add(new ItineraryPlaceControl(p, _main));
+            }
         }
 
         private void ReturnToCategoryView(object sender, RoutedEventArgs e)
         {
-            MainWindow main = TraverseTreeForMainWindow;
-            CategoryView cv = new CategoryView(); 
-            main.ChangeChild(cv); 
+            CategoryView cv = new CategoryView();
+            _main.ChangeChild(cv); 
         }
 
         private void OnProfileClick(object sender, RoutedEventArgs e)
         {
-            MainWindow main = TraverseTreeForMainWindow;
             ProfileView profile = new ProfileView();
-            main.ChangeChild(profile); 
+            _main.ChangeChild(profile); 
         }
     }
 }

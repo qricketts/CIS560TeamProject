@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="AdminGUI.AddControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AdminGUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="840" d:DesignWidth="480">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="Height" Value="100"/>
+                <Setter Property="FontSize" Value="40"/>
+            </Style>
+            <Style TargetType="RadioButton">
+                <Setter Property="FontSize" Value="12"/>
+            </Style>
+            <Style TargetType="Viewbox">
+                <Setter Property="Height" Value="35"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="10"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="Margin" Value="10, 0"/>
+            </Style>
+            <Style TargetType="StackPanel">
+                <Setter Property="Margin" Value="0,10"/>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontSize" Value="32"/>
+            </Style>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Viewbox>
+               <RadioButton Checked="AddChanged" GroupName="AddType" Content="Place" IsChecked="True"/> 
+            </Viewbox>
+            <Viewbox>
+                <RadioButton Checked="AddChanged" GroupName="AddType" Content="Person"/>
+            </Viewbox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="labelInfo1" Content="Name:"/>
+                <TextBox TextChanged="TextChanged" x:Name="textbox1" Width="350"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="labelInfo2" Content="Address:"/>
+                <TextBox TextChanged="TextChanged" x:Name="textbox2" Width="328"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="labelInfo3" Content="Description:"/>
+                <TextBox TextWrapping="Wrap" TextChanged="TextChanged" x:Name="textbox3" Width="293" Height="200"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" >
+            <Button Margin="0,10" x:Name="btnSubmit" Click="SubmitNewItem" Grid.Row="2" Content="Submit"/>
+            <Button x:Name="btnCancel" Click="CancelNewItem" Grid.Row="2" Content="Cancel"/>
+        </StackPanel>
+        
+        
+    </Grid>
+</UserControl>

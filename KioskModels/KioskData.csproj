@@ -54,6 +54,8 @@
     <Compile Include="IRatingRepository.cs" />
     <Compile Include="ItineraryPlaceRepository.cs" />
     <Compile Include="ItineraryRepository.cs" />
+    <Compile Include="Enums\CategorySelected.cs" />
+    <Compile Include="Enums\DataTypeSelected.cs" />
     <Compile Include="KioskModels\Category.cs" />
     <Compile Include="KioskModels\Itinerary.cs" />
     <Compile Include="KioskModels\ItineraryPlace.cs" />
