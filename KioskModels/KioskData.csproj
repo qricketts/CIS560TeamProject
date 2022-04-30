@@ -38,6 +38,12 @@
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="App.config" />
+    <None Include="DummyData\CategoryData.csv" />
+    <None Include="DummyData\IteneraryData.csv" />
+    <None Include="DummyData\IteneraryPlaceData.csv" />
+    <None Include="DummyData\PersonData.csv" />
+    <None Include="DummyData\PlaceData.csv" />
+    <None Include="DummyData\RatingData.csv" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataDelegates\CreatePersonDataDelegate.cs" />
@@ -73,7 +79,6 @@
     <Content Include="SQL\Tables\Kiosk.Rating.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DummyData\" />
     <Folder Include="SQL\Data\" />
     <Folder Include="SQL\Procedures\" />
   </ItemGroup>
