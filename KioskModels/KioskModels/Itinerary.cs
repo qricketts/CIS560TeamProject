@@ -10,6 +10,21 @@ namespace KioskData.KioskModels
     {
         public List<Place> Places { get; private set; }
 
+        private DateTime _createdOn;
+        public DateTime CreatedOn
+        {
+            get => _createdOn;
+            private set => _createdOn = value;
+        }
+
+        private DateTime _updatedOn;
+        public DateTime UpdatedOn
+        {
+            get => _updatedOn;
+            private set => _updatedOn = value;
+        }
+
+
         public Itinerary()
         {
             Places = new List<Place>(); 

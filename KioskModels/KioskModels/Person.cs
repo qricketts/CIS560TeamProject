@@ -36,6 +36,20 @@ namespace KioskData.KioskModels
             set => _email = value; 
         }
 
+        private DateTime _createdOn;
+        public DateTime CreatedOn
+        {
+            get => _createdOn;
+            private set => _createdOn = value;
+        }
+
+        private DateTime _updatedOn;
+        public DateTime UpdatedOn
+        {
+            get => _updatedOn;
+            private set => _updatedOn = value;
+        }
+
         public Person(int personId, string name, string email, string password)
         {
             PersonId = personId;

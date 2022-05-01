@@ -8,12 +8,32 @@ namespace KioskData.KioskModels
 {
     public class Place
     {
-        public int PlaceId { get; set; }
-        public string Name { get; set; }
+        private int _placeId; 
+        public int PlaceId
+        {
+            get => _placeId;
+            set => _placeId = value; 
+        }
+        private string _name;
+        public string Name
+        {
+            get => _name;
+            set => _name = value; 
+        }
 
-        public string Address { get; set; } = null; 
+        private string _address; 
+        public string Address
+        {
+            get => _address;
+            set => _address = value; 
+        }
 
-        public string Description { get; set; } = null;
+        private string _description; 
+        public string Description
+        {
+            get => _description;
+            set => _description = value; 
+        }
 
         public Place(int placeId, string name, string address, string description)
         {
@@ -23,8 +43,18 @@ namespace KioskData.KioskModels
             Description = description;
         }
 
-        public object Picture { get; set; } = null;
+        private DateTime _createdOn;
+        public DateTime CreatedOn
+        {
+            get => _createdOn;
+            private set => _createdOn = value;
+        }
 
-        public DateTime CreatedOn { get; private set; }
+        private DateTime _updatedOn;
+        public DateTime UpdatedOn
+        {
+            get => _updatedOn;
+            private set => _updatedOn = value;
+        }
     }
 }

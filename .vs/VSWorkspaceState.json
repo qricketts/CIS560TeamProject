@@ -5,8 +5,10 @@
     "\\CIS560TeamProject\\AdminGUI",
     "\\KioskGUI",
     "\\KioskModels",
+    "\\KioskModels\\DummyData",
+    "\\KioskModels\\KioskModels",
     "\\UnitTests"
   ],
-  "SelectedNode": "\\CIS560TeamProject\\AdminGUI",
+  "SelectedNode": "\\KioskModels\\KioskModels\\Place.cs",
   "PreviewInSolutionExplorer": false
 }

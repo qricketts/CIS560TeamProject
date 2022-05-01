@@ -8,13 +8,29 @@ namespace KioskData.KioskModels
 {
     public class Category
     {
-        public string Name { get; private set; }
+        private string _name; 
+        public string Name
+        {
+            get => _name;
+            set => _name = value; 
+        }
 
-        public List<Place> Places;
+        public List<Place> Places { get; private set; }
 
         public Category(string name)
         {
             Name = name; 
+        }
+
+        public void AddPlace(Place p)
+        {
+            if (Places.Contains(p)) return;
+            Places.Add(p); 
+        }
+        public void RemovePlace(Place p)
+        {
+            if (!Places.Contains(p)) return;
+            Places.Remove(p); 
         }
     }
 }

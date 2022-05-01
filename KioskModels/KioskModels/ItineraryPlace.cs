@@ -8,9 +8,19 @@ namespace KioskData.KioskModels
 {
     public class ItineraryPlace
     {
-        public Place Place { get; private set; }
-        
-        public Itinerary Itinerary { get; private set; }
+        private Place _place;
+        public Place Place
+        {
+            get => _place;
+            private set => _place = value; 
+        }
+
+        private Itinerary _itinerary;
+        public Itinerary Itinerary
+        {
+            get => _itinerary;
+            private set => _itinerary = value;
+        }
 
         public ItineraryPlace(Itinerary i, Place p) 
         {
