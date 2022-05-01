@@ -11,6 +11,6 @@ namespace KioskData
         /// <returns>IReadOnlyList of Categories in the database</returns>
         IReadOnlyList<Category> RetrieveCategories();
 
-        void SaveCategory(string name);
+        //void SaveCategory(string name);
     }
 }

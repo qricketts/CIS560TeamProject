@@ -40,21 +40,21 @@ namespace KioskData.KioskModels
         public DateTime CreatedOn
         {
             get => _createdOn;
-            private set => _createdOn = value;
+            set => _createdOn = value;
         }
 
         private DateTime _updatedOn;
         public DateTime UpdatedOn
         {
             get => _updatedOn;
-            private set => _updatedOn = value;
+            set => _updatedOn = value;
         }
 
-        public Person(int personId, string name, string email, string password)
+        public Person(int personId, string email, string name, string password)
         {
             PersonId = personId;
             Name = name;
-            Email = _email;
+            Email = email;
             Password = password;
         }
     }

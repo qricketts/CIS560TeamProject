@@ -8,6 +8,13 @@ namespace KioskData.KioskModels
 {
     public class Category
     {
+        private int _categoryId; 
+        public int CategoryId
+        {
+            get => _categoryId;
+            set => _categoryId = value; 
+        }
+
         private string _name; 
         public string Name
         {
@@ -17,8 +24,9 @@ namespace KioskData.KioskModels
 
         public List<Place> Places { get; private set; }
 
-        public Category(string name)
+        public Category(int id, string name)
         {
+            CategoryId = id; 
             Name = name; 
         }
 

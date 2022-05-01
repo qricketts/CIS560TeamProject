@@ -56,6 +56,7 @@ namespace KioskGUI
 
         private void CreateProfile(object sender, RoutedEventArgs e)
         {
+            string name = textboxCreateName.Text; 
             string email = textboxCreateEmail.Text;
             string password = textboxCreatePassword.Text;
             //check if database has email, if not then add to database as a Person. 

@@ -50,10 +50,12 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1">
+            <TextBlock x:Name="textCreateName" TextAlignment="Right" Text="Name"/>
             <TextBlock x:Name="textCreateEmail" TextAlignment="Right" Text="Email"/>
             <TextBlock x:Name="textCreatePassword" TextAlignment="RIght" Text="Password"/>
         </StackPanel>
         <StackPanel Grid.Row="1" HorizontalAlignment="Left" Grid.Column="1">
+            <TextBox x:Name="textboxCreateName"/>
             <TextBox x:Name="textboxCreateEmail"/>
             <TextBox x:Name="textboxCreatePassword"/>
             <Button Click="CreateProfile" x:Name="btnCreateNew" Grid.ColumnSpan="2" Content="Create New..."/>

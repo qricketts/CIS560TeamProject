@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
 using KioskData.KioskModels;
+using System.IO; 
 
 namespace KioskData
 {
@@ -18,12 +19,23 @@ namespace KioskData
         }
         public IReadOnlyList<Category> RetrieveCategories()
         {
-            throw new NotImplementedException();
+            List<Category> categories = new List<Category>();
+            using (StreamReader sr = new StreamReader("DummyData/CategoryData.csv"))
+            {
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    string[] values = line.Split(',');
+                    categories.Add(new Category(Convert.ToInt32(values[0]), values[1])); 
+                }
+            }
+            return categories; 
         }
-
+        /* We will not have the Add Category Function in this build. 
         public void SaveCategory(string name)
         {
             throw new NotImplementedException();
         }
+        */
     }
 }
