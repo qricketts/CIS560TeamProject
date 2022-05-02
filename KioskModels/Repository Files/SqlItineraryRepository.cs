@@ -46,14 +46,35 @@ namespace KioskData
         public void SaveItinerary(Itinerary itineraryToSave)
         {
             List<Itinerary> itineraries = RetrieveItineraries() as List<Itinerary>; 
+            string path = "C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/DummyData/ItineraryData.csv";
             foreach (Itinerary i in itineraries)
             {
                 if (i.ItineraryId == itineraryToSave.ItineraryId)
                 {
                     itineraries.Remove(i);
-                    itineraries.Add(itineraryToSave); 
+                    itineraries.Add(itineraryToSave);
+                    using (StreamWriter sw = new StreamWriter(path))
+                    {
+                        foreach(Itinerary it in itineraries)
+                        {
+                            StringBuilder sb = new StringBuilder(it.ItineraryId); 
+                            foreach(Place p in it.Places)
+                            {
+                                sb.Append("," + p.PlaceId); 
+                            }
+                            sw.WriteLine(sb.ToString()); 
+                        }
+                    }
+                    return; 
                 }
             }
+            int id = File.ReadLines(path).Count() + 1;
+            StringBuilder sb2 = new StringBuilder(id); 
+            foreach(Place p in itineraryToSave.Places)
+            {
+                sb2.Append("," + p.PlaceId);
+            }
+            File.AppendAllText(path, sb2.ToString()); 
         }
     }
 }

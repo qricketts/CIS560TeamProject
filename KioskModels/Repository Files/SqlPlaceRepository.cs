@@ -12,7 +12,6 @@ namespace KioskData
     public class SqlPlaceRepository : IPlaceRepository
     {
         private readonly SqlCommandExecutor executor;
-        private List<Place> _places; 
         public SqlPlaceRepository(string connectionString)
         {
             executor = new SqlCommandExecutor(connectionString);
@@ -32,14 +31,12 @@ namespace KioskData
                 }
 
             }
-            _places = places; 
             return places; 
         }
 
         public bool SavePlace(string name, int categoryId, string address, string description)
         {
-            foreach(Place p in _places)
-            
+            foreach(Place p in RetrievePlaces())
             {
                 if (p.Name.Equals(name)) 
                     return false; 
@@ -53,10 +50,6 @@ namespace KioskData
 
             File.AppendAllText(path, id + "," + name + "," + categoryId + "," + addressInfo[0] + "," + addressInfo[1] + "," + addressInfo[2] + "," + addressInfo[3] + "," + description + "," 
                 + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + "," + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + Environment.NewLine);
-
-            RetrievePlaces(); 
-
-            //add place to database
 
             return true; 
         }

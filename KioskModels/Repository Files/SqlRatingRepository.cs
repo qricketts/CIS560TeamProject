@@ -13,9 +13,11 @@ namespace KioskData
     public class SqlRatingRepository : IRatingRepository
     {
         private readonly SqlCommandExecutor executor;
+        private readonly string connection; 
         private int _nextId =1; 
         public SqlRatingRepository(string connectionString)
         {
+            connection = connectionString; 
             executor = new SqlCommandExecutor(connectionString);
         }
         public IReadOnlyList<Rating> RetrieveRatings()
@@ -30,7 +32,7 @@ namespace KioskData
                     _nextId = Convert.ToInt32(values[0]) + 1; 
                     int placeId = Convert.ToInt32(values[3]);
                     Place place = null; 
-                    SqlPlaceRepository placeRepo = new SqlPlaceRepository("test");
+                    SqlPlaceRepository placeRepo = new SqlPlaceRepository(connection);
                     List<Place> places = placeRepo.RetrievePlaces() as List<Place>; 
                     foreach (Place p in places)
                     {
@@ -42,7 +44,7 @@ namespace KioskData
                     }
                     int personId = Convert.ToInt32(values[2]);
                     Person person = null;
-                    SqlPersonRepository personRepo = new SqlPersonRepository("test");
+                    SqlPersonRepository personRepo = new SqlPersonRepository(connection);
                     List<Person> people = personRepo.RetrievePeople() as List<Person>;
 
                     foreach (Person p in people)
@@ -61,9 +63,10 @@ namespace KioskData
 
         public void SaveRating(int rating, Place place, Person person)
         {
-            List<Rating> ratings = RetrieveRatings() as List<Rating>;
-            ratings.Add(new Rating(_nextId, rating, place, person));
-            _nextId++; 
+            string path = "C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/DummyData/RatingData.csv";
+            File.AppendAllText(path, _nextId + "," + rating + "," + place + "," + person
+                + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + "," + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + Environment.NewLine);
+            _nextId++;
         }
     }
 }
