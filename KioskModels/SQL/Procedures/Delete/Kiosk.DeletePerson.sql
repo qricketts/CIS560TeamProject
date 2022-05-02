@@ -1,4 +1,4 @@
-﻿create PROCEDURE Kiosk.DeletePerson
+﻿create or alter PROCEDURE Kiosk.DeletePerson
    @PersonId INT OUTPUT
 AS
 

@@ -7,6 +7,7 @@ using KioskData.KioskModels;
 using KioskData;
 using DataAccess;
 using System.IO;
+using KioskData.DataDelegates;
 
 namespace KioskData
 {
@@ -17,29 +18,34 @@ namespace KioskData
         {
             executor = new SqlCommandExecutor(connectionString);
         }
-        public IReadOnlyList<Person> RetrievePeople()
-        {
-            List<Person> people = new List<Person>();
-            using (StreamReader sr = new StreamReader("C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/DummyData/PersonData.csv"))
-            {
-                while (!sr.EndOfStream)
-                {
-                    string line = sr.ReadLine();
-                    string[] values = line.Split(',');
-                    people.Add(new Person(Convert.ToInt32(values[0]), values[1], values[2], values[3])
-                    { CreatedOn = Convert.ToDateTime(values[4]), UpdatedOn = Convert.ToDateTime(values[5]) });
-                }
 
-            }
-            return people;
+        public Person CreatePerson(string name, string email, string password)
+        {
+            var d = new CreatePersonDataDelegate(name, email, password);
+            return executor.ExecuteNonQuery(d); 
         }
 
-        public void SavePerson(string name, string email, string password)
+        public Person FetchPerson(int personId)
         {
-            string path = "C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/DummyData/PersonData.csv";
-            int id = File.ReadLines(path).Count() + 1;
-            File.AppendAllText(path, id + "," + email + "," + name + "," + password + ","
-                + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + "," + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + Environment.NewLine);
+            var d = new FetchPersonDataDelegate(personId);
+            return executor.ExecuteReader(d); 
+        }
+
+        public void DeletePerson(int personId)
+        {
+            var d = new DeletePersonDataDelegate(personId);
+            executor.ExecuteNonQuery(d); 
+        }
+
+        public IReadOnlyList<Person> RetrievePeople()
+        {
+            return executor.ExecuteReader(new RetrievePeopleDataDelegate()); 
+        }
+
+        public void SavePerson(int id, string name, string email, string password)
+        {
+            var d = new SavePersonDataDelegate(id, name, email, password);
+            executor.ExecuteNonQuery(d);
         }
     }
 }

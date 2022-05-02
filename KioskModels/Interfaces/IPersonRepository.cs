@@ -7,6 +7,6 @@ namespace KioskData
     {
         IReadOnlyList<Person> RetrievePeople();
 
-        void SavePerson(string name, string email, string password);
+        void SavePerson(int id, string name, string email, string password);
     }
 }

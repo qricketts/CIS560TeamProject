@@ -33,7 +33,7 @@ namespace KioskData.KioskModels
         public string Password
         {
             get => _password;
-            set => _email = value; 
+            set => _password = value; 
         }
 
         private DateTime _createdOn;

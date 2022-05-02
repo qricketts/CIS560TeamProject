@@ -1,4 +1,4 @@
-﻿create PROCEDURE Kiosk.DeletePlace
+﻿create or alter PROCEDURE Kiosk.DeletePlace
    @PlaceId INT 
 AS
 

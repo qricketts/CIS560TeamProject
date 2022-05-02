@@ -1,4 +1,4 @@
-﻿create PROCEDURE Kiosk.DeleteItinerary
+﻿create or alter PROCEDURE Kiosk.DeleteItinerary
    @ItineraryId INT 
 AS
 
