@@ -8,6 +8,12 @@ namespace KioskData.KioskModels
 {
     public class Place
     {
+        private int _categoryId; 
+        public int CategoryId
+        {
+            get => _categoryId;
+            set => _categoryId = value; 
+        }
         private int _placeId; 
         public int PlaceId
         {
@@ -47,14 +53,14 @@ namespace KioskData.KioskModels
         public DateTime CreatedOn
         {
             get => _createdOn;
-            private set => _createdOn = value;
+            set => _createdOn = value;
         }
 
         private DateTime _updatedOn;
         public DateTime UpdatedOn
         {
             get => _updatedOn;
-            private set => _updatedOn = value;
+            set => _updatedOn = value;
         }
     }
 }

@@ -7,6 +7,6 @@ namespace KioskData
     {
         IReadOnlyList<Place> RetrievePlaces();
 
-        void SavePlace(string name, string address, string description);
+        bool SavePlace(string name, int categoryId, string address, string description);
     }
 }

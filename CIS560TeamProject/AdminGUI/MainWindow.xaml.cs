@@ -65,6 +65,17 @@ namespace AdminGUI
             InitializeComponent();
             borderReports.Child = ReportsControl;
             borderFilters.Child = FiltersControl;
+
+            //testing functionality
+            /*
+            SqlPersonRepository pr = new SqlPersonRepository("test");
+            pr.RetrievePeople();
+            pr.SavePerson("John Velasco", "velascoj@ksu.edu", "123"); 
+            */
+
+            SqlPlaceRepository pr = new SqlPlaceRepository("test");
+            pr.RetrievePlaces();
+            pr.SavePlace("johntime", 1 , "123 North,Manhattan,KS,66502", "no descriptioN");
         }
 
         public void LoadData()
@@ -162,12 +173,12 @@ namespace AdminGUI
 
         private void EditRemoveItem(object sender, RoutedEventArgs e)
         {
-            if (listviewQuery.SelectedIndex == -1) return; 
+            //if (listviewQuery.SelectedIndex == -1) return; 
 
             if (FiltersControl.rbPlace.IsChecked == true)
             {
                 //pass the Place associated with the listview control. 
-                PlaceBindingItem placeBindingItem = listviewQuery.SelectedItem as PlaceBindingItem; 
+                PlaceBindingItem placeBindingItem = listviewQuery.SelectedItem as PlaceBindingItem;
                 borderFilters.Child = new EditRemoveControl(placeBindingItem.Place); 
             }
             else if (FiltersControl.rbPerson.IsChecked == true)

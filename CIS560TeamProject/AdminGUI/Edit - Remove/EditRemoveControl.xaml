@@ -32,8 +32,6 @@
                 <Setter Property="FontSize" Value="32"/>
             </Style>
         </Grid.Resources>
-
         <Border x:Name="borderTypeControl"/>
-
     </Grid>
 </UserControl>

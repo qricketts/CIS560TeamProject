@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KioskData.KioskModels;
-using KioskData; 
+using KioskData;
 using DataAccess;
-using System.IO; 
+using System.IO;
 
 namespace KioskData
 {
@@ -20,22 +20,26 @@ namespace KioskData
         public IReadOnlyList<Person> RetrievePeople()
         {
             List<Person> people = new List<Person>();
-            using (StreamReader sr = new StreamReader("DummyData/PersonData.csv"))
+            using (StreamReader sr = new StreamReader("C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/DummyData/PersonData.csv"))
             {
-                string line = sr.ReadLine();
-                string[] values = line.Split(',');
-                people.Add(new Person(Convert.ToInt32(values[0]), values[1], values[2], values[3])
-                    { CreatedOn = Convert.ToDateTime(values[4]), UpdatedOn = Convert.ToDateTime(values[5])});
+                while (!sr.EndOfStream)
+                {
+                    string line = sr.ReadLine();
+                    string[] values = line.Split(',');
+                    people.Add(new Person(Convert.ToInt32(values[0]), values[1], values[2], values[3])
+                    { CreatedOn = Convert.ToDateTime(values[4]), UpdatedOn = Convert.ToDateTime(values[5]) });
+                }
+
             }
-            return people; 
+            return people;
         }
 
         public void SavePerson(string name, string email, string password)
         {
             string path = "C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/DummyData/PersonData.csv";
-            int id = File.ReadLines(path).Count()+1; 
-            File.AppendAllText(path, id + "," + email + "," + name + "," + password + "," + DateTimeOffset.Now + "," + DateTimeOffset.Now + Environment.NewLine);
-                
+            int id = File.ReadLines(path).Count() + 1;
+            File.AppendAllText(path, id + "," + email + "," + name + "," + password + ","
+                + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + "," + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + Environment.NewLine);
         }
     }
 }

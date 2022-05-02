@@ -48,12 +48,12 @@
   <ItemGroup>
     <Compile Include="DataDelegates\CreatePersonDataDelegate.cs" />
     <Compile Include="DataDelegates\CreatePlaceDataDelegate.cs" />
-    <Compile Include="ICategoryRepository.cs" />
-    <Compile Include="IPersonRepository.cs" />
-    <Compile Include="IPlaceRepository.cs" />
-    <Compile Include="IRatingRepository.cs" />
-    <Compile Include="ItineraryPlaceRepository.cs" />
-    <Compile Include="ItineraryRepository.cs" />
+    <Compile Include="Interfaces\ICategoryRepository.cs" />
+    <Compile Include="Interfaces\IPersonRepository.cs" />
+    <Compile Include="Interfaces\IPlaceRepository.cs" />
+    <Compile Include="Interfaces\IRatingRepository.cs" />
+    <Compile Include="Interfaces\ItineraryPlaceRepository.cs" />
+    <Compile Include="Interfaces\ItineraryRepository.cs" />
     <Compile Include="Enums\CategorySelected.cs" />
     <Compile Include="Enums\DataTypeSelected.cs" />
     <Compile Include="KioskModels\Category.cs" />
@@ -63,12 +63,12 @@
     <Compile Include="KioskModels\Place.cs" />
     <Compile Include="KioskModels\Rating.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="SqlCategoryRepository.cs" />
-    <Compile Include="SqlItineraryPlaceRepository.cs" />
-    <Compile Include="SqlItineraryRepository.cs" />
-    <Compile Include="SqlPersonRepository.cs" />
-    <Compile Include="SqlPlaceRepository.cs" />
-    <Compile Include="SqlRatingRepository.cs" />
+    <Compile Include="Repository Files\SqlCategoryRepository.cs" />
+    <Compile Include="Repository Files\SqlItineraryPlaceRepository.cs" />
+    <Compile Include="Repository Files\SqlItineraryRepository.cs" />
+    <Compile Include="Repository Files\SqlPersonRepository.cs" />
+    <Compile Include="Repository Files\SqlPlaceRepository.cs" />
+    <Compile Include="Repository Files\SqlRatingRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Schemas\Kiosk.sql" />

@@ -8,6 +8,12 @@ namespace KioskData.KioskModels
 {
     public class Rating
     {
+        private int _ratingId; 
+        public int RatingId
+        {
+            get => _rate;
+            set => _rate = value; 
+        }
         private int _rate; 
         public int Rate
         {
@@ -40,9 +46,12 @@ namespace KioskData.KioskModels
             private set => _updatedOn = value;
         }
 
-        public Rating(int rating)
+        public Rating(int id, int rating, Place place, Person person)
         {
+            RatingId = id; 
             Rate = rating;
+            Place = place;
+            Person = person; 
             UpdatedOn = DateTime.Now; 
         }
     }
