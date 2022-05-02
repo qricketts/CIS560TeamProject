@@ -8,7 +8,13 @@ namespace KioskData.KioskModels
 {
     public class Itinerary
     {
-        public List<Place> Places { get; private set; }
+        private int _id;
+        public int ItineraryId
+        {
+            get => _id;
+            set => _id = value; 
+        }
+        public List<Place> Places { get; private set; } = new List<Place>();
 
         private DateTime _createdOn;
         public DateTime CreatedOn
@@ -25,9 +31,9 @@ namespace KioskData.KioskModels
         }
 
 
-        public Itinerary()
+        public Itinerary(int id)
         {
-            Places = new List<Place>(); 
+            ItineraryId = id; 
         }
 
         public void Add(Place place)

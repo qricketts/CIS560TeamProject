@@ -13,7 +13,7 @@ namespace KioskData
     public class SqlRatingRepository : IRatingRepository
     {
         private readonly SqlCommandExecutor executor;
-
+        private int _nextId =1; 
         public SqlRatingRepository(string connectionString)
         {
             executor = new SqlCommandExecutor(connectionString);
@@ -27,9 +27,9 @@ namespace KioskData
                 {
                     string line = sr.ReadLine();
                     string[] values = line.Split(','); //rid,rate,personid,placeid,createdon,updatedon
-
+                    _nextId = Convert.ToInt32(values[0]) + 1; 
                     int placeId = Convert.ToInt32(values[3]);
-                    Place place; 
+                    Place place = null; 
                     SqlPlaceRepository placeRepo = new SqlPlaceRepository("test");
                     List<Place> places = placeRepo.RetrievePlaces() as List<Place>; 
 
@@ -43,7 +43,7 @@ namespace KioskData
                     }
 
                     int personId = Convert.ToInt32(values[2]);
-                    Person person;
+                    Person person = null;
                     SqlPersonRepository personRepo = new SqlPersonRepository("test");
                     List<Person> people = personRepo.RetrievePeople() as List<Person>;
 
@@ -63,7 +63,9 @@ namespace KioskData
 
         public void SaveRating(int rating, Place place, Person person)
         {
-            throw new NotImplementedException();
+            List<Rating> ratings = RetrieveRatings() as List<Rating>;
+            ratings.Add(new Rating(_nextId, rating, place, person));
+            _nextId++; 
         }
     }
 }

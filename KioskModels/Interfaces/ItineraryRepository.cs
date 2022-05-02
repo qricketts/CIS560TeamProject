@@ -7,6 +7,6 @@ namespace KioskData
     {
         IReadOnlyList<Itinerary> RetrieveItineraries();
 
-        void SaveItinerary(List<Place> p);
+        void SaveItinerary(Itinerary itinerary);
     }
 }

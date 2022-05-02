@@ -21,7 +21,7 @@ namespace KioskData
             throw new NotImplementedException();
         }
 
-        public void SaveIteneraryPlace(Place p, Itinerary i)
+        public void SaveItineraryPlace(Place p, Itinerary i)
         {
             throw new NotImplementedException();
         }
