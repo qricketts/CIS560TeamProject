@@ -1,75 +1,100 @@
-1,Togo Cuisine,1,9813 Gulgowski Mount,Abbyview,TN,67107,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-2,Nico's Coffee Shop,2,2790 Kutch Junctions,North Clare,ND,67652,Local Coffee Shop,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-3,Tanzania United Republic of Cuisine,1,48225 Christian Valleys,Demarcoview,FL,32648,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-4,Baumbachmouth college,4,1125 Daphnee Station,Baumbachmouth,TX,64151,A college in Baumbachmouth,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-5,FrisbyGolf,6,23127 Kirlin Roads,Alanashire,IA,12807,Local Frisby Golf,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-6,Nitzsche Park,5,88060 Bergnaum ,Agustinashire,OR,71460,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-7,Target,6,06229 Laurence Fort,South Trey,MD,37018,Target is a retailer that sells a variety of goods,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-8,Nienow Park,5,21796 Raegan Valleys,East Deliaville,LA,73537,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-9,Llewellyn's Coffee Shop,2,4044 Veda Divide,Port Isai,KS,52913,Local Coffee Shop,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-10,Streich Park,5,209 Hermann Stream,Reginaldport,CO,18631,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-11,Lind Park,5,572 Callie Drives,Weimannland,NH,87559,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-12,FairGrounds,6,273 Feeney Course,Michalefurt,NY,39428,Local Fair Grounds,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-13,Kiehn Park,5,637 Charlotte Canyon,Myrtlestad,AL,27353,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-14,Zimbabwe Cuisine,1,6990 Icie Tunnel,Lake Lisachester,MD,67936,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-15,Vedaville college,4,2459 Stanton Unions,Vedaville,WY,68783,A college in Vedaville,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-16,Hilton's Coffee Shop,2,984 Bergnaum Key,New Amani,VA,26578,Local Coffee Shop,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-17,Golf,6,4409 Tessie Views,New Magaliton,RI,97056,Local Golf Course,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-18,Trenton's Coffee Shop,2,216 Jaron Tunnel,Daynafurt,AL,99042,Local Coffee Shop,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-19,BikingTrail,6,188 Ledner Ville,Beerland,WV,81444,local Biking Trail,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-20,BestBuy,6,1109 Stehr Street,Lake Tommieton,MS,69521,BestBuy is a retailer that sells electronics,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-21,Diego's Coffee Shop,2,866 Shields Corner,Carissamouth,VA,20233,Local Coffee Shop,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-22,McGlynn Park,5,4757 Steuber Turnpike,East Quinnside,NC,13243,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-23,BikingTrail,6,52823 Joy Squares,Vladimirtown,WI,83771,local Biking Trail,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-24,Mayer Park,5,59184 Flatley Street,Conroyhaven,MT,31799,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-25,Lake Norrisside college,4,42468 Harris Locks,Lake Norrisside,NH,58995,A college in Lake Norrisside,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-26,Timor-Leste Cuisine,1,02823 Roberts Manor,Kimberlyton,NE,73121,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-27,Mariofurt college,4,00469 Katelynn Fork,Mariofurt,MN,23635,A college in Mariofurt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-28,Gislason Park,5,50763 Eric Vista,Eichmannberg,MO,41804,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-29,Norwoodburgh college,4,744 Upton Springs,Norwoodburgh,VT,33922,A college in Norwoodburgh,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-30,BikingTrail,6,09331 Norris Valleys,Tomasburgh,OH,74605,local Biking Trail,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-31,Tunisia Cuisine,1,327 Smitham Plains,Andersonfort,SC,38171,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-32,HomeDepot,6,212 Streich Via,Arianechester,IL,56924,HomeDepot is a retailer that sells hardware,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-33,Celestineburgh college,4,47998 Jacques Ports,Celestineburgh,SD,63437,A college in Celestineburgh,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-34,HikingTrail,6,9532 Mohr Route,Kaseyfurt,IA,46045,Local Hiking Trail,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-35,Port Aron college,4,029 Harber Passage,Port Aron,MD,51607,A college in Port Aron,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-36,Port Tiffanyview college,4,22690 Fadel Trafficway,Port Tiffanyview,ID,48882,A college in Port Tiffanyview,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-37,MiniGolf,6,267 Brittany Fort,Port Juneton,SD,25489,Local Mini Golf,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-38,Jeanie's Coffee Shop,2,61025 Hartmann Ford,Felicityburgh,NY,86568,Local Coffee Shop,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-39,Bode Park,5,910 Oberbrunner Village,Reaganchester,VA,47429,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-40,Target,6,6924 Nayeli Village,West Kenneth,ME,31485,Target is a retailer that sells a variety of goods,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-41,Cummerata Park,5,91345 Cartwright Turnpike,South Eddchester,SC,91457,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-42,Luettgen Park,5,72521 Pablo Crest,Port Noble,WV,63739,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-43,O'Kon Park,5,77245 Adams Plains,North Alexandrostad,ME,21110,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-44,Belarus Cuisine,1,6097 Dietrich Passage,South Keshawn,UT,93224,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-45,Port Monserratborough college,4,2203 Gaylord Keys,Port Monserratborough,ID,79504,A college in Port Monserratborough,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-46,HyVee,6,07436 Kuphal Spur,Port Ethan,MA,27848,HyVee is a retailer that sells groceries,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-47,Isle of Man Cuisine,1,0031 Johnston Village,North Orrinton,NV,42538,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-48,RecreationCenter,6,1195 Kiehn Springs,Janessastad,VA,23200,Local Recreation Center,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-49,Ace,6,61859 Bud Valleys,East Adelbert,TX,33393,Ace is a retailer that sells hardware,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-50,Lake Albertaview college,4,322 Jaron Ports,Lake Albertaview,ID,15953,A college in Lake Albertaview,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-51,Muller Park,5,6893 Cummings Ridge,Brauliostad,OR,75213,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-52,Solomon Islands Cuisine,1,461 Reynolds Port,Sabrinashire,AZ,37730,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-53,Gastonfort college,4,261 Thompson Canyon,Gastonfort,WV,73891,A college in Gastonfort,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-54,North Kimtown college,4,35517 Ahmed Mews,North Kimtown,WV,17515,A college in North Kimtown,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-55,Tillmanshire college,4,927 Edyth Garden,Tillmanshire,MA,38972,A college in Tillmanshire,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-56,Gap,6,674 Kuhic Common,New Scotty,TN,21596,Gap is a retailer that sells clothing,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-57,Bayer Park,5,64274 Ewald Drive,Edwardoshire,RI,99112,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-58,Kuvalisside college,4,701 Hilpert Islands,Kuvalisside,AZ,63882,A college in Kuvalisside,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-59,HyVee,6,97467 Melyssa Extension,Doyleland,CA,50731,HyVee is a retailer that sells groceries,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-60,Abernathy Park,5,640 Royal Street,East Lois,OK,92306,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-61,Virgin Islands British Cuisine,1,423 Josefa Ports,South Daniela,KS,65883,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-62,Barney's Coffee Shop,2,402 Strosin Ramp,North Isabellaview,KS,81999,Local Coffee Shop,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-63,Kroger,6,91725 Olin Shoal,Lake Karliton,AL,67202,Kroger is a retailer that sells groceries,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-64,Sri Lanka Cuisine,1,0596 Wilderman Locks,Beerview,UT,19632,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-65,Cambodia Cuisine,1,1898 Nienow Islands,North Maribelberg,AR,88232,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-66,Quigleyport college,4,40388 Pollich Cove,Quigleyport,TX,36777,A college in Quigleyport,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-67,FairGrounds,6,81447 Crystal Squares,Robertborough,UT,58591,Local Fair Grounds,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-68,Central African Republic Cuisine,1,458 Thiel Tunnel,Towneview,MA,20648,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-69,Montenegro Cuisine,1,1273 Hudson Walks,Lake Josephineside,KS,30145,Local Resteraunt,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-70,Menards,6,0180 Maggio Unions,Port Jason,NC,20184,Menards is a retailer that sells hardware,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-71,CVS,6,827 Charles Motorway,New Everardohaven,CO,71062,CVS is a retailer that sells a variety of wellness goods,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-72,DollarTree,6,26646 Schuppe Isle,South Santiagoshire,AL,57146,DollarTree is a retailer that sells a variety of cheaper goods,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-73,Langworth Park,5,6480 Lavina Trafficway,New Eulah,PA,89385,City maintained park,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-74,South Josefaport college,4,475 Hermiston Bypass,South Josefaport,KS,10707,A college in South Josefaport,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
-75,Kyra's Coffee Shop,2,546 O'Keefe Street,South Kurt,VA,17358,Local Coffee Shop,4/28/2022 3:14:59 PM,4/28/2022 3:14:59 PM
+1,Maia's Coffee Shop,2,87261 Zemlak Forest,Grahamstad,HI,25748,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+2,Gap,6,19846 Pfeffer Green,Terrellton,TX,25531,Gap is a retailer that sells clothing,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+3,Mauritania Cuisine,1,52081 Hubert Centers,Beauton,NC,67581,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+4,RecreationCenter,6,59186 Mertz Unions,Heidenreichland,NY,94967,Local Recreation Center,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+5,Lake Ilatown college,4,7039 Quitzon Pike,Lake Ilatown,UT,66596,A college in Lake Ilatown,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+6,Somalia Cuisine,1,627 Ocie Loop,Lianafurt,MN,95470,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+7,Julian's Coffee Shop,2,99269 Hackett Turnpike,Klockoton,OH,75198,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+8,Åland Islands Cuisine,1,98428 Jacobson Pines,Kaydenberg,DE,66101,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+9,Feeney Park,5,035 Mills Creek,New Leifbury,ND,78034,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+10,Gap,6,8693 Grady Crossing,Sauermouth,ND,45056,Gap is a retailer that sells clothing,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+11,Sipes Park,5,4399 Era Orchard,East Lesterview,LA,14490,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+12,Port Alfonsohaven college,4,3688 Osinski Trail,Port Alfonsohaven,WV,47563,A college in Port Alfonsohaven,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+13,Lake Domenicaborough college,4,792 Brando Lights,Lake Domenicaborough,OK,27487,A college in Lake Domenicaborough,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+14,Kassulke Park,5,3265 Stone Mission,Lemketown,WA,49670,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+15,Durgan Park,5,494 Hirthe Plaza,West Daltonburgh,NJ,99256,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+16,Wayfair,6,43294 Zelda Junctions,South Abdulmouth,MI,40052,Daras is a retailer that sells convenience goods,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+17,Bowling,6,35178 Rudolph Row,Tremayneland,IL,90269,Local Bowling,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+18,Kazakhstan Cuisine,1,43986 Mona Center,Lake Meagan,AZ,98895,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+19,Lenora's Coffee Shop,2,05369 Herzog Corners,Port Lorenamouth,MT,29397,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+20,FairGrounds,6,504 Morar Expressway,Mrazside,TX,44971,Local Fair Grounds,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+21,Lueilwitz Park,5,2387 Krista Springs,West Bettystad,AZ,82340,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+22,Doyle Park,5,445 Welch Divide,North Darby,PA,23369,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+23,LaserTag,6,905 Gladys Pass,West Loraineshire,MN,76216,Local Laser-Tag,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+24,RollerRink,6,61870 Kozey Oval,Port Herta,IA,68139,Local Roller Rink,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+25,Macys,6,218 Brekke Mountains,Myrtiefort,MT,64367,Macys is a retailer that sells clothing,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+26,HyVee,6,72655 Romaine Ports,Lake Candida,KS,56808,HyVee is a retailer that sells groceries,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+27,Fiji Cuisine,1,79061 Bartoletti Centers,North Shaina,WY,88873,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+28,Walgreens,6,3168 Linnie Causeway,Marleychester,ID,37189,Walgreens is a retailer that sells a variety of wellness goods,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+29,Rubye's Coffee Shop,2,271 Nick Trail,West Germaine,GA,97498,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+30,Claudiachester college,4,6128 Shanny Plaza,Claudiachester,MN,64216,A college in Claudiachester,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+31,Réunion Cuisine,1,90899 Conn Junction,Nealfurt,NM,24562,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+32,BattingCage,6,96610 Medhurst Haven,Glendaland,OK,66621,Local Batting Cage,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+33,East Elfrieda college,4,9780 Desmond Plains,East Elfrieda,MO,77068,A college in East Elfrieda,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+34,Lake Karl college,4,2741 Cronin Turnpike,Lake Karl,RI,41285,A college in Lake Karl,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+35,East Estefania college,4,5183 Tressie Branch,East Estefania,MA,15342,A college in East Estefania,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+36,Julia's Coffee Shop,2,52767 Hane Row,East Milton,IL,79887,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+37,Mauritius Cuisine,1,0035 Berta Parkways,Port Karen,ME,85752,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+38,Serenity's Coffee Shop,2,9245 Miller Crescent,Lake Micah,NY,29575,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+39,Georgianna's Coffee Shop,2,057 Ward Squares,Leobury,NJ,56503,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+40,PetSmart,6,29072 Lulu Station,Lake Jessie,FL,54193,PetSmart is a retailer that sells pet goods,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+41,DollarGeneral,6,681 Lexie Hills,Rethastad,CA,47436,DollarGeneral is a retailer that sells a variety of cheaper goods,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+42,McKenzie Park,5,664 Cruickshank Rapid,Yundtburgh,DE,16673,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+43,Ima's Coffee Shop,2,4205 Willms Cape,Abelardofort,CT,72169,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+44,FrisbyGolf,6,7479 Amira Mount,Ceciliafort,WV,59017,Local Frisby Golf,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+45,Bulgaria Cuisine,1,057 Paucek Village,Jakaylashire,UT,17367,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+46,Towneport college,4,8513 Cummings Gardens,Towneport,AR,55733,A college in Towneport,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+47,Jaren's Coffee Shop,2,21331 Prohaska Rapid,North Berrymouth,AR,87214,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+48,Lonie's Coffee Shop,2,338 Ondricka Garden,Lake Reilly,WV,34135,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+49,Roselyn's Coffee Shop,2,0299 Bechtelar Squares,Hilllfort,ND,10292,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+50,LaserTag,6,2825 Denesik Road,West Judd,TN,67385,Local Laser-Tag,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+51,Theodore's Coffee Shop,2,86629 Garry Ville,South Makennaland,HI,19495,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+52,Target,6,3813 Marielle Knolls,Kiarramouth,ID,16053,Target is a retailer that sells a variety of goods,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+53,Aruba Cuisine,1,277 Johan Canyon,Port Cassidyton,NM,54149,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+54,Torphy Park,5,23303 Cartwright Parkways,Rebekahtown,ID,54311,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+55,Wayfair,6,3296 Maymie Forges,South Jarvismouth,MN,36182,Daras is a retailer that sells convenience goods,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+56,Rath Park,5,3940 Era Course,Lehnerburgh,WA,43636,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+57,FairGrounds,6,30204 Trantow Mews,Baileyborough,NH,39909,Local Fair Grounds,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+58,Myrtle's Coffee Shop,2,19264 Devan Burg,Skylaside,UT,72604,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+59,Singapore Cuisine,1,905 Stehr Terrace,Dedricland,NE,38419,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+60,RecreationCenter,6,492 Cristal Path,Orvalhaven,ID,14019,Local Recreation Center,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+61,Lake Maynard college,4,07980 Cletus Knoll,Lake Maynard,CO,75315,A college in Lake Maynard,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+62,Kacey's Coffee Shop,2,64904 Marjorie Stream,East Andreaneburgh,CT,87227,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+63,Jacinthe's Coffee Shop,2,4550 Marjolaine Radial,Lakinfurt,WV,85140,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+64,VolleyballCourts,6,2405 Reichel Heights,North Tamiamouth,WI,38810,Local Volleyball Courts,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+65,Apple,6,851 Dallas Spring,South Claudinemouth,NC,68132,Apple is a retailer that sells electronics,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+66,RecreationCenter,6,111 Vanessa Via,Justiceburgh,MI,15854,Local Recreation Center,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+67,Wayfair,6,777 Considine Forks,North Katharina,OH,21013,Daras is a retailer that sells convenience goods,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+68,Rwanda Cuisine,1,577 Russell Squares,New Jamar,KY,58721,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+69,CVS,6,76949 Pfannerstill Points,West Keshawnhaven,RI,65273,CVS is a retailer that sells a variety of wellness goods,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+70,Claudie's Coffee Shop,2,3459 Kuhlman Shoals,East Brownstad,MT,15122,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+71,Powlowski Park,5,6057 Trantow Road,Arnoldoshire,NY,20006,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+72,Malaysia Cuisine,1,13412 Ulices Cape,East Erikachester,TN,60153,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+73,Walker Park,5,03402 Dorian Island,South Jammie,VA,83460,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+74,Kihnchester college,4,2955 Sanford Glens,Kihnchester,WV,82839,A college in Kihnchester,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+75,Golf,6,9321 Smith Road,Virginieville,IL,67476,Local Golf Course,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+76,LaserTag,6,4513 Russel Mews,Brownside,MI,21008,Local Laser-Tag,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+77,Vivianne's Coffee Shop,2,600 Stanton Avenue,South Keeley,MS,97347,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+78,SevenEleven,6,446 Sauer Tunnel,Watsonchester,UT,37149,SevenEleven is a retailer that sells convenience goods,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+79,Wilderman Park,5,317 Treva Plaza,Danielshire,AR,14867,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+80,Malta Cuisine,1,959 Batz Circle,Lake Franciscotown,CA,77918,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+81,Virgin Islands, U.S. Cuisine,1,55736 Keara Ridge,Kuhlmanville,LA,37910,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+82,Aldi,6,8803 O'Hara Trail,Lake Neal,AZ,50563,Aldi is a retailer that sells groceries,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+83,Martina's Coffee Shop,2,77038 Beverly Turnpike,West Clarkshire,MD,81735,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+84,Dominica Cuisine,1,0544 Isaac Ford,Everettmouth,MN,39810,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+85,Venezuela, Bolivarian Republic of Cuisine,1,454 Chauncey Crossing,Wildermanside,CT,13829,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+86,Kirlinshire college,4,93065 Rogers Villages,Kirlinshire,AK,40560,A college in Kirlinshire,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+87,Bergstrom Park,5,618 Toy Camp,North Oliverland,CT,34100,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+88,Arcade,6,023 Lillian Coves,Lakinbury,NH,13531,Local Arcade,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+89,Kohls,6,0176 Emerald Rue,West Christopside,MA,60000,Kohls is a retailer that sells clothing,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+90,RollerRink,6,94261 Kohler Highway,Howellchester,PA,98113,Local Roller Rink,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+91,Franecki Park,5,652 Lupe Fort,North Lucile,IL,38392,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+92,Walgreens,6,857 Schmitt Skyway,Lake Lisa,NC,65760,Walgreens is a retailer that sells a variety of wellness goods,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+93,FrisbyGolf,6,7947 Brekke Views,Trompfort,NJ,13139,Local Frisby Golf,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+94,MiniGolf,6,919 Jewell Harbor,Lake Lessie,NC,72514,Local Mini Golf,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+95,Switzerland Cuisine,1,96311 Sharon Road,Christafurt,WY,85018,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+96,Wyman Park,5,62417 Conn Route,Oceanefort,PA,62426,City maintained park,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+97,Macedonia, the Former Yugoslav Republic of Cuisine,1,12620 DuBuque Hills,North Mark,CT,84048,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+98,Seychelles Cuisine,1,8214 Kemmer Villages,Andersonhaven,WA,35526,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+99,Prudence's Coffee Shop,2,4559 Ole Path,South Constantin,PA,38309,Local Coffee Shop,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
+100,Zambia Cuisine,1,890 Satterfield Drives,Lake Audiemouth,OK,97962,Local Resteraunt,5/2/2022 11:35:10 AM,5/2/2022 11:35:10 AM
