@@ -7,8 +7,11 @@
     "\\KioskModels",
     "\\KioskModels\\DummyData",
     "\\KioskModels\\KioskModels",
+    "\\KioskModels\\Repository Files",
+    "\\KioskModels\\SQL",
+    "\\KioskModels\\SQL\\Procedures",
     "\\UnitTests"
   ],
-  "SelectedNode": "\\KioskModels\\Program.cs",
+  "SelectedNode": "\\KioskModels\\SQL\\Procedures\\Person.FetchPerson.sql",
   "PreviewInSolutionExplorer": false
 }

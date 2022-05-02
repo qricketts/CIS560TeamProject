@@ -71,8 +71,7 @@
     <Compile Include="Repository Files\SqlRatingRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Person.FetchPerson.sql" />
-    <Content Include="SQL\Procedures\Person.CreatePerson.sql" />
+    <Content Include="SQL\Procedures\Person.FetchPerson.sql" />
     <Content Include="SQL\Schemas\Kiosk.sql" />
     <Content Include="SQL\Tables\DropTables.sql" />
     <Content Include="SQL\Tables\Kiosk.Category.sql" />

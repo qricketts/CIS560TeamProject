@@ -39,20 +39,12 @@ namespace KioskData.KioskModels
             private set => _createdOn = value; 
         }
 
-        private DateTime _updatedOn;
-        public DateTime UpdatedOn
-        {
-            get => _updatedOn;
-            private set => _updatedOn = value;
-        }
-
         public Rating(int id, int rating, Place place, Person person)
         {
             RatingId = id; 
             Rate = rating;
             Place = place;
             Person = person; 
-            UpdatedOn = DateTime.Now; 
         }
     }
 }
