@@ -39,8 +39,8 @@
     <None Include=".gitignore" />
     <None Include="App.config" />
     <None Include="DummyData\CategoryData.csv" />
-    <None Include="DummyData\IteneraryData.csv" />
-    <None Include="DummyData\IteneraryPlaceData.csv" />
+    <None Include="DummyData\ItineraryData.csv" />
+    <None Include="DummyData\ItineraryPlaceData.csv" />
     <None Include="DummyData\PersonData.csv" />
     <None Include="DummyData\PlaceData.csv" />
     <None Include="DummyData\RatingData.csv" />

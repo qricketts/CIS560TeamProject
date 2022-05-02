@@ -18,7 +18,7 @@ namespace KioskData
         }
         public IReadOnlyList<ItineraryPlace> RetrieveItineraryPlaces()
         {
-            throw new NotImplementedException();
+            
         }
 
         public void SaveItineraryPlace(Place p, Itinerary i)

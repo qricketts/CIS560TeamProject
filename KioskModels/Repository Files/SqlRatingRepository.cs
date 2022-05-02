@@ -26,13 +26,12 @@ namespace KioskData
                 while (!sr.EndOfStream)
                 {
                     string line = sr.ReadLine();
-                    string[] values = line.Split(','); //rid,rate,personid,placeid,createdon,updatedon
+                    string[] values = line.Split(','); 
                     _nextId = Convert.ToInt32(values[0]) + 1; 
                     int placeId = Convert.ToInt32(values[3]);
                     Place place = null; 
                     SqlPlaceRepository placeRepo = new SqlPlaceRepository("test");
                     List<Place> places = placeRepo.RetrievePlaces() as List<Place>; 
-
                     foreach (Place p in places)
                     {
                         if (p.PlaceId == placeId)
@@ -41,7 +40,6 @@ namespace KioskData
                             break; 
                         }
                     }
-
                     int personId = Convert.ToInt32(values[2]);
                     Person person = null;
                     SqlPersonRepository personRepo = new SqlPersonRepository("test");
