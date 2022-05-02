@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿CREATE OR ALTER PROCEDURE Kiosk.FetchPlace
+   @PlaceId INT
+AS
 
-namespace KioskData
-{
-    class Kiosk
-    {
-    }
-}
+select P.PlaceId, P.[Name], P.[Address], P.[Description]
+from Kiosk.Place P
+where P.PlaceId = @PlaceId;
+
+GO

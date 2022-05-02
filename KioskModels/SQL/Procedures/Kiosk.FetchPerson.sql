@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿CREATE OR ALTER PROCEDURE Kiosk.FetchPerson
+   @PersonId INT 
+AS
 
-namespace KioskData
-{
-    class Kiosk
-    {
-    }
-}
+select P.PersonId, P.[Name], P.Email, P.[Password]
+from Kiosk.Person P 
+where P.PersonId = @PersonId; 
+
+GO

@@ -32,7 +32,7 @@ namespace KioskData.KioskModels
 
         public Itinerary()
         {
-           
+            CreatedOn = DateTime.Now; 
         }
 
         public void Add(Place place)

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿CREATE OR ALTER PROCEDURE Kiosk.FetchRating
+   @RatingId INT
+AS
 
-namespace KioskData
-{
-    class Kiosk
-    {
-    }
-}
+select R.RatingId, R.Rate, R.PlaceId, R.PersonId
+from Kiosk.Rating R
+where R.RatingId = @RatingId
+GO

@@ -5,7 +5,7 @@ CREATE OR ALTER PROCEDURE Kiosk.CreatePlace
    @PlaceId INT OUTPUT
 AS
 
-INSERT Kiosk.Place(Name, Address, Description)
+INSERT Kiosk.Place([Name], [Address], [Description])
 VALUES(@Name, @Address, @Description);
 
 SET @PlaceId = SCOPE_IDENTITY();
