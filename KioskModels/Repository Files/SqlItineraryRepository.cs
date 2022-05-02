@@ -27,7 +27,7 @@ namespace KioskData
                     string line = sr.ReadLine();
                     string[] values = line.Split(',');
                     int id = Convert.ToInt32(values[0]);
-                    Itinerary itinerary = new Itinerary(id);
+                    Itinerary itinerary = new Itinerary();
                     List<Place> places = RetrieveItineraries() as List<Place>;
                     foreach (Place p in places)
                     {

@@ -71,6 +71,9 @@
     <Compile Include="Repository Files\SqlRatingRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SQL\Procedures\Kiosk.DeleteItinerary.sql" />
+    <Content Include="SQL\Procedures\Kiosk.DeletePerson.sql" />
+    <Content Include="SQL\Procedures\Kiosk.DeletePlace.sql" />
     <Content Include="SQL\Procedures\Kiosk.CreateRating.sql" />
     <Content Include="SQL\Procedures\Kiosk.FetchItinerary.sql" />
     <Content Include="SQL\Procedures\Kiosk.FetchPerson.sql" />
