@@ -88,8 +88,6 @@ namespace AdminGUI
                 gridviewQuery = SetupPlaceQuery(gridviewQuery);
                 PlaceList = new BindingList<PlaceBindingItem>(); 
                 listviewQuery.ItemsSource = PlaceList;
-                //PlaceList = GetPlaces(); 
-                //PlaceList.Add(new PlaceBindingItem("test", "test2", 3.2, 10, DateTime.Now, DateTime.Now));
 
             }
             else if (DataTypeSelected is DataTypeSelected.Person)
@@ -97,8 +95,6 @@ namespace AdminGUI
                 gridviewQuery = SetupPersonQuery(gridviewQuery);
                 PersonList = new BindingList<PersonBindingItem>();
                 listviewQuery.ItemsSource = PersonList;
-                //PersonList = GetPersons(); 
-                //PersonList.Add(new PersonBindingItem("Person", "email", 333333, 10222, DateTime.Now, DateTime.Now));
 
             }
             else
@@ -106,8 +102,6 @@ namespace AdminGUI
                 gridviewQuery = SetupItineraryQuery(gridviewQuery);
                 ItineraryList = new BindingList<ItineraryBindingItem>();
                 listviewQuery.ItemsSource = ItineraryList;
-                //ItineraryList = GetItineraries(); 
-                //ItineraryList.Add(new ItineraryBindingItem("personNametime", 10, DateTime.Now, DateTime.Now));
             }
             listviewQuery.View = gridviewQuery;
 

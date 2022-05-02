@@ -30,10 +30,9 @@ namespace KioskData.KioskModels
             private set => _updatedOn = value;
         }
 
-
-        public Itinerary(int id)
+        public Itinerary()
         {
-            ItineraryId = id; 
+           
         }
 
         public void Add(Place place)

@@ -71,7 +71,18 @@
     <Compile Include="Repository Files\SqlRatingRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SQL\Procedures\Person.FetchPerson.sql" />
+    <Content Include="SQL\Procedures\Kiosk.CreateRating.sql" />
+    <Content Include="SQL\Procedures\Kiosk.FetchItinerary.sql" />
+    <Content Include="SQL\Procedures\Kiosk.FetchPerson.sql" />
+    <Content Include="SQL\Procedures\Kiosk.FetchPlace.sql" />
+    <Content Include="SQL\Procedures\Kiosk.FetchRating.sql" />
+    <Content Include="SQL\Procedures\Kiosk.CreateItinerary.sql" />
+    <Content Include="SQL\Procedures\Kiosk.CreatePerson.sql" />
+    <Content Include="SQL\Procedures\Kiosk.CreatePlace.sql" />
+    <Content Include="SQL\Procedures\Kiosk.RetrieveAverageRatingForPerson.sql" />
+    <Content Include="SQL\Procedures\Kiosk.RetrieveAverageRatingForPlace.sql" />
+    <Content Include="SQL\Procedures\Kiosk.RetrieveMostCommonPlaceAddedToItinerary.sql" />
+    <Content Include="SQL\Procedures\Kiosk.RetrieveMostPopularPlaceInCategory.sql" />
     <Content Include="SQL\Schemas\Kiosk.sql" />
     <Content Include="SQL\Tables\DropTables.sql" />
     <Content Include="SQL\Tables\Kiosk.Category.sql" />

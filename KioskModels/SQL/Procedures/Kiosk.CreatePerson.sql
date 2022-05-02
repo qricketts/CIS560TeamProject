@@ -5,7 +5,7 @@ CREATE OR ALTER PROCEDURE Kiosk.CreatePerson
    @PersonId INT OUTPUT
 AS
 
-INSERT Person.Person(Name, Email, Password)
+INSERT Kiosk.Person([Name], Email, [Password])
 VALUES(@Name, @Email, @Password);
 
 SET @PersonId = SCOPE_IDENTITY();

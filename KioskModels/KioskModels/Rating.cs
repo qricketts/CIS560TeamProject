@@ -11,8 +11,8 @@ namespace KioskData.KioskModels
         private int _ratingId; 
         public int RatingId
         {
-            get => _rate;
-            set => _rate = value; 
+            get => _ratingId;
+            set => _ratingId = value; 
         }
         private int _rate; 
         public int Rate
