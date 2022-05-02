@@ -17,9 +17,9 @@ namespace KioskData
         {
             executor = new SqlCommandExecutor(connectionString);
         }
-        public Itinerary CreateItinerary(int itineraryId, int personId)
+        public Itinerary CreateItinerary(int personId)
         {
-            var d = new CreateItineraryDataDelegate(itineraryId, personId);
+            var d = new CreateItineraryDataDelegate(personId);
             return executor.ExecuteNonQuery(d);
         }
 

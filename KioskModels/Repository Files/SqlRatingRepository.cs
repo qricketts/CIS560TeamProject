@@ -20,9 +20,9 @@ namespace KioskData
             connection = connectionString; 
             executor = new SqlCommandExecutor(connectionString);
         }
-        public void CreateRating(int ratingId, int rate, Place place, Person person)
+        public void CreateRating(int rate, Place place, Person person)
         {
-            var d = new CreateRatingsDataDelegate(ratingId, rate, place.PlaceId, person.PersonId);
+            var d = new CreateRatingsDataDelegate(rate, place.PlaceId, person.PersonId);
             executor.ExecuteNonQuery(d);
         }
         public IReadOnlyList<Rating> RetrieveRatings()

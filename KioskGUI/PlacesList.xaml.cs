@@ -51,11 +51,6 @@ namespace KioskGUI
         private void FillList()
         {
             //retreive dummy data from KioskData to fill the category's list. 
-            PlaceControls.Add(new PlaceControl(new Place(1001, "McDonalds","Manhattan, KS", "CUT TO: SEQ. 95 - GRAquite a bit of pomp...under * the circumstances. * " +
-                "They land in their seats.BARRY(CONT'D) Well Adam, today we are men. Bee Movie - JS REVISIONS 8/13/07 5. ADAM We are. BARRY Bee-men. ADAM Amen! BARRY Hallelujah. " +
-                "Barry hits Adam's forehead.Adam goes into the rapture.An announcement comes over the PA.ANNOUNCER(V.O) Students, faculty, distinguished bees...please welcome, " +
-                "Dean Buzzwell.ANGLE ON: DEAN BUZZWELL steps up to the podium.The podium has a sign that reads: Welcome Graduating Class of: with train - station style flipping numbers " +
-                "after it.BUZZWELL Welcome New Hive City graduating class of... The numbers"), this));
         }
 
         private void SortChanged(object sender, SelectionChangedEventArgs e)

@@ -8,11 +8,9 @@ namespace KioskData
 {
     internal class CreateItineraryDataDelegate : NonQueryDataDelegate<Itinerary>
     {
-        public readonly int itineraryId;
         public readonly int personId;
-        public CreateItineraryDataDelegate(int itineraryId, int personId) : base("Kiosk.CreateItinerary")
+        public CreateItineraryDataDelegate(int personId) : base("Kiosk.CreateItinerary")
         {
-            this.itineraryId = itineraryId;
             this.personId = personId; 
         }
 
@@ -20,7 +18,6 @@ namespace KioskData
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("ItineraryId", itineraryId);
             command.Parameters.AddWithValue("PersonId", personId);
 
             var p = command.Parameters.Add("ItineraryId", SqlDbType.Int);

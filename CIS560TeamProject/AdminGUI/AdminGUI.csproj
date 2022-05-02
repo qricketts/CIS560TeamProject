@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="GSF.Windows" Version="2.4.28" />
     <PackageReference Include="Syncfusion.SfInput.WPF" Version="20.1.0.51" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
   <ItemGroup>

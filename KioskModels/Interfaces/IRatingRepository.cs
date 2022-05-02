@@ -11,6 +11,6 @@ namespace KioskData
     {
         IReadOnlyList<Rating> RetrieveRatings();
 
-        void CreateRating(int ratingId, int rate, Place place, Person person);
+        void CreateRating(int rate, Place place, Person person);
     }
 }

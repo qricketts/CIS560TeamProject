@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ComponentModel; 
+using System.Data.SqlClient; 
 using KioskData.KioskModels;
 using KioskData; 
 
@@ -24,11 +24,13 @@ namespace KioskGUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
         public ItineraryView ItineraryView;
 
         public Itinerary Itinerary;
 
-        private PlaceView _placeView = null; 
+        private PlaceView _placeView = null;
+        private Person _currentUser; 
 
         
         public PlaceView GlobalPlaceView
@@ -53,11 +55,16 @@ namespace KioskGUI
                 OnChildChanged(_borderViewsChild);
             }
         }
+        
 
         public MainWindow()
         {
             InitializeComponent();
-            Itinerary = new Itinerary();
+
+            var repo = new SqlItineraryRepository(connectionString);
+            var personRepo = new SqlPersonRepository(connectionString);
+            _currentUser = personRepo.CreatePerson("incomplete", "incomplete", "incomplete"); 
+            Itinerary = repo.CreateItinerary(_currentUser.PersonId);
             DataContext = Itinerary; 
             CategoryView categoryView = new CategoryView();
             ItineraryView = new ItineraryView(this);
