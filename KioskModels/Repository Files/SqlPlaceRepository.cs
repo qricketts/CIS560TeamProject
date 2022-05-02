@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using KioskData.KioskModels;
 using DataAccess;
-using System.IO; 
+using System.IO;
+using KioskData.DataDelegates; 
 
 namespace KioskData
 {
@@ -16,42 +17,31 @@ namespace KioskData
         {
             executor = new SqlCommandExecutor(connectionString);
         }
+        public Place CreatePlace(string name, int categoryId, string address, string description)
+        {
+            var d = new CreatePlaceDataDelegate(name, categoryId, address, description);
+            return executor.ExecuteNonQuery(d); 
+        }
         public IReadOnlyList<Place> RetrievePlaces()
         {
-            List<Place> places = new List<Place>(); 
-            using (StreamReader sr = new StreamReader("C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/DummyData/PlaceData.csv"))
-            {
-                while (!sr.EndOfStream)
-                {
-                    string line = sr.ReadLine();
-                    string[] values = line.Split(',');
-                    string address = values[3] + "," + values[4] + "," + values[5] + "," + values[6];
-                    places.Add(new Place(Convert.ToInt32(values[0]), values[1], address, values[7]) 
-                       { CategoryId = Convert.ToInt32(values[2]), CreatedOn = Convert.ToDateTime(values[8]), UpdatedOn = Convert.ToDateTime(values[9])}); 
-                }
-
-            }
-            return places; 
+            return executor.ExecuteReader(new RetrievePlacesDataDelegate()); 
         }
 
-        public bool SavePlace(string name, int categoryId, string address, string description)
+        public Place FetchPlace(int placeId)
         {
-            foreach(Place p in RetrievePlaces())
-            {
-                if (p.Name.Equals(name)) 
-                    return false; 
-            }
+            var d = new FetchPlaceDataDelegate(placeId);
+            return executor.ExecuteReader(d); 
+        }
+        public void DeletePlace(int placeId)
+        {
+            var d = new DeletePlaceDataDelegate(placeId);
+            executor.ExecuteNonQuery(d);
+        }
 
-            string path = "C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/DummyData/PlaceData.csv";
-            string lastLine = File.ReadLines(path).Last();
-            string[] values = lastLine.Split(',');
-            int id = Convert.ToInt32(values[0]) + 1;
-            string[] addressInfo = address.Split(','); 
-
-            File.AppendAllText(path, id + "," + name + "," + categoryId + "," + addressInfo[0] + "," + addressInfo[1] + "," + addressInfo[2] + "," + addressInfo[3] + "," + description + "," 
-                + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + "," + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + Environment.NewLine);
-
-            return true; 
+        public void SavePlace(int placeId,string name, int categoryId, string address, string description)
+        {
+            var d = new SavePlaceDataDelegate(placeId, categoryId, name, address, description);
+            executor.ExecuteNonQuery(d); 
         }
     }
 }

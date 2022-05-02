@@ -20,53 +20,20 @@ namespace KioskData
             connection = connectionString; 
             executor = new SqlCommandExecutor(connectionString);
         }
+        public void CreateRating(int ratingId, int rate, Place place, Person person)
+        {
+            var d = new CreateRatingsDataDelegate(ratingId, rate, place.PlaceId, person.PersonId);
+            executor.ExecuteNonQuery(d);
+        }
         public IReadOnlyList<Rating> RetrieveRatings()
         {
-            List<Rating> ratings = new List<Rating>(); 
-            using (StreamReader sr = new StreamReader("C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/Repository Files/SqlRatingRepository.cs"))
-            {
-                while (!sr.EndOfStream)
-                {
-                    string line = sr.ReadLine();
-                    string[] values = line.Split(','); 
-                    _nextId = Convert.ToInt32(values[0]) + 1; 
-                    int placeId = Convert.ToInt32(values[3]);
-                    Place place = null; 
-                    SqlPlaceRepository placeRepo = new SqlPlaceRepository(connection);
-                    List<Place> places = placeRepo.RetrievePlaces() as List<Place>; 
-                    foreach (Place p in places)
-                    {
-                        if (p.PlaceId == placeId)
-                        {
-                            place = p;
-                            break; 
-                        }
-                    }
-                    int personId = Convert.ToInt32(values[2]);
-                    Person person = null;
-                    SqlPersonRepository personRepo = new SqlPersonRepository(connection);
-                    List<Person> people = personRepo.RetrievePeople() as List<Person>;
-
-                    foreach (Person p in people)
-                    {
-                        if (p.PersonId == personId)
-                        {
-                            person = p;
-                            break;
-                        }
-                    }
-                    ratings.Add(new Rating(Convert.ToInt32(values[0]), Convert.ToInt32(values[1]), place, person)); 
-                }
-            }
-            return ratings; 
+            return executor.ExecuteReader(new RetrieveRatingsDataDelegate());
         }
 
-        public void SaveRating(int rating, Place place, Person person)
+        public Rating FetchRating(int placeId)
         {
-            string path = "C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/DummyData/RatingData.csv";
-            File.AppendAllText(path, _nextId + "," + rating + "," + place + "," + person
-                + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + "," + DateTimeOffset.Now.ToString("MM/dd/yyyy HH:mm") + Environment.NewLine);
-            _nextId++;
+            var d = new FetchRatingsDataDelegate(placeId);
+            return executor.ExecuteReader(d);
         }
     }
 }

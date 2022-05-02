@@ -6,32 +6,28 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KioskData;
+
 
 namespace KioskData
 {
-    internal class FetchPersonDataDelegate : DataReaderDelegate<Person>
+    internal class SaveItineraryDataDelegate : DataDelegate
     {
+        private readonly int itineraryId;
         private readonly int personId;
 
-        public FetchPersonDataDelegate(int personId)
-           : base("Kiosk.FetchPerson")
+        public SaveItineraryDataDelegate(int itineraryId, int personId) : base("Kiosk.SaveItinerary")
         {
+            this.itineraryId = itineraryId; 
             this.personId = personId;
         }
 
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-
+            command.Parameters.AddWithValue("ItineraryId", itineraryId);
             command.Parameters.AddWithValue("PersonId", personId);
         }
 
-        public override Person Translate(SqlCommand command, IDataRowReader reader)
-        {
-            return new Person(personId,
-               reader.GetString("Name"),
-               reader.GetString("Email"),
-               reader.GetString("Password"));
-        }
     }
 }

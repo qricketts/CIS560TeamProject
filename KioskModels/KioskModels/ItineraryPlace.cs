@@ -14,25 +14,25 @@ namespace KioskData.KioskModels
             get => _id;
             set => _id = value; 
         }
-        private Place _place;
-        public Place Place
+        private int  _placeId;
+        public int PlaceId
         {
-            get => _place;
-            private set => _place = value; 
+            get => _placeId;
+            private set => _placeId = value; 
         }
 
-        private Itinerary _itinerary;
-        public Itinerary Itinerary
+        private int _itineraryId;
+        public int ItineraryId
         {
-            get => _itinerary;
-            private set => _itinerary = value;
+            get => _itineraryId;
+            private set => _itineraryId = value;
         }
 
-        public ItineraryPlace(int id, Itinerary i, Place p) 
+        public ItineraryPlace(int id, int i, int p) 
         {
             ItineraryPlaceId = id; 
-            Itinerary = i;
-            Place = p; 
+            ItineraryId = i;
+            PlaceId = p; 
         }
     }
 }

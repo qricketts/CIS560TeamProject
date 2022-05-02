@@ -17,64 +17,33 @@ namespace KioskData
         {
             executor = new SqlCommandExecutor(connectionString);
         }
-        public IReadOnlyList<Itinerary> RetrieveItineraries()
+        public Itinerary CreateItinerary(int itineraryId, int personId)
         {
-            List<Itinerary> itineraries = new List<Itinerary>(); 
-            using (StreamReader sr = new StreamReader(""))
-            {
-                while (!sr.EndOfStream)
-                {
-                    string line = sr.ReadLine();
-                    string[] values = line.Split(',');
-                    int id = Convert.ToInt32(values[0]);
-                    Itinerary itinerary = new Itinerary();
-                    List<Place> places = RetrieveItineraries() as List<Place>;
-                    foreach (Place p in places)
-                    {
-                        if (p.PlaceId == id)
-                        {
-                            itinerary.Add(p);
-                            break;
-                        }
-                    }
-                    itineraries.Add(itinerary);
-                }
-            }
-            return itineraries; 
+            var d = new CreateItineraryDataDelegate(itineraryId, personId);
+            return executor.ExecuteNonQuery(d);
         }
 
-        public void SaveItinerary(Itinerary itineraryToSave)
+        public Itinerary FetchItinerary(int itineraryId)
         {
-            List<Itinerary> itineraries = RetrieveItineraries() as List<Itinerary>; 
-            string path = "C:/Users/johnnyvgoode/Source/Repos/CIS560TeamProject/KioskModels/DummyData/ItineraryData.csv";
-            foreach (Itinerary i in itineraries)
-            {
-                if (i.ItineraryId == itineraryToSave.ItineraryId)
-                {
-                    itineraries.Remove(i);
-                    itineraries.Add(itineraryToSave);
-                    using (StreamWriter sw = new StreamWriter(path))
-                    {
-                        foreach(Itinerary it in itineraries)
-                        {
-                            StringBuilder sb = new StringBuilder(it.ItineraryId); 
-                            foreach(Place p in it.Places)
-                            {
-                                sb.Append("," + p.PlaceId); 
-                            }
-                            sw.WriteLine(sb.ToString()); 
-                        }
-                    }
-                    return; 
-                }
-            }
-            int id = File.ReadLines(path).Count() + 1;
-            StringBuilder sb2 = new StringBuilder(id); 
-            foreach(Place p in itineraryToSave.Places)
-            {
-                sb2.Append("," + p.PlaceId);
-            }
-            File.AppendAllText(path, sb2.ToString()); 
+            var d = new FetchItineraryDataDelegate(itineraryId);
+            return executor.ExecuteReader(d);
+        }
+
+        public void DeleteItinerary(int itineraryId)
+        {
+            var d = new DeleteItineraryDataDelegate(itineraryId);
+            executor.ExecuteNonQuery(d);
+        }
+
+        public IReadOnlyList<Itinerary> RetrieveItineraries()
+        {
+            return executor.ExecuteReader(new RetrieveItineraryDataDelegate());
+        }
+
+        public void SaveItinerary(int itineraryId, int personId)
+        {
+            var d = new SaveItineraryDataDelegate(itineraryId, personId);
+            executor.ExecuteNonQuery(d);
         }
     }
 }

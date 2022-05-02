@@ -10,20 +10,18 @@ using KioskData;
 
 namespace KioskData
 {
-    internal class DeletePersonDataDelegate : DataDelegate
+    internal class DeleteItineraryDataDelegate : DataDelegate
     {
-        private readonly int personId;
+        private readonly int itineraryId;
 
-        public DeletePersonDataDelegate(int personId)
-           : base("Kiosk.DeletePerson")
+        public DeleteItineraryDataDelegate(int itineraryId) : base("Kiosk.DeleteItinerary")
         {
-            this.personId = personId;
+            this.itineraryId = itineraryId; 
         }
-
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-            command.Parameters.AddWithValue("PersonId", personId);
+            command.Parameters.AddWithValue("ItineraryId", itineraryId);
         }
     }
 }

@@ -15,6 +15,6 @@ namespace KioskData
         /// <returns>IReadOnlyList of ItineraryPlaces in the database</returns>
         IReadOnlyList<ItineraryPlace> RetrieveItineraryPlaces();
 
-        void SaveItineraryPlace(Place p, Itinerary i);
+        void SaveItineraryPlace(int ip, int i, int p);
     }
 }

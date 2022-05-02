@@ -8,11 +8,17 @@ namespace KioskData.KioskModels
 {
     public class Itinerary
     {
-        private int _id;
+        private int _itineraryId;
         public int ItineraryId
         {
-            get => _id;
-            set => _id = value; 
+            get => _itineraryId;
+            set => _itineraryId = value; 
+        }
+        private int _personId;
+        public int PersonId
+        {
+            get => _personId;
+            set => _personId = value;
         }
         public List<Place> Places { get; private set; } = new List<Place>();
 
@@ -30,8 +36,10 @@ namespace KioskData.KioskModels
             private set => _updatedOn = value;
         }
 
-        public Itinerary()
+        public Itinerary(int itineraryId, int personId)
         {
+            ItineraryId = itineraryId;
+            PersonId = personId; 
             CreatedOn = DateTime.Now; 
         }
 

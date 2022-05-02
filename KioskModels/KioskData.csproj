@@ -46,9 +46,16 @@
     <None Include="DummyData\RatingData.csv" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataDelegates\Itinerary\CreateItineraryDataDelegate.cs" />
+    <Compile Include="DataDelegates\Rating\CreateRatingsDataDelegate.cs" />
     <Compile Include="DataDelegates\Person\CreatePersonDataDelegate.cs" />
-    <Compile Include="DataDelegates\Person\CreatePlaceDataDelegate.cs" />
+    <Compile Include="DataDelegates\Place\CreatePlaceDataDelegate.cs" />
     <Compile Include="DataDelegates\Person\FetchPersonDataDelegate.cs" />
+    <Compile Include="DataDelegates\Place\DeletePlaceDataDelegate.cs" />
+    <Compile Include="DataDelegates\Place\FetchPlaceDataDelegate.cs" />
+    <Compile Include="DataDelegates\Rating\FetchRatingsDataDelegate.cs" />
+    <Compile Include="DataDelegates\Itinerary\DeleteItineraryDataDelegate.cs" />
+    <Compile Include="DataDelegates\Itinerary\FetchItineraryDataDelegate.cs" />
     <Compile Include="Interfaces\ICategoryRepository.cs" />
     <Compile Include="Interfaces\IPersonRepository.cs" />
     <Compile Include="Interfaces\IPlaceRepository.cs" />
@@ -73,8 +80,18 @@
     <Compile Include="Repository Files\SqlRatingRepository.cs" />
     <Compile Include="DataDelegates\Person\RetrievePeopleDataDelegate.cs" />
     <Compile Include="DataDelegates\Person\SavePersonDataDelegate.cs" />
+    <Compile Include="DataDelegates\Place\RetrievePlacesDataDelegate.cs" />
+    <Compile Include="DataDelegates\Place\SavePlaceDataDelegate.cs" />
+    <Compile Include="DataDelegates\Rating\RetrieveRatingsDataDelegate.cs" />
+    <Compile Include="DataDelegates\Itinerary\RetrieveItineraryDataDelegate.cs" />
+    <Compile Include="DataDelegates\Itinerary\SaveItineraryDataDelegate.cs" />
+    <Compile Include="DataDelegates\Category\RetrieveCategoriesDataDelegate.cs" />
+    <Compile Include="RetrieveItineraryPlacesDataDelegate.cs" />
+    <Compile Include="SaveItineraryPlaceDataDelegate.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SQL\Procedures\Create\Kiosk.CreateItineraryPlace.sql" />
+    <Content Include="SQL\Procedures\Save\Kiosk.SaveItineraryPlace.sql" />
     <Content Include="SQL\Procedures\Save\Kiosk.SaveItinerary.sql" />
     <Content Include="SQL\Procedures\Save\Kiosk.SavePlace.sql" />
     <Content Include="SQL\Procedures\Save\Kiosk.SavePerson.sql" />
@@ -109,6 +126,7 @@
     <Content Include="SQL\Tables\Kiosk.Rating.sql" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DataDelegates\ItineraryPlace\" />
     <Folder Include="SQL\Data\" />
   </ItemGroup>
   <ItemGroup>

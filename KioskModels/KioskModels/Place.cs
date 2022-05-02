@@ -41,12 +41,14 @@ namespace KioskData.KioskModels
             set => _description = value; 
         }
 
-        public Place(int placeId, string name, string address, string description)
+        public Place(int placeId, int categoryId, string name, string address, string description)
         {
             PlaceId = placeId;
+            CategoryId = categoryId; 
             Name = name;
             Address = address;
             Description = description;
+
         }
 
         private DateTime _createdOn;

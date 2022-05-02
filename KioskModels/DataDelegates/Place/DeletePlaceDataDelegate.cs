@@ -10,20 +10,17 @@ using KioskData;
 
 namespace KioskData
 {
-    internal class DeletePersonDataDelegate : DataDelegate
+    internal class DeletePlaceDataDelegate : DataDelegate
     {
-        private readonly int personId;
-
-        public DeletePersonDataDelegate(int personId)
-           : base("Kiosk.DeletePerson")
+        private readonly int placeId; 
+        public DeletePlaceDataDelegate(int placeId) : base("Kiosk.DeletePlace")
         {
-            this.personId = personId;
+            this.placeId = placeId; 
         }
-
         public override void PrepareCommand(SqlCommand command)
         {
             base.PrepareCommand(command);
-            command.Parameters.AddWithValue("PersonId", personId);
+            command.Parameters.AddWithValue("Placeid", placeId); 
         }
     }
 }

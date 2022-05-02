@@ -20,17 +20,17 @@ namespace KioskData.KioskModels
             get => _rate;
             set => _rate = value; 
         }
-        private Place _place; 
-        public Place Place
+        private int _placeId; 
+        public int PlaceId
         {
-            get => _place;
-            set => _place = value; 
+            get => _placeId;
+            set => _placeId = value; 
         }
-        private Person _person; 
-        public Person Person
+        private int _personId; 
+        public int PersonId
         {
-            get => _person;
-            set => _person = value; 
+            get => _personId;
+            set => _personId = value; 
         }
         private DateTime _createdOn; 
         public DateTime CreatedOn
@@ -39,12 +39,12 @@ namespace KioskData.KioskModels
             private set => _createdOn = value; 
         }
 
-        public Rating(int id, int rating, Place place, Person person)
+        public Rating(int id, int rating, int place, int person)
         {
             RatingId = id; 
             Rate = rating;
-            Place = place;
-            Person = person; 
+            PlaceId = place;
+            PersonId = person; 
         }
     }
 }

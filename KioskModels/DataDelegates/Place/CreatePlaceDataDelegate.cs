@@ -9,12 +9,14 @@ namespace KioskData.DataDelegates
     internal class CreatePlaceDataDelegate : NonQueryDataDelegate<Place>
     {
         public readonly string name;
+        public readonly int categoryId; 
         public readonly string address;
         public readonly string description;
-        public CreatePlaceDataDelegate(string name, string address, string description):
-            base("Place.CreatePlace")
+        public CreatePlaceDataDelegate(string name, int categoryId, string address, string description):
+            base("Kiosk.CreatePlace")
         {
             this.name = name;
+            this.categoryId = categoryId; 
             this.address = address;
             this.description = description;
         }
@@ -23,6 +25,7 @@ namespace KioskData.DataDelegates
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("Name", name);
+            command.Parameters.AddWithValue("CategoryId", categoryId);
             command.Parameters.AddWithValue("Address", address);
             command.Parameters.AddWithValue("Description", description);
 
@@ -32,7 +35,7 @@ namespace KioskData.DataDelegates
 
         public override Place Translate(SqlCommand command)
         {
-            return new Place ((int)command.Parameters["PlaceId"].Value, name, address, description);
+            return new Place ((int)command.Parameters["PlaceId"].Value, categoryId, name, address, description);
         }
     }
 }

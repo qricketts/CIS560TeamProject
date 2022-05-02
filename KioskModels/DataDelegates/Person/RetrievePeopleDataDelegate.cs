@@ -22,7 +22,7 @@ namespace KioskData
             var people = new List<Person>(); 
             while (reader.Read())
             {
-                people.Add(new Person(reader.GetInt32("PersonId"),
+               people.Add(new Person(reader.GetInt32("PersonId"),
                reader.GetString("Name"),
                reader.GetString("Email"),
                reader.GetString("Password")));
