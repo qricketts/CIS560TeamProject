@@ -39,7 +39,7 @@ namespace AdminGUI
             get => _sfRatingValue;
             set => _sfRatingValue = value; 
         }
-        private CategorySelected _categorySelected;
+        private CategorySelected _categorySelected = CategorySelected.Restaurants; 
 
         public CategorySelected CategorySelected
         {
@@ -164,7 +164,7 @@ namespace AdminGUI
         {
             gv.Columns.Add(new GridViewColumn { Header = "Name", DisplayMemberBinding = new Binding("Name"), Width = 200 }); 
             gv.Columns.Add(new GridViewColumn { Header = "Address", DisplayMemberBinding = new Binding("Address"), Width = 200 });
-            gv.Columns.Add(new GridViewColumn { Header = "Avg Rating", DisplayMemberBinding = new Binding("AverageRating"), Width = 120 });
+            gv.Columns.Add(new GridViewColumn { Header = "Avg Rating", DisplayMemberBinding = new Binding("AverageRating") { StringFormat = "{0:0.00}" }, Width = 120 });
             gv.Columns.Add(new GridViewColumn { Header = "# of Itineraries", DisplayMemberBinding = new Binding("ItineraryCount"), Width = 120 });
             gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn"), Width = 150 });
             gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn"), Width = 150 });
@@ -173,10 +173,10 @@ namespace AdminGUI
 
         private GridView SetupPersonQuery(GridView gv)
         {
-            gv.Columns.Add(new GridViewColumn { Header = "Name", DisplayMemberBinding = new Binding("Name"), Width = 240 });
-            gv.Columns.Add(new GridViewColumn { Header = "Email", DisplayMemberBinding = new Binding("Email"), Width = 240 });
+            gv.Columns.Add(new GridViewColumn { Header = "Name", DisplayMemberBinding = new Binding("Email"), Width = 240 });
+            gv.Columns.Add(new GridViewColumn { Header = "Email", DisplayMemberBinding = new Binding("Name"), Width = 240 });
             gv.Columns.Add(new GridViewColumn { Header = "# Ratings", DisplayMemberBinding = new Binding("TotalRatings"), Width = 120 });
-            gv.Columns.Add(new GridViewColumn { Header = "Avg Rating", DisplayMemberBinding = new Binding("AverageRating"), Width = 120 });
+            gv.Columns.Add(new GridViewColumn { Header = "Avg Rating", DisplayMemberBinding = new Binding("AverageRating") { StringFormat = "{0:0.00}" }, Width = 120 });
             gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn"), Width = 115 });
             gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn"), Width = 115 });
             return gv; 

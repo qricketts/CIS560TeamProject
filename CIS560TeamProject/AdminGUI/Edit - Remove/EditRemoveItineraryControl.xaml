@@ -44,7 +44,7 @@
                 <Button x:Name="btnSave" Click="SaveChanges" Grid.Row="2" Content="Save"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="btnRemove" Click="RemoveItinerary" Grid.Row="2" Content="Remove Itinerary"/>
+                <Button x:Name="btnRemove" IsEnabled="False" Click="RemoveItinerary" Grid.Row="2" Content="Remove Itinerary"/>
                 <Button x:Name="btnCancel" Click="CancelChanges" Grid.Row="2" Content="Cancel"/>
             </StackPanel>
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KioskData; 
 using KioskData.KioskModels; 
 
 namespace AdminGUI
@@ -21,6 +22,7 @@ namespace AdminGUI
     /// </summary>
     public partial class EditRemovePersonControl : UserControl
     {
+        const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
         private string _name; 
         public string PersonName
         {
@@ -36,7 +38,7 @@ namespace AdminGUI
         private string _password;
         public string PersonPassword
         {
-            private get => _password;
+            get => _password;
             set => _password = value;
         }
 
@@ -45,9 +47,12 @@ namespace AdminGUI
         {
             InitializeComponent();
             _person = person;
-            //PersonName = person.Name;
+            PersonName = person.Name;
+            tbName.Text = PersonName; 
             PersonEmail = person.Email;
-            PersonPassword = person.Password; 
+            tbEmail.Text = PersonEmail; 
+            PersonPassword = person.Password;
+            tbPassword.Text = PersonPassword; 
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
@@ -64,15 +69,15 @@ namespace AdminGUI
         private void SaveChanges(object sender, RoutedEventArgs e)
         {
             Person originalPerson = _person;
-            Person newPerson = new Person(1, PersonName, PersonEmail, PersonPassword);
-            //remove originalPerson
-            //add newPerson
-            throw new NotImplementedException();
+            SqlPersonRepository repo = new SqlPersonRepository(connectionString);
+            repo.DeletePerson(originalPerson.PersonId);
+            repo.CreatePerson(PersonName, PersonEmail, PersonPassword); 
         }
 
         private void RemoveItem(object sender, RoutedEventArgs e)
         {
-            //remove _person;
+            SqlPersonRepository repo = new SqlPersonRepository(connectionString);
+            repo.DeletePerson(_person.PersonId);
         }
     }
 }

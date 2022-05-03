@@ -22,6 +22,7 @@ namespace AdminGUI
     /// </summary>
     public partial class AddControl : UserControl
     {
+        const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
         private string _currentType = "Place";
         protected static string[] _categories = { "Restaurants", "Coffee Houses", "Recreational Activities", "Colleges", "Parks", "Shopping" };
         private CategorySelected _categorySelected = CategorySelected.Restaurants;
@@ -110,6 +111,8 @@ namespace AdminGUI
                 Place newPlace = new Place(1, (int)CategorySelected, textbox1.Text, textbox2.Text, textbox3.Text);
                 newPlace.Address = labelInfo2.Content.ToString();
                 newPlace.Description = labelInfo3.Content.ToString();
+                SqlPlaceRepository repo = new SqlPlaceRepository(connectionString);
+                repo.CreatePlace(newPlace.Name, newPlace.CategoryId, newPlace.Address, newPlace.Description); 
             }
             else
             {
@@ -117,9 +120,9 @@ namespace AdminGUI
                 newPerson.Name = labelInfo1.Content.ToString();
                 newPerson.Email = labelInfo2.Content.ToString();
                 newPerson.Password = labelInfo3.Content.ToString();
+                SqlPersonRepository repo = new SqlPersonRepository(connectionString);
+                repo.CreatePerson(newPerson.Name, newPerson.Email, newPerson.Password);
             }
-            //add item to database using the procedure. 
-            throw new NotImplementedException(); 
             MainWindow main = TraverseTreeForMainWindow;
             main.btnAdd.IsEnabled = true;
             main.btnEditRemove.IsEnabled = true; 

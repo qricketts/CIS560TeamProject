@@ -68,21 +68,9 @@ namespace AdminGUI
             }
         }
 
-
-        private CategorySelected IndexToCategorySelected(int index)
-        {
-            CategorySelected category = CategorySelected.None;
-            for (int i = 0; i < _categories.Length; i++)
-            {
-                if (i == index)
-                    return (CategorySelected)index;
-            }
-            return category;
-        }
-
         private void CategoryChanged(object sender, RoutedEventArgs e)
          {
-            _categorySelected = IndexToCategorySelected(cbCategory.SelectedIndex);
+            _categorySelected = (CategorySelected)(cbCategory.SelectedIndex);
             MainWindow main = TraverseTreeForMainWindow;
             if (main is not null)
                 main.CategorySelected = _categorySelected; 
@@ -124,7 +112,7 @@ namespace AdminGUI
         {
             MainWindow main = TraverseTreeForMainWindow;
             if (main is null) return; 
-            main.LoadData();
+            //main.LoadData();
         }
     }
 }

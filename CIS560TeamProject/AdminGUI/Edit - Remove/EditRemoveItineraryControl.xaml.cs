@@ -13,7 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using KioskData.KioskModels; 
+using KioskData.KioskModels;
+using KioskData; 
 
 namespace AdminGUI
 {
@@ -22,6 +23,7 @@ namespace AdminGUI
     /// </summary>
     public partial class EditRemoveItineraryControl : UserControl
     {
+        const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
         private MainWindow TraverseTreeForMainWindow
         {
             get
@@ -48,16 +50,14 @@ namespace AdminGUI
 
         private void SaveChanges(object sender, RoutedEventArgs e)
         {
-            //return _itinerary
-            throw new NotImplementedException(); 
+            SqlItineraryRepository repo = new SqlItineraryRepository(connectionString);
+            repo.SaveItinerary(_itinerary.ItineraryId, _itinerary.PersonId);
         }
 
         private void RemoveItinerary(object sender, RoutedEventArgs e)
         {
-            //remove _itinerary from database. 
             MainWindow main = TraverseTreeForMainWindow;
             main.borderFilters.Child = main.FiltersControl; 
-            //throw new NotImplementedException(); 
         }
 
         private void RemoveItineraryItem(object sender, RoutedEventArgs e)

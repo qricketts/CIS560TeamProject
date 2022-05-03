@@ -22,6 +22,7 @@ namespace AdminGUI
     /// </summary>
     public partial class EditRemovePlaceControl : UserControl
     {
+        const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
         private string _name; 
         public string PlaceName
         {
@@ -57,6 +58,9 @@ namespace AdminGUI
             PlaceName = place.Name;
             PlaceAddress = place.Address;
             PlaceDescription = place.Description;
+            tbName.Text = PlaceName;
+            tbAddress.Text = PlaceAddress;
+            tbDescription.Text = PlaceDescription; 
             cbCategory.ItemsSource = _categories;
             cbCategory.SelectedIndex = 0; 
 
@@ -83,16 +87,16 @@ namespace AdminGUI
             Place originalPlace = _place;
             Place newPlace = new Place(originalPlace.PlaceId, (int)CategorySelected, PlaceName, PlaceAddress, PlaceDescription);
 
-            //remove originalPlace
-            //add newPlace
-            throw new NotImplementedException();
 
+            SqlPlaceRepository repo = new SqlPlaceRepository(connectionString);
+            repo.DeletePlace(originalPlace.PlaceId);
+            repo.CreatePlace(PlaceName, (int)CategorySelected, PlaceAddress, PlaceDescription);
         }
 
         private void RemoveItem(object sender, RoutedEventArgs e)
         {
-            //remove _place
-            throw new NotImplementedException(); 
+            SqlPlaceRepository repo = new SqlPlaceRepository(connectionString);
+            repo.DeletePlace(_place.PlaceId);
         }
     }
 }

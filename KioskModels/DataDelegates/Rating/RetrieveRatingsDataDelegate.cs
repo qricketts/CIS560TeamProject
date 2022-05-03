@@ -21,8 +21,8 @@ namespace KioskData
             {
                 ratings.Add(new Rating(reader.GetInt32("RatingId"),
                     reader.GetInt32("Rate"),
-                    reader.GetInt32("PlaceId"),
-                    reader.GetInt32("PersonId"))); 
+                    reader.GetInt32("PersonId"),
+                    reader.GetInt32("PlaceId"))); 
             }
             return ratings; 
         }
