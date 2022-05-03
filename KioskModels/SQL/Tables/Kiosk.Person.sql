@@ -2,7 +2,7 @@
 begin
 	create table Kiosk.Person
 	(
-		PersonID int not null identity(1,1) primary key, 
+		PersonId int not null identity(1,1) primary key, 
 		[Name] nvarchar(32) not null,
 		Email nvarchar(64) not null, 
 		[Password] nvar(32) not null, 

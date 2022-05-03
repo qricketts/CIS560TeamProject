@@ -1,26 +1,26 @@
 ﻿create or alter procedure Kiosk.SaveItinerary
-	@ItineraryId INT
+	@PersonId INT
 as
 
 MERGE Kiosk.Itinerary I
 USING
       (
-         VALUES(@ItineraryId)
-      ) S(ItineraryId)
-   ON S.ItineraryId = I.ItineraryId
+         VALUES(@PersonId)
+      ) S(PersonId)
+   ON S.PersonId = I.PersonId
 WHEN MATCHED AND NOT EXISTS
       (
-         SELECT S.ItineraryId
+         SELECT S.PersonId
          INTERSECT
-         SELECT I.ItineraryId
+         SELECT I.PersonId
       ) THEN
    UPDATE
    SET
-      ItineraryId = S.ItineraryId,
+      PersonId = S.PersonId,
       UpdatedOn = SYSDATETIMEOFFSET()
 WHEN NOT MATCHED THEN
-   INSERT(ItineraryId)
-   VALUES(S.ItineraryId);
+   INSERT(PersonId)
+   VALUES(S.PersonId);
 GO
 
 

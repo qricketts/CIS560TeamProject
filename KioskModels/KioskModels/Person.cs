@@ -56,6 +56,8 @@ namespace KioskData.KioskModels
             Name = name;
             Email = email;
             Password = password;
+            CreatedOn = DateTime.Now;
+            UpdatedOn = DateTime.Now;
         }
     }
 }

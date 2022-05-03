@@ -40,7 +40,8 @@ namespace KioskData.KioskModels
         {
             ItineraryId = itineraryId;
             PersonId = personId; 
-            CreatedOn = DateTime.Now; 
+            CreatedOn = DateTime.Now;
+            UpdatedOn = DateTime.Now; 
         }
 
         public void Add(Place place)

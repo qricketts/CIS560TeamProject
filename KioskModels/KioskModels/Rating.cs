@@ -38,13 +38,21 @@ namespace KioskData.KioskModels
             get => _createdOn;
             private set => _createdOn = value; 
         }
+        private DateTime _updatedOn; 
+        public DateTime UpdatedOn
+        {
+            get => _updatedOn;
+            set => _updatedOn = value; 
+        }
 
         public Rating(int id, int rating, int place, int person)
         {
             RatingId = id; 
             Rate = rating;
             PlaceId = place;
-            PersonId = person; 
+            PersonId = person;
+            CreatedOn = DateTime.Now;
+            UpdatedOn = DateTime.Now;
         }
     }
 }

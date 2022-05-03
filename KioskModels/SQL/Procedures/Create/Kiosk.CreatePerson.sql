@@ -1,8 +1,7 @@
 CREATE OR ALTER PROCEDURE Kiosk.CreatePerson
    @Name NVARCHAR(32),
    @Email NVARCHAR(128),
-   @Password NVARCHAR(128),
-   @PersonId INT OUTPUT
+   @Password NVARCHAR(128)
 AS
 
 INSERT Kiosk.Person([Name], Email, [Password])

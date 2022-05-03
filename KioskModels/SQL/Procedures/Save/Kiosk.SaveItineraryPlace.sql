@@ -1,5 +1,4 @@
 ﻿create or alter procedure Kiosk.SaveItineraryPlace
-    @ItineraryPlaceId INT OUTPUT,
     @ItineraryId INT,
     @PlaceId INT 
 as
@@ -7,20 +6,21 @@ as
 MERGE Kiosk.ItineraryPlace I
 USING
       (
-         VALUES(@ItineraryPlaceId, @ItineraryId, @PlaceId)
-      ) S(ItineraryPlaceId, ItineraryId, PlaceId)
-   ON S.ItineraryPlaceId = I.ItineraryPlaceId
+         VALUES(@ItineraryId, @PlaceId)
+      ) S(ItineraryId, PlaceId)
+   ON S.ItineraryId = I.ItineraryId and S.PlaceId = I.PlaceId 
 WHEN MATCHED AND NOT EXISTS
       (
-         SELECT S.ItineraryPlaceId, S.ItinearyId, S.PlaceId
+         SELECT S.ItineraryId, S.PlaceId
          INTERSECT
-         SELECT I.ItineraryPlaceId, I.ItineraryId, I.PlaceId
+         SELECT I.ItineraryId, I.PlaceId
       ) THEN
    UPDATE
    SET
-      ItineraryPlaceId = S.ItineraryPlaceId,
+      ItineraryId = S.ItineraryId,
+	  PlaceId = S.PlaceId,
       UpdatedOn = SYSDATETIMEOFFSET()
 WHEN NOT MATCHED THEN
-   INSERT(ItineraryPlaceId, ItineraryId, PlaceId)
-   VALUES(S.ItineraryPlaceId, S.ItinearyId, S.PlaceId);
+   INSERT(ItineraryId, PlaceId)
+   VALUES(S.ItineraryId, S.PlaceId);
 GO

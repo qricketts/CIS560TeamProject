@@ -48,7 +48,8 @@ namespace KioskData.KioskModels
             Name = name;
             Address = address;
             Description = description;
-
+            CreatedOn = DateTime.Now;
+            UpdatedOn = DateTime.Now;
         }
 
         private DateTime _createdOn;

@@ -12,7 +12,7 @@ namespace KioskData.DataDelegates
         public readonly string email;
         public readonly string password;
         public CreatePersonDataDelegate(string name, string email, string password) :
-            base("Place.CreatePerson")
+            base("Kiosk.CreatePerson")
         {
             this.name = name;
             this.email = email;
@@ -32,7 +32,7 @@ namespace KioskData.DataDelegates
 
         public override Person Translate(SqlCommand command)
         {
-            return new Person((int)command.Parameters["PlaceId"].Value, name, email, password);
+            return new Person((int)command.Parameters["PersonId"].Value, name, email, password);
         }
     }
 }

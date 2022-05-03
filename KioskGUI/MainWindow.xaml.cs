@@ -60,10 +60,9 @@ namespace KioskGUI
         public MainWindow()
         {
             InitializeComponent();
-
-            var repo = new SqlItineraryRepository(connectionString);
             var personRepo = new SqlPersonRepository(connectionString);
-            _currentUser = personRepo.CreatePerson("incomplete", "incomplete", "incomplete"); 
+            var repo = new SqlItineraryRepository(connectionString);
+            _currentUser = personRepo.CreatePerson("incomplete", "incomplete@ksu.edu", "1234"); 
             Itinerary = repo.CreateItinerary(_currentUser.PersonId);
             DataContext = Itinerary; 
             CategoryView categoryView = new CategoryView();

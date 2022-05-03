@@ -1,8 +1,7 @@
 ﻿CREATE OR ALTER PROCEDURE Kiosk.CreateRating
    @Rate int ,
    @PlaceId int, 
-   @PersonId int,
-   @RatingId INT OUTPUT
+   @PersonId int
 AS
 
 INSERT Kiosk.Rating(Rate, PlaceId, PersonId)
