@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KioskData;
 using KioskData.KioskModels; 
 
 namespace AdminGUI
@@ -40,14 +41,30 @@ namespace AdminGUI
             set => _description = value;
         }
 
-        private Place _place; 
+        private CategorySelected _categorySelected = CategorySelected.Restaurants;
+        public CategorySelected CategorySelected
+        {
+            get => _categorySelected;
+            set => _categorySelected = value;
+        }
+
+        private Place _place;
+        protected static string[] _categories = { "Restaurants", "Coffee Houses", "Recreational Activities", "Colleges", "Parks", "Shopping" };
         public EditRemovePlaceControl(Place place)
         {
             InitializeComponent();
             _place = place;
             PlaceName = place.Name;
             PlaceAddress = place.Address;
-            PlaceDescription = place.Description; 
+            PlaceDescription = place.Description;
+            cbCategory.ItemsSource = _categories;
+            cbCategory.SelectedIndex = 0; 
+
+        }
+
+        private void CategoryChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CategorySelected = (CategorySelected)(cbCategory.SelectedIndex+1);
         }
 
         private void TextChanged(object sender, TextChangedEventArgs e)
@@ -64,7 +81,7 @@ namespace AdminGUI
         private void SaveChanges(object sender, RoutedEventArgs e)
         {
             Place originalPlace = _place;
-            Place newPlace = new Place(originalPlace.PlaceId, PlaceName, PlaceAddress, PlaceDescription);
+            Place newPlace = new Place(originalPlace.PlaceId, (int)CategorySelected, PlaceName, PlaceAddress, PlaceDescription);
 
             //remove originalPlace
             //add newPlace

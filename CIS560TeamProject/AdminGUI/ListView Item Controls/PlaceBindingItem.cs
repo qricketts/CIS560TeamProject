@@ -55,12 +55,12 @@ namespace AdminGUI
             private set => _updatedOn = value;
         }
 
-        public PlaceBindingItem(Place place, double rating, int count, DateTime updated)
+        public PlaceBindingItem(Place place, int numRatings, int sumRatings, int count, DateTime updated)
         {
             Place = place;
             Name = place.Name;
             Address = place.Address;
-            AverageRating = rating;
+            AverageRating = (double)sumRatings / numRatings;
             ItineraryCount = count;
             CreatedOn = place.CreatedOn;
             UpdatedOn = updated; 

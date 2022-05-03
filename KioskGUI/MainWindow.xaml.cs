@@ -5,14 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data.SqlClient; 
 using KioskData.KioskModels;
 using KioskData; 
@@ -55,8 +47,6 @@ namespace KioskGUI
                 OnChildChanged(_borderViewsChild);
             }
         }
-        
-
         public MainWindow()
         {
             InitializeComponent();
@@ -89,7 +79,7 @@ namespace KioskGUI
             if (sender is CategoryView)
                 textInformation.Text = "START by Selecting a Category";
             else if (sender is ItineraryView)
-                textInformation.Text = Itinerary.Places.Count + " Items Present in Itinerary"; //use count from the CurrentItinerary.Places.Count property. 
+                textInformation.Text = Itinerary.Places.Count + " Items Present in Itinerary"; 
             else if (sender is ProfileView)
                 textInformation.Text = "Enter email and password to load itinerary";
             else if (sender is PlacesList)

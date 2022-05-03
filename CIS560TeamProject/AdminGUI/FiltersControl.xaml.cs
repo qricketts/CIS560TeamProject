@@ -23,16 +23,16 @@ namespace AdminGUI
     /// </summary>
     public partial class FiltersControl : UserControl
     {
-        protected static string[] _categories = { "--None Selected--", "Restaurants", "Coffee Houses", "Recreational Activities", "Colleges", "Parks", "Shopping" };
+        protected static string[] _categories = { "Restaurants", "Coffee Houses", "Recreational Activities", "Colleges", "Parks", "Shopping" };
 
-        private int _sfRatingValue = 0; 
+        private int _sfRatingValue = 1; 
         public int SfRatingValue
         {
             get => _sfRatingValue;
             set => _sfRatingValue = value; 
         }
 
-        private CategorySelected _categorySelected = CategorySelected.None;
+        private CategorySelected _categorySelected = CategorySelected.Restaurants;
         public CategorySelected CategorySelected
         {
             get => _categorySelected;
@@ -86,8 +86,7 @@ namespace AdminGUI
             MainWindow main = TraverseTreeForMainWindow;
             if (main is not null)
                 main.CategorySelected = _categorySelected; 
-            //if (cbCategory.SelectedIndex != 0)
-                LoadListView(); 
+            LoadListView(); 
         }
 
         private void DataChanged(object sender, RoutedEventArgs e)

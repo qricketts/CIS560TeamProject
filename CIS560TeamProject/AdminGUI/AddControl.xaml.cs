@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KioskData;
 using KioskData.KioskModels;
 
 namespace AdminGUI
@@ -21,7 +22,14 @@ namespace AdminGUI
     /// </summary>
     public partial class AddControl : UserControl
     {
-        private string _currentType = "Place"; 
+        private string _currentType = "Place";
+        protected static string[] _categories = { "Restaurants", "Coffee Houses", "Recreational Activities", "Colleges", "Parks", "Shopping" };
+        private CategorySelected _categorySelected = CategorySelected.Restaurants;
+        public CategorySelected CategorySelected
+        {
+            get => _categorySelected;
+            set => _categorySelected = value;
+        }
         private MainWindow TraverseTreeForMainWindow
         {
             get
@@ -39,9 +47,16 @@ namespace AdminGUI
         public AddControl()
         {
             InitializeComponent();
-            btnSubmit.IsEnabled = false; 
-
+            btnSubmit.IsEnabled = false;
+            cbCategory.ItemsSource = _categories;
+            cbCategory.SelectedIndex = 0; 
         }
+
+        private void CategoryChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CategorySelected = (CategorySelected)(cbCategory.SelectedIndex + 1); 
+        }
+
         private void AddChanged(object sender, RoutedEventArgs e)
         {
             RadioButton button = sender as RadioButton;
@@ -92,14 +107,14 @@ namespace AdminGUI
         {
             if (_currentType.Equals("Place"))
             {
-                Place newPlace = new Place(1, textbox1.Text, textbox2.Text, textbox3.Text);
+                Place newPlace = new Place(1, (int)CategorySelected, textbox1.Text, textbox2.Text, textbox3.Text);
                 newPlace.Address = labelInfo2.Content.ToString();
                 newPlace.Description = labelInfo3.Content.ToString();
             }
             else
             {
                 Person newPerson = new Person(1, textbox1.Text, textbox2.Text, textbox3.Text);
-                //newPerson.Name = labelInfo1.Content.ToString()
+                newPerson.Name = labelInfo1.Content.ToString();
                 newPerson.Email = labelInfo2.Content.ToString();
                 newPerson.Password = labelInfo3.Content.ToString();
             }

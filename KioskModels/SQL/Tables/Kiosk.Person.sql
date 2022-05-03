@@ -9,6 +9,6 @@ begin
 		CreatedOn datetimeoffset not null default(sysdatetimeoffset()), 
 		UpdatedOn datetimeoffset not null default(sysdatetimeoffset())
 
-		unique(Email) --need to make a unique constraint. 
+		unique(Email)
 	); 
 end; 

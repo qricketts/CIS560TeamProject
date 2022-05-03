@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KioskData.KioskModels; 
+﻿using KioskData.KioskModels;
+using System;
 
 namespace AdminGUI
 {
@@ -34,11 +30,11 @@ namespace AdminGUI
             private set => _totalRatings = value;
         }
 
-        private int _totalItineraries;
-        public int TotalItineraries
+        private double _averageRating;
+        public double AverageRating
         {
-            get => _totalItineraries;
-            private set => _totalItineraries = value;
+            get => _averageRating;
+            private set => _averageRating = value;
         }
         private DateTime _createdOn;
         public DateTime CreatedOn
@@ -54,13 +50,13 @@ namespace AdminGUI
             private set => _updatedOn = value;
         }
 
-        public PersonBindingItem(Person person, string name, int ratings, int itins, DateTime created, DateTime updated)
+        public PersonBindingItem(Person person, int numRatings, double avg, DateTime created, DateTime updated)
         {
             Person = person; 
-            Name = name;
+            Name = person.Name;
             Email = person.Email; 
-            TotalRatings = ratings;
-            TotalItineraries = itins;
+            TotalRatings = numRatings;
+            AverageRating = avg;
             CreatedOn = created;
             UpdatedOn = updated;
         }

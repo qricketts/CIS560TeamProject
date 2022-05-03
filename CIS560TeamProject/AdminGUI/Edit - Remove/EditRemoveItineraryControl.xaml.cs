@@ -43,8 +43,6 @@ namespace AdminGUI
             InitializeComponent();
             _itinerary = itinerary;
             listviewItinerary.ItemsSource = ItemList; 
-
-            _itinerary.Add(new Place(1, "name", "address", "Description"));
             LoadItinerary(); 
         }
 

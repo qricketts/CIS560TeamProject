@@ -21,7 +21,7 @@ namespace KioskData
             var places = new List<Place>();
             while (reader.Read())
             {
-                places.Add(new Place(reader.GetInt32("PlaceIdd"),
+                places.Add(new Place(reader.GetInt32("PlaceId"),
                 reader.GetInt32("CategoryId"),
                 reader.GetString("Name"),
                 reader.GetString("Email"),

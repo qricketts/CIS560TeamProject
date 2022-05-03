@@ -3,7 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using KioskData;
 using KioskData.KioskModels;
-using System.ComponentModel; 
+using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace KioskGUI
 {
@@ -12,6 +13,7 @@ namespace KioskGUI
     /// </summary>
     public partial class PlacesList : UserControl
     {
+        const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
         private CategorySelected _categorySelected; 
         public CategorySelected CategorySelected
         {
@@ -50,12 +52,33 @@ namespace KioskGUI
 
         private void FillList()
         {
-            //retreive dummy data from KioskData to fill the category's list. 
+            SqlPlaceRepository repo = new SqlPlaceRepository(connectionString);
+
+            List<Place> list = new List<Place>();
+            foreach(Place p in repo.RetrievePlaces())
+            {
+                if (p.CategoryId == (int)CategorySelected)
+                {
+                    list.Add(p);
+                    PlaceControls.Add(new PlaceControl(p, this)); 
+                }
+            }
         }
 
         private void SortChanged(object sender, SelectionChangedEventArgs e)
         {
-            //use sql sort by repository according the to sort chosen.
+            //maybe not today
+            string selected = cbSort.SelectedItem.ToString(); 
+            switch (selected)
+            {
+                case "Most Popular":
+
+                    break;
+                case "Highest Rated":
+                    break;
+                default: //"Alphabetical"
+                    break; 
+            }       
         }
 
         private void ReturnToCategorySelection(object sender, RoutedEventArgs e)

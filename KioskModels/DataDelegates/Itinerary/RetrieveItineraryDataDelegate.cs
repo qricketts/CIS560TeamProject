@@ -12,7 +12,7 @@ namespace KioskData
 {
     internal class RetrieveItineraryDataDelegate : DataReaderDelegate<IReadOnlyList<Itinerary>>
     {
-        public RetrieveItineraryDataDelegate() : base("Kiosk.RetrieveItinerary")
+        public RetrieveItineraryDataDelegate() : base("Kiosk.RetrieveItineraries")
         {
         }
 

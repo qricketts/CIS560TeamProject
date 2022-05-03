@@ -38,6 +38,10 @@
                 <TextBox TextChanged="TextChanged" x:Name="tbName" Width="350"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
+                <Label x:Name="labelCategory" Content="Category" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="cbCategory" SelectionChanged="CategoryChanged" Width="321" FontSize="24"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
                 <Label x:Name="labelAddress" Content="Address:"/>
                 <TextBox TextChanged="TextChanged" x:Name="tbAddress" Width="328"/>
             </StackPanel>
