@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using KioskData.KioskModels;
+using KioskData; 
+
 
 namespace KioskGUI
 {
@@ -21,6 +23,8 @@ namespace KioskGUI
     /// </summary>
     public partial class ProfileView : UserControl
     {
+        const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
+
         private MainWindow TraverseTreeForMainWindow
         {
             get
@@ -37,6 +41,7 @@ namespace KioskGUI
         public ProfileView()
         {
             InitializeComponent();
+            btnLogin.IsEnabled = false; 
             MainWindow main = TraverseTreeForMainWindow;
         }
 
@@ -45,13 +50,13 @@ namespace KioskGUI
             string email = textboxEmail.Text;
             string password = textboxPassword.Text;
             //check if database has the email, then verify the password, hash it too. 
-
+            SqlPersonRepository repo = new SqlPersonRepository(connectionString);
+            //repo.FetchPerson(email, password);
             MainWindow main = TraverseTreeForMainWindow;
             main.ItineraryView = new(main); 
             //update itinerary view to have the places from the profile. 
             main.ChangeChild(main.ItineraryView); 
 
-            throw new NotImplementedException("Complete ProfileView.LoadProfile() code"); 
         }
 
         private void CreateProfile(object sender, RoutedEventArgs e)
@@ -59,14 +64,12 @@ namespace KioskGUI
             string name = textboxCreateName.Text; 
             string email = textboxCreateEmail.Text;
             string password = textboxCreatePassword.Text;
-            //check if database has email, if not then add to database as a Person. 
+            SqlPersonRepository repo = new SqlPersonRepository(connectionString);
+            repo.CreatePerson(name, email, password); 
             
             MainWindow main = TraverseTreeForMainWindow;
             main.ItineraryView = new(main); 
-            //link itinerary view to the profile being used. Updating it in the db for each removal and addition. 
             main.ChangeChild(main.ItineraryView);
-
-            throw new NotImplementedException("Complete ProfileView.CreateProfile() code"); 
         }
 
     }

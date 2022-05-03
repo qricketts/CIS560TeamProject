@@ -12,6 +12,6 @@
     "\\KioskModels\\SQL\\Procedures",
     "\\UnitTests"
   ],
-  "SelectedNode": "\\KioskModels\\SQL\\Procedures\\Person.FetchPerson.sql",
+  "SelectedNode": "\\KioskModels\\SQL\\Procedures\\Retrieve",
   "PreviewInSolutionExplorer": false
 }
