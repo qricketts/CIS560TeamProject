@@ -55,7 +55,8 @@ namespace KioskGUI
             SqlPlaceRepository repo = new SqlPlaceRepository(connectionString);
 
             List<Place> list = new List<Place>();
-            foreach(Place p in repo.RetrievePlaces())
+            List<Place> places = repo.RetrievePlaces() as List<Place>; 
+            foreach(Place p in places)
             {
                 if (p.CategoryId == (int)CategorySelected)
                 {

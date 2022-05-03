@@ -24,8 +24,8 @@ namespace KioskData
                 places.Add(new Place(reader.GetInt32("PlaceId"),
                 reader.GetInt32("CategoryId"),
                 reader.GetString("Name"),
-                reader.GetString("Email"),
-                reader.GetString("Password")));
+                reader.GetString("Address"),
+                reader.GetString("Description")));
             }
             return places;
         }
