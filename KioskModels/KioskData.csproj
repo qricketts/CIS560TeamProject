@@ -89,6 +89,8 @@
     <Compile Include="DataDelegates\Itinerary\RetrieveItineraryDataDelegate.cs" />
     <Compile Include="DataDelegates\Itinerary\SaveItineraryDataDelegate.cs" />
     <Compile Include="DataDelegates\Category\RetrieveCategoriesDataDelegate.cs" />
+    <Compile Include="RetrieveAverageRatingForPerson.cs" />
+    <Compile Include="RetrieveAverageRatingForPlace.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SQL\Procedures\Create\Kiosk.CreateItineraryPlace.sql" />

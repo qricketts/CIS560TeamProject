@@ -23,11 +23,15 @@ namespace AdminGUI
         public ReportsControl()
         {
             InitializeComponent();
+            btnCategoryMostPopularPlace.IsEnabled = false;
+            btnMostCommonItineraryPlace.IsEnabled = false;
+            btnPersonAverageRating.IsEnabled = false;
+            btnPlaceAverageRating.IsEnabled = false; 
         }
 
         private void AverageRatingPerPerson(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            
             //loads listview with a list of people and their average rating. 
             //have to query all person's and their ratings.
         }
