@@ -2,16 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\CIS560TeamProject",
-    "\\CIS560TeamProject\\AdminGUI",
-    "\\KioskGUI",
     "\\KioskModels",
-    "\\KioskModels\\DummyData",
+    "\\KioskModels\\Enums",
+    "\\KioskModels\\Interfaces",
     "\\KioskModels\\KioskModels",
     "\\KioskModels\\Repository Files",
     "\\KioskModels\\SQL",
     "\\KioskModels\\SQL\\Procedures",
     "\\UnitTests"
   ],
-  "SelectedNode": "\\KioskModels\\SQL\\Procedures\\Retrieve",
+  "SelectedNode": "\\CIS560TeamProject\\CIS560TeamProject.sln",
   "PreviewInSolutionExplorer": false
 }

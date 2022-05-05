@@ -11,7 +11,7 @@
             <Style TargetType="Button">
                 <Setter Property="Width" Value="300"/>
                 <Setter Property="Height" Value="100"/>
-                <Setter Property="FontSize" Value="40"/>
+                <Setter Property="FontSize" Value="32"/>
             </Style>
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="24"/>
@@ -21,7 +21,7 @@
                 <Setter Property="Margin" Value="0,10"/>
             </Style>
             <Style TargetType="TextBox">
-                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="FontSize" Value="16"/>
             </Style>
         </Grid.Resources>
 

@@ -20,10 +20,18 @@ namespace KioskGUI
         public ItineraryView ItineraryView;
 
         public Itinerary Itinerary;
-
         private PlaceView _placeView = null;
-        private Person _currentUser; 
 
+        private Person _currentUser; 
+        public Person CurrentUser
+        {
+            get => _currentUser; 
+            set
+            {
+                _currentUser = value;
+                UpdateItinerary(); 
+            }
+        }
         
         public PlaceView GlobalPlaceView
         {
@@ -52,12 +60,42 @@ namespace KioskGUI
             InitializeComponent();
             var personRepo = new SqlPersonRepository(connectionString);
             var repo = new SqlItineraryRepository(connectionString);
-            _currentUser = personRepo.CreatePerson("incomplete", "incomplete@ksu.edu", "1234"); 
-            Itinerary = repo.CreateItinerary(_currentUser.PersonId);
+            CurrentUser = personRepo.CreatePerson("incomplete", "incomplete@ksu.edu", "1234"); 
+            Itinerary = repo.CreateItinerary(CurrentUser.PersonId);
             DataContext = Itinerary; 
             CategoryView categoryView = new CategoryView();
             ItineraryView = new ItineraryView(this);
             ChangeChild(categoryView);
+        }
+
+        private void UpdateItinerary()
+        {
+            if (Itinerary is null) return; 
+            SqlItineraryRepository itineraryRepo = new SqlItineraryRepository(connectionString);
+            List<Itinerary> itineraries = itineraryRepo.RetrieveItineraries() as List<Itinerary>;
+            foreach (Itinerary i in itineraries)
+            {
+                if (i.PersonId == _currentUser.PersonId)
+                {
+                    Itinerary = i;
+                    break;
+                }
+            }
+            SqlItineraryPlaceRepository ipRepo = new SqlItineraryPlaceRepository(connectionString);
+            List<ItineraryPlace> iPlaces = ipRepo.RetrieveItineraryPlaces() as List<ItineraryPlace>;
+            SqlPlaceRepository placeRepo = new SqlPlaceRepository(connectionString);
+            List<Place> places = placeRepo.RetrievePlaces() as List<Place>;
+            foreach (ItineraryPlace ip in iPlaces)
+            {
+                if (ip.ItineraryId == Itinerary.ItineraryId)
+                {
+                    foreach(Place p in places)
+                    {
+                        if (p.PlaceId == ip.PlaceId) 
+                            Itinerary.Add(p);
+                    }
+                }
+            }
         }
 
         public void ChangeChild(UIElement child)
@@ -79,19 +117,47 @@ namespace KioskGUI
             if (sender is CategoryView)
                 textInformation.Text = "START by Selecting a Category";
             else if (sender is ItineraryView)
+            {
+                textTitle.Text = "My Itinerary"; 
                 textInformation.Text = Itinerary.Places.Count + " Items Present in Itinerary"; 
+            }
             else if (sender is ProfileView)
-                textInformation.Text = "Enter email and password to load itinerary";
+            {
+                textTitle.Text = "My Profile"; 
+                textInformation.Text = "Sign in to Save Itinerary";
+            }
             else if (sender is PlacesList)
-                textInformation.Text = "SELECT a place to see details";
+                textInformation.Text = "SELECT a Place to See Details";
             else if (sender is PlaceView)
-                textInformation.Text = "";
+                textInformation.Text = "Add or Remove from Itinerary";
+
+            if (!CurrentUser.Name.Equals("incomplete"))
+            {
+                if (sender is ItineraryView)
+                {
+                    textTitle.Text = CurrentUser.Name + "'s Itinerary"; 
+                }
+            }
         }
 
         private void OpenItinerary(object sender, RoutedEventArgs e)
         {
             ItineraryView.FillList(); 
             ChangeChild(ItineraryView);
+        }
+
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            SqlItineraryRepository irepo = new SqlItineraryRepository(connectionString);
+            SqlPersonRepository repo = new SqlPersonRepository(connectionString);
+            //irepo.DeleteItinerary(155);
+            repo.DeletePerson(170);
+
+            if (CurrentUser.Name.Equals("incomplete"))
+            {
+                irepo.DeleteItinerary(Itinerary.ItineraryId);
+                repo.DeletePerson(CurrentUser.PersonId); 
+            }
         }
     }
 }

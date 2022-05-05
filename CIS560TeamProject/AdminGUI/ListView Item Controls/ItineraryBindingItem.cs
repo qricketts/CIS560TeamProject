@@ -49,7 +49,8 @@ namespace AdminGUI
             Itinerary = i;
             SqlPersonRepository repo = new SqlPersonRepository(connectionString);
             string name = " ";
-            foreach (Person p in repo.RetrievePeople())
+            List<Person> people = repo.RetrievePeople() as List<Person>; 
+            foreach (Person p in people)
                 if (p.PersonId == personId) name = p.Name; 
             Name = name;
             TotalPlaces = i.Places.Count;

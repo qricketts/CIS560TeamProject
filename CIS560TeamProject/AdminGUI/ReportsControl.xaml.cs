@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KioskData;
+using KioskData.KioskModels; 
 
 namespace AdminGUI
 {
@@ -20,18 +22,51 @@ namespace AdminGUI
     /// </summary>
     public partial class ReportsControl : UserControl
     {
+        const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
+        private MainWindow TraverseTreeForMainWindow
+        {
+            get
+            {
+                DependencyObject parent = this;
+                do
+                {
+                    parent = LogicalTreeHelper.GetParent(parent);
+                }
+                while (!(parent is null || parent is MainWindow));
+                return (MainWindow)parent;
+            }
+        }
         public ReportsControl()
         {
             InitializeComponent();
-            btnCategoryMostPopularPlace.IsEnabled = false;
-            btnMostCommonItineraryPlace.IsEnabled = false;
-            btnPersonAverageRating.IsEnabled = false;
-            btnPlaceAverageRating.IsEnabled = false; 
         }
+
+        private SqlPersonRepository personRepository = new SqlPersonRepository(connectionString);
+        private SqlRatingRepository ratingRepository = new SqlRatingRepository(connectionString);
 
         private void AverageRatingPerPerson(object sender, RoutedEventArgs e)
         {
-            
+            MainWindow main = TraverseTreeForMainWindow;
+            main.gridviewQuery = main.SetupReport1Query(main.gridviewQuery); 
+            List<Person> people = personRepository.RetrievePeople() as List<Person>;
+            List<Rating> ratings = ratingRepository.RetrieveRatings() as List<Rating>; 
+
+            foreach (Person p in people)
+            {
+                int totalRatings = 0; int sumRatings = 0; double avg; 
+                foreach (Rating r in ratings)
+                {
+                    if (r.PersonId == p.PersonId)
+                    {
+                        totalRatings++;
+                        sumRatings += r.Rate; 
+                    }
+                }
+                if (totalRatings == 0) avg = 0;
+                else avg = sumRatings / totalRatings; 
+                PersonAverageRating control = new PersonAverageRating(p.PersonId, p.Name, totalRatings, avg);
+                main.listviewQuery.Items.Add(control); 
+            }
             //loads listview with a list of people and their average rating. 
             //have to query all person's and their ratings.
         }

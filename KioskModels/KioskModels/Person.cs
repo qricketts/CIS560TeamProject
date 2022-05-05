@@ -50,7 +50,7 @@ namespace KioskData.KioskModels
             set => _updatedOn = value;
         }
 
-        public Person(int personId, string email, string name, string password)
+        public Person(int personId, string name, string email, string password)
         {
             PersonId = personId;
             Name = name;

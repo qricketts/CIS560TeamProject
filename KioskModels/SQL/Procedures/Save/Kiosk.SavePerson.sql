@@ -1,5 +1,6 @@
 ﻿create or alter procedure Kiosk.SavePerson
-	@Name NVARCHAR(32),
+	@PersonId int,
+    @Name NVARCHAR(32),
 	@Email NVARCHAR(64),
 	@Password NVARCHAR(32)
 as

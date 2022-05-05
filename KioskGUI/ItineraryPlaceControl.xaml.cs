@@ -24,12 +24,14 @@ namespace KioskGUI
     public partial class ItineraryPlaceControl : UserControl
     {
         private MainWindow _main; 
-        private Place _place; 
-        public ItineraryPlaceControl(Place p, MainWindow main)
+        private Place _place;
+        private ItineraryView _itineraryView; 
+        public ItineraryPlaceControl(Place p, MainWindow main, ItineraryView iv)
         {
             InitializeComponent();
             _main = main; 
             _place = p;
+            _itineraryView = iv; 
             textName.Text = p.Name;
             textAddress.Text = p.Address; 
         }
@@ -43,7 +45,9 @@ namespace KioskGUI
 
         private void RemoveFromItinerary(object sender, RoutedEventArgs e)
         {
-            _main.Itinerary.Remove(_place); 
+            _main.Itinerary.Remove(_place);
+            _itineraryView.ItineraryPlaceControls.Remove(this);
+            _main.OnChildChanged(_itineraryView); 
         }
     }
 }

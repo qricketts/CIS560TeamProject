@@ -72,7 +72,8 @@ namespace AdminGUI
         {
             int count = 0; 
             SqlItineraryPlaceRepository repo = new SqlItineraryPlaceRepository(connectionString);
-            foreach(ItineraryPlace ip in repo.RetrieveItineraryPlaces())
+            List<ItineraryPlace> itineraryPlaces = repo.RetrieveItineraryPlaces() as List<ItineraryPlace>; 
+            foreach(ItineraryPlace ip in itineraryPlaces)
             {
                 if (ip.PlaceId == p.PlaceId) count++; 
             }
@@ -81,10 +82,11 @@ namespace AdminGUI
 
         public List<Rating> GetPlaceRatings(Place p, out int sumRatings)
         {
-            SqlRatingRepository ratingRepo = new SqlRatingRepository(connectionString);
+            SqlRatingRepository repo = new SqlRatingRepository(connectionString);
             List<Rating> ratings = new List<Rating>();
-            sumRatings = 0; 
-            foreach (Rating r in ratingRepo.RetrieveRatings())
+            sumRatings = 0;
+            List<Rating> dbRatings = repo.RetrieveRatings() as List<Rating>; 
+            foreach (Rating r in dbRatings)
             {
                 if (r.Rate >= SfRatingValue && r.PlaceId == p.PlaceId)
                 {
@@ -96,10 +98,11 @@ namespace AdminGUI
         }
         public List<Rating> GetPersonRatings(Person p, out int sumRatings)
         {
-            SqlRatingRepository ratingRepo = new SqlRatingRepository(connectionString);
+            SqlRatingRepository repo = new SqlRatingRepository(connectionString);
             List<Rating> ratings = new List<Rating>();
             sumRatings = 0;
-            foreach (Rating r in ratingRepo.RetrieveRatings())
+            List<Rating> dbRatings = repo.RetrieveRatings() as List<Rating>;
+            foreach (Rating r in dbRatings)
             {
                 if (r.Rate >= SfRatingValue && r.PersonId == p.PersonId)
                 {
@@ -120,9 +123,9 @@ namespace AdminGUI
                 PlaceList = new BindingList<PlaceBindingItem>();
                 listviewQuery.ItemsSource = PlaceList;
 
-                SqlPlaceRepository placeRepo = new SqlPlaceRepository(connectionString);
-
-                foreach(Place p in placeRepo.RetrievePlaces())
+                SqlPlaceRepository repo = new SqlPlaceRepository(connectionString);
+                List<Place> dbPlaces = repo.RetrievePlaces() as List<Place>; 
+                foreach(Place p in dbPlaces)
                 {
                     int sumRatings; 
                     List<Rating> ratings = GetPlaceRatings(p, out sumRatings); 
@@ -131,7 +134,6 @@ namespace AdminGUI
                         PlaceList.Add(new PlaceBindingItem(p, ratings.Count, sumRatings, GetItineraryPlaceCount(p), DateTime.Now)); 
                     }
                 }
-
             }
             else if (DataTypeSelected is DataTypeSelected.Person)
             {
@@ -139,11 +141,16 @@ namespace AdminGUI
                 PersonList = new BindingList<PersonBindingItem>();
                 listviewQuery.ItemsSource = PersonList;
                 SqlPersonRepository repo = new SqlPersonRepository(connectionString);
-                foreach (Person p in repo.RetrievePeople())
+                List<Person> dbPeople = repo.RetrievePeople() as List<Person>;
+                foreach (Person p in dbPeople)
                 {
                     int sumRatings;
                     List<Rating> ratings = GetPersonRatings(p, out sumRatings);
-                    PersonList.Add(new PersonBindingItem(p, ratings.Count, (double)sumRatings/ratings.Count, p.CreatedOn, p.UpdatedOn)); 
+                    double avg;
+                    if (ratings.Count == 0) avg = 0; 
+                    else avg = (double)sumRatings / ratings.Count; 
+                   
+                    PersonList.Add(new PersonBindingItem(p, ratings.Count, avg, p.CreatedOn, p.UpdatedOn)); 
                 }
             }
             else
@@ -151,42 +158,51 @@ namespace AdminGUI
                 gridviewQuery = SetupItineraryQuery(gridviewQuery);
                 ItineraryList = new BindingList<ItineraryBindingItem>();
                 listviewQuery.ItemsSource = ItineraryList;
-                SqlItineraryRepository repo = new SqlItineraryRepository(connectionString); 
-                foreach (Itinerary i in repo.RetrieveItineraries())
+                SqlItineraryRepository repo = new SqlItineraryRepository(connectionString);
+                List<Itinerary> dbItineraries = repo.RetrieveItineraries() as List<Itinerary>; 
+                foreach (Itinerary i in dbItineraries)
                 {
                     ItineraryList.Add(new ItineraryBindingItem(i, i.PersonId, i.CreatedOn, i.UpdatedOn)); 
                 }
             }
             listviewQuery.View = gridviewQuery;
         }
+        public GridView SetupReport1Query(GridView gv)
+        {
+            gv.Columns.Add(new GridViewColumn { Header = "PersonId", DisplayMemberBinding = new Binding("PersonId")});
+            gv.Columns.Add(new GridViewColumn { Header = "Name", DisplayMemberBinding = new Binding("Name") });
+            gv.Columns.Add(new GridViewColumn { Header = "# of Ratings", DisplayMemberBinding = new Binding("NumRatings") { StringFormat = "{0:0.0}" }});
+            gv.Columns.Add(new GridViewColumn { Header = "Average Rating", DisplayMemberBinding = new Binding("AverageRating") });
+            return gv;
+        }
 
         private GridView SetupPlaceQuery(GridView gv)
         {
-            gv.Columns.Add(new GridViewColumn { Header = "Name", DisplayMemberBinding = new Binding("Name"), Width = 200 }); 
-            gv.Columns.Add(new GridViewColumn { Header = "Address", DisplayMemberBinding = new Binding("Address"), Width = 200 });
-            gv.Columns.Add(new GridViewColumn { Header = "Avg Rating", DisplayMemberBinding = new Binding("AverageRating") { StringFormat = "{0:0.00}" }, Width = 120 });
+            gv.Columns.Add(new GridViewColumn { Header = "Name", DisplayMemberBinding = new Binding("Name"), Width = 200}); 
+            gv.Columns.Add(new GridViewColumn { Header = "Address", DisplayMemberBinding = new Binding("Address")});
+            gv.Columns.Add(new GridViewColumn { Header = "Avg Rating", DisplayMemberBinding = new Binding("AverageRating") { StringFormat = "{0:0.0}" }, Width = 120 });
             gv.Columns.Add(new GridViewColumn { Header = "# of Itineraries", DisplayMemberBinding = new Binding("ItineraryCount"), Width = 120 });
-            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn"), Width = 150 });
-            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn"), Width = 150 });
+            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn") { StringFormat = "M/d/yyyy" }, Width = 150 });
+            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn") { StringFormat = "M/d/yyyy" }, Width = 150 });
             return gv; 
         }
 
         private GridView SetupPersonQuery(GridView gv)
         {
-            gv.Columns.Add(new GridViewColumn { Header = "Name", DisplayMemberBinding = new Binding("Email"), Width = 240 });
-            gv.Columns.Add(new GridViewColumn { Header = "Email", DisplayMemberBinding = new Binding("Name"), Width = 240 });
+            gv.Columns.Add(new GridViewColumn { Header = "Name", DisplayMemberBinding = new Binding("Name"), Width = 240 });
+            gv.Columns.Add(new GridViewColumn { Header = "Email", DisplayMemberBinding = new Binding("Email"), Width = 240 });
             gv.Columns.Add(new GridViewColumn { Header = "# Ratings", DisplayMemberBinding = new Binding("TotalRatings"), Width = 120 });
-            gv.Columns.Add(new GridViewColumn { Header = "Avg Rating", DisplayMemberBinding = new Binding("AverageRating") { StringFormat = "{0:0.00}" }, Width = 120 });
-            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn"), Width = 115 });
-            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn"), Width = 115 });
+            gv.Columns.Add(new GridViewColumn { Header = "Avg Rating", DisplayMemberBinding = new Binding("AverageRating") { StringFormat = "{0:0.0}" }, Width = 120 });
+            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn") { StringFormat = "M/d/yyyy" }, Width = 100 });
+            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn") { StringFormat = "M/d/yyyy" }, Width = 100 });
             return gv; 
         }
         private GridView SetupItineraryQuery(GridView gv)
         {
             gv.Columns.Add(new GridViewColumn { Header = "Itinerary Owner", DisplayMemberBinding = new Binding("Name"), Width = 270 });
             gv.Columns.Add(new GridViewColumn { Header = "# Places", DisplayMemberBinding = new Binding("TotalPlaces"), Width = 140 });
-            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn"), Width = 270 });
-            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn"), Width = 270 });
+            gv.Columns.Add(new GridViewColumn { Header = "CreatedOn", DisplayMemberBinding = new Binding("CreatedOn") { StringFormat = "M/d/yyyy" }, Width = 270 });
+            gv.Columns.Add(new GridViewColumn { Header = "UpdatedOn", DisplayMemberBinding = new Binding("UpdatedOn") { StringFormat = "M/d/yyyy" }, Width = 270 });
             return gv; 
         }
 
@@ -209,11 +225,10 @@ namespace AdminGUI
 
         private void EditRemoveItem(object sender, RoutedEventArgs e)
         {
-            //if (listviewQuery.SelectedIndex == -1) return; 
+            if (listviewQuery.SelectedIndex == -1) return; 
 
             if (FiltersControl.rbPlace.IsChecked == true)
             {
-                //pass the Place associated with the listview control. 
                 PlaceBindingItem placeBindingItem = listviewQuery.SelectedItem as PlaceBindingItem;
                 borderFilters.Child = new EditRemoveControl(placeBindingItem.Place); 
             }
@@ -227,6 +242,9 @@ namespace AdminGUI
                 ItineraryBindingItem itineraryBindingItem = listviewQuery.SelectedItem as ItineraryBindingItem; 
                 borderFilters.Child = new EditRemoveControl(itineraryBindingItem.Itinerary);
             }
+        }
+        private void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
         }
     }
 }

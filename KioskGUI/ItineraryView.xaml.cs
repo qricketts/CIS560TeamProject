@@ -24,7 +24,7 @@ namespace KioskGUI
     public partial class ItineraryView : UserControl
     {
 
-        private BindingList<ItineraryPlaceControl> ItineraryPlaceControls = new BindingList<ItineraryPlaceControl>();
+        public BindingList<ItineraryPlaceControl> ItineraryPlaceControls = new BindingList<ItineraryPlaceControl>();
         private MainWindow _main; 
         public ItineraryView(MainWindow main)
         {
@@ -40,7 +40,7 @@ namespace KioskGUI
             ItineraryPlaceControls.Clear();
             foreach(Place p in _main.Itinerary.Places)
             {
-                ItineraryPlaceControls.Add(new ItineraryPlaceControl(p, _main));
+                ItineraryPlaceControls.Add(new ItineraryPlaceControl(p, _main, this));
             }
         }
 

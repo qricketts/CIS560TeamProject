@@ -41,36 +41,39 @@ namespace KioskGUI
         public ProfileView()
         {
             InitializeComponent();
-            btnLogin.IsEnabled = false; 
+            //btnLogin.IsEnabled = false; 
             MainWindow main = TraverseTreeForMainWindow;
         }
 
         private void LoadProfile(object sender, RoutedEventArgs e)
         {
+            MainWindow main = TraverseTreeForMainWindow; 
             string email = textboxEmail.Text;
             string password = textboxPassword.Text;
-            //check if database has the email, then verify the password, hash it too. 
             SqlPersonRepository repo = new SqlPersonRepository(connectionString);
-            //repo.FetchPerson(email, password);
-            MainWindow main = TraverseTreeForMainWindow;
+            List<Person> people = repo.RetrievePeople() as List<Person>;
+            foreach(Person p in people)
+            {
+                if (p.Email.Equals(email))
+                {
+                    main.CurrentUser = p;
+                }
+                    
+            }
             main.ItineraryView = new(main); 
-            //update itinerary view to have the places from the profile. 
             main.ChangeChild(main.ItineraryView); 
-
         }
 
         private void CreateProfile(object sender, RoutedEventArgs e)
         {
+            MainWindow main = TraverseTreeForMainWindow;
             string name = textboxCreateName.Text; 
             string email = textboxCreateEmail.Text;
             string password = textboxCreatePassword.Text;
             SqlPersonRepository repo = new SqlPersonRepository(connectionString);
-            repo.CreatePerson(name, email, password); 
-            
-            MainWindow main = TraverseTreeForMainWindow;
+            repo.SavePerson(main.CurrentUser.PersonId, name, email, password); 
             main.ItineraryView = new(main); 
             main.ChangeChild(main.ItineraryView);
         }
-
     }
 }

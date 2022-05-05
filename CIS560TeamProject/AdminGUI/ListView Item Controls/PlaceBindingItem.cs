@@ -61,8 +61,9 @@ namespace AdminGUI
             Name = place.Name;
             Address = place.Address;
             AverageRating = (double)sumRatings / numRatings;
+            if (numRatings == 0) AverageRating = 0; 
             ItineraryCount = count;
-            CreatedOn = place.CreatedOn;
+            CreatedOn = place.CreatedOn; 
             UpdatedOn = updated; 
         }
     }

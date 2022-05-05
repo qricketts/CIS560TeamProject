@@ -10,7 +10,7 @@ namespace KioskData
 {
     internal class FetchItineraryDataDelegate : DataReaderDelegate<Itinerary>
     {
-        private readonly int itineraryId; 
+        private readonly int itineraryId;
         public FetchItineraryDataDelegate(int itineraryId) : base("Kiosk.FetchItinerary")
         {
             this.itineraryId = itineraryId; 
