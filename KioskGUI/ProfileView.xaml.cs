@@ -51,14 +51,23 @@ namespace KioskGUI
             string email = textboxEmail.Text;
             string password = textboxPassword.Text;
             SqlPersonRepository repo = new SqlPersonRepository(connectionString);
+            SqlItineraryRepository irepo = new SqlItineraryRepository(connectionString);
             List<Person> people = repo.RetrievePeople() as List<Person>;
+            List<Itinerary> itineraries = irepo.RetrieveItineraries() as List<Itinerary>; 
             foreach(Person p in people)
             {
                 if (p.Email.Equals(email))
                 {
                     main.CurrentUser = p;
                 }
-                    
+            }
+            foreach(Itinerary i in itineraries)
+            {
+                if (i.PersonId == main.CurrentUser.PersonId)
+                {
+                    main.Itinerary = i;
+                    break; 
+                }
             }
             main.ItineraryView = new(main); 
             main.ChangeChild(main.ItineraryView); 
@@ -71,7 +80,9 @@ namespace KioskGUI
             string email = textboxCreateEmail.Text;
             string password = textboxCreatePassword.Text;
             SqlPersonRepository repo = new SqlPersonRepository(connectionString);
-            repo.SavePerson(main.CurrentUser.PersonId, name, email, password); 
+            Person p = repo.CreatePerson(name, email, password);
+            main.CurrentUser = p; 
+            //repo.SavePerson(main.CurrentUser.PersonId, name, email, password); 
             main.ItineraryView = new(main); 
             main.ChangeChild(main.ItineraryView);
         }

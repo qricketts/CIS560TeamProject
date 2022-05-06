@@ -29,5 +29,10 @@ namespace KioskData
             var d = new SaveItineraryPlaceDataDelegate(ip, i, p);
             executor.ExecuteNonQuery(d); 
         }
+        public void DeleteItineraryPlace(int id)
+        {
+            var d = new DeleteItineraryPlaceDataDelegate(id);
+            executor.ExecuteNonQuery(d);
+        }
     }
 }

@@ -28,8 +28,8 @@ namespace KioskData
             return new Place(placeId,
                 reader.GetInt32("CategoryId"),
                 reader.GetString("Name"),
-                reader.GetString("Email"),
-                reader.GetString("Password"));
+                reader.GetString("Address"),
+                reader.GetString("Description"));
         }
     }
 }

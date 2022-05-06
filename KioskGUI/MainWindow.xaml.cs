@@ -151,12 +151,12 @@ namespace KioskGUI
             SqlItineraryRepository irepo = new SqlItineraryRepository(connectionString);
             SqlPersonRepository repo = new SqlPersonRepository(connectionString);
             //irepo.DeleteItinerary(155);
-            repo.DeletePerson(170);
+            //repo.DeletePerson(170);
 
             if (CurrentUser.Name.Equals("incomplete"))
             {
                 irepo.DeleteItinerary(Itinerary.ItineraryId);
-                repo.DeletePerson(CurrentUser.PersonId); 
+                repo.DeletePerson(CurrentUser.PersonId);
             }
         }
     }

@@ -39,7 +39,7 @@
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
         <StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Margin="0" Orientation="Horizontal" HorizontalAlignment="Center">
                 <Viewbox>
                     <RadioButton Checked="AddChanged" GroupName="AddType" Content="Place" IsChecked="True"/>
                 </Viewbox>

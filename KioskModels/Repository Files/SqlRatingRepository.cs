@@ -35,5 +35,10 @@ namespace KioskData
             var d = new FetchRatingsDataDelegate(placeId);
             return executor.ExecuteReader(d);
         }
+        public void DeleteRating(int id)
+        {
+            var d = new DeleteRatingDataDelegate(id);
+            executor.ExecuteNonQuery(d); 
+        }
     }
 }

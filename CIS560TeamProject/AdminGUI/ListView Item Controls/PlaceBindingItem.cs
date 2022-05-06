@@ -9,6 +9,12 @@ namespace AdminGUI
 {
     public class PlaceBindingItem
     {
+        private string _category; 
+        public string Category
+        {
+            get => _category;
+            set => _category = value; 
+        }
         private Place _place; 
         public Place Place
         {
@@ -55,13 +61,13 @@ namespace AdminGUI
             private set => _updatedOn = value;
         }
 
-        public PlaceBindingItem(Place place, int numRatings, int sumRatings, int count, DateTime updated)
+        public PlaceBindingItem(Place place, string category, double avg, int count, DateTime updated)
         {
             Place = place;
+            Category = category; 
             Name = place.Name;
             Address = place.Address;
-            AverageRating = (double)sumRatings / numRatings;
-            if (numRatings == 0) AverageRating = 0; 
+            AverageRating = avg; 
             ItineraryCount = count;
             CreatedOn = place.CreatedOn; 
             UpdatedOn = updated; 

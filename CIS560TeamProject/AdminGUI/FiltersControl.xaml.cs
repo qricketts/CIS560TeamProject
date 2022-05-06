@@ -32,7 +32,7 @@ namespace AdminGUI
             set => _sfRatingValue = value; 
         }
 
-        private CategorySelected _categorySelected = CategorySelected.Restaurants;
+        private CategorySelected _categorySelected;// = CategorySelected.Restaurants;
         public CategorySelected CategorySelected
         {
             get => _categorySelected;
@@ -70,11 +70,10 @@ namespace AdminGUI
 
         private void CategoryChanged(object sender, RoutedEventArgs e)
          {
-            _categorySelected = (CategorySelected)(cbCategory.SelectedIndex);
+            _categorySelected = (CategorySelected)(cbCategory.SelectedIndex)+1;
             MainWindow main = TraverseTreeForMainWindow;
             if (main is not null)
                 main.CategorySelected = _categorySelected; 
-            LoadListView(); 
         }
 
         private void DataChanged(object sender, RoutedEventArgs e)
@@ -90,9 +89,6 @@ namespace AdminGUI
             if (main is not null)
                 main.DataTypeSelected = DataTypeSelected; 
 
-            if (TraverseTreeForMainWindow is not null && cbCategory.SelectedIndex != 0)
-                LoadListView(); 
-
         }
 
         private void RatingChanged(object sender, RoutedEventArgs e)
@@ -102,17 +98,7 @@ namespace AdminGUI
             MainWindow main = TraverseTreeForMainWindow;
             if (main is not null)
                 main.SfRatingValue = SfRatingValue; 
-            if (cbCategory.SelectedIndex != 0)
-            {
-                LoadListView(); 
-            } 
         }
 
-        private void LoadListView()
-        {
-            MainWindow main = TraverseTreeForMainWindow;
-            if (main is null) return; 
-            //main.LoadData();
-        }
     }
 }

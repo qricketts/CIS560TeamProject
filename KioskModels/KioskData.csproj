@@ -59,6 +59,8 @@
     <Compile Include="DataDelegates\Rating\FetchRatingsDataDelegate.cs" />
     <Compile Include="DataDelegates\Itinerary\DeleteItineraryDataDelegate.cs" />
     <Compile Include="DataDelegates\Itinerary\FetchItineraryDataDelegate.cs" />
+    <Compile Include="DataDelegates\ItineraryPlace\DeleteItineraryPlaceDataDelegate.cs" />
+    <Compile Include="DataDelegates\Rating\DeleteRatingDataDelegate.cs" />
     <Compile Include="Interfaces\ICategoryRepository.cs" />
     <Compile Include="Interfaces\IPersonRepository.cs" />
     <Compile Include="Interfaces\IPlaceRepository.cs" />

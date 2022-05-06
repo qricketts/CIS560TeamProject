@@ -109,17 +109,12 @@ namespace AdminGUI
             if (_currentType.Equals("Place"))
             {
                 Place newPlace = new Place(1, (int)CategorySelected, textbox1.Text, textbox2.Text, textbox3.Text);
-                newPlace.Address = labelInfo2.Content.ToString();
-                newPlace.Description = labelInfo3.Content.ToString();
                 SqlPlaceRepository repo = new SqlPlaceRepository(connectionString);
                 repo.CreatePlace(newPlace.Name, newPlace.CategoryId, newPlace.Address, newPlace.Description); 
             }
             else
             {
                 Person newPerson = new Person(1, textbox1.Text, textbox2.Text, textbox3.Text);
-                newPerson.Name = labelInfo1.Content.ToString();
-                newPerson.Email = labelInfo2.Content.ToString();
-                newPerson.Password = labelInfo3.Content.ToString();
                 SqlPersonRepository repo = new SqlPersonRepository(connectionString);
                 repo.CreatePerson(newPerson.Name, newPerson.Email, newPerson.Password);
             }

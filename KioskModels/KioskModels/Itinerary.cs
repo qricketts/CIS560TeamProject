@@ -8,6 +8,8 @@ namespace KioskData.KioskModels
 {
     public class Itinerary
     {
+        const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
+
         private int _itineraryId;
         public int ItineraryId
         {
@@ -43,14 +45,16 @@ namespace KioskData.KioskModels
             CreatedOn = DateTime.Now;
             UpdatedOn = DateTime.Now; 
         }
-
+        private SqlItineraryRepository repo = new SqlItineraryRepository(connectionString);
         public void Add(Place place)
         {
             foreach(Place p in Places)
             {
                 if (place == p) return;
             }
-            Places.Add(place); 
+            Places.Add(place);
+            
+            repo.SaveItinerary(ItineraryId, PersonId); 
         }
 
         public bool Remove(Place place)
@@ -60,6 +64,7 @@ namespace KioskData.KioskModels
                 if (place == p)
                 {
                     Places.Remove(place);
+                    repo.SaveItinerary(ItineraryId, PersonId);
                     return true;
                 }
             }

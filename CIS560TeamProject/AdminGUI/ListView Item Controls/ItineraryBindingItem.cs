@@ -44,7 +44,7 @@ namespace AdminGUI
             private set => _updatedOn = value;
         }
 
-        public ItineraryBindingItem(Itinerary i, int personId, DateTime created, DateTime updated)
+        public ItineraryBindingItem(Itinerary i, int personId, int count, DateTime created, DateTime updated)
         {
             Itinerary = i;
             SqlPersonRepository repo = new SqlPersonRepository(connectionString);
@@ -53,7 +53,7 @@ namespace AdminGUI
             foreach (Person p in people)
                 if (p.PersonId == personId) name = p.Name; 
             Name = name;
-            TotalPlaces = i.Places.Count;
+            TotalPlaces = count;
             CreatedOn = created;
             UpdatedOn = updated;
         }

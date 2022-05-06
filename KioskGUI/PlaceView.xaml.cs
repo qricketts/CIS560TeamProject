@@ -13,6 +13,7 @@ namespace KioskGUI
     /// </summary>
     public partial class PlaceView : UserControl
     {
+        const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
         private MainWindow TraverseTreeForMainWindow
         {
             get
@@ -43,7 +44,28 @@ namespace KioskGUI
             labelName.Content = Place.Name.ToUpper(); 
             textDescription.Text = "Description: \t" + p.Description;
             textAddress.Text = "Address: \t" + p.Address;
-            textRatings.Text = "Ratings: \t\t☆"; // + p.Ratings.Average() + "(" + p.Ratings.Count + ")"; 
+
+            SqlRatingRepository repo = new SqlRatingRepository(connectionString);
+            List<Rating> ratings = repo.RetrieveRatings() as List<Rating>;
+            int sum = 0; double avg; 
+            foreach(Rating r in ratings)
+            {
+                if (r.PlaceId == Place.PlaceId)
+                {
+                    sum += r.Rate; 
+                }
+            }
+            if (ratings.Count == 0)
+            {
+                avg = 0;
+                textRatings.Text = "Ratings: N/A";
+            }
+            else
+            {
+                avg = sum / ratings.Count;
+                textRatings.Text = "Ratings: \t\t☆" + avg.ToString("0.00");
+            }
+            
 
             if (TraverseTreeForMainWindow is null && list.CategorySelected is CategorySelected.None)
             {

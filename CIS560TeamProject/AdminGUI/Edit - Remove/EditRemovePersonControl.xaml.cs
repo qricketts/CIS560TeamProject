@@ -22,6 +22,19 @@ namespace AdminGUI
     /// </summary>
     public partial class EditRemovePersonControl : UserControl
     {
+        private MainWindow TraverseTreeForMainWindow
+        {
+            get
+            {
+                DependencyObject parent = this;
+                do
+                {
+                    parent = LogicalTreeHelper.GetParent(parent);
+                }
+                while (!(parent is null || parent is MainWindow));
+                return (MainWindow)parent;
+            }
+        }
         const string connectionString = "Data Source=mssql.cs.ksu.edu;Initial Catalog=cis560_team#5;Persist Security Info=True;User ID=velascoj;Password=Highland19!";
         private string _name; 
         public string PersonName
@@ -68,16 +81,41 @@ namespace AdminGUI
 
         private void SaveChanges(object sender, RoutedEventArgs e)
         {
-            Person originalPerson = _person;
+            MainWindow main = TraverseTreeForMainWindow; 
             SqlPersonRepository repo = new SqlPersonRepository(connectionString);
-            repo.DeletePerson(originalPerson.PersonId);
-            repo.CreatePerson(PersonName, PersonEmail, PersonPassword); 
+            repo.SavePerson(_person.PersonId, PersonName, PersonEmail, PersonPassword);
+            main.btnAdd.IsEnabled = true;
+            main.btnEditRemove.IsEnabled = true;
+            main.borderFilters.Child = main.FiltersControl;
+            main.LoadData();
         }
 
         private void RemoveItem(object sender, RoutedEventArgs e)
         {
+            MainWindow main = TraverseTreeForMainWindow;
             SqlPersonRepository repo = new SqlPersonRepository(connectionString);
+            SqlItineraryRepository iRepo = new SqlItineraryRepository(connectionString);
+            List<Itinerary> itineraries = iRepo.RetrieveItineraries() as List<Itinerary>; 
+
+            foreach(Itinerary i in itineraries)
+            {
+                if (i.PersonId == _person.PersonId)
+                    iRepo.DeleteItinerary(i.ItineraryId); 
+            }
+            SqlRatingRepository rRepo = new SqlRatingRepository(connectionString);
+            List<Rating> ratings = rRepo.RetrieveRatings() as List<Rating>;
+            foreach (Rating r in ratings)
+            {
+                if (r.PersonId == _person.PersonId)
+                {
+                    rRepo.DeleteRating(r.RatingId);
+                }
+            }
             repo.DeletePerson(_person.PersonId);
+            main.btnAdd.IsEnabled = true;
+            main.btnEditRemove.IsEnabled = true;
+            main.borderFilters.Child = main.FiltersControl;
+            main.LoadData();
         }
     }
 }
